@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MF SOLUCIONES - Corte de Pasto & Mantenimiento</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div include-html="header.html"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">MF SOLUCIONES</h1>
+            <p class="hero-subtitle">Corte de Pasto & Mantenimiento Profesional</p>
+            <p class="hero-description">Transformamos tu jardín en un espacio perfecto con servicios profesionales de jardinería</p>
+            <div class="hero-buttons">
+                <a href="services.html" class="btn btn-primary">Nuestros Servicios</a>
+                <a href="prices.html" class="btn btn-secondary">Ver Precios</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">¿Por qué elegir MF SOLUCIONES?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Equipos Profesionales</h3>
+                    <p>Utilizamos herramientas de última generación para garantizar resultados perfectos</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Puntualidad</h3>
+                    <p>Respetamos los horarios acordados y cumplimos con nuestros compromisos</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Seguro y Confiable</h3>
+                    <p>Trabajamos con responsabilidad y cuidado en cada proyecto</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h3>Precios Justos</h3>
+                    <p>Tarifas competitivas y planes de mantenimiento que se adaptan a tu presupuesto</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tagline Section -->
+    <section class="tagline-section">
+        <div class="container">
+            <h2 class="tagline-title">Tu parque impecable, todos los días del año.</h2>
+            <p class="tagline-subtitle">Mantenimiento profesional en San Vicente para dueños que valoran su tiempo y su jardín.</p>
+        </div>
+    </section>
+
+    <!-- Before & After Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <h2 class="section-title">Nuestro Trabajo en Acción</h2>
+            <p class="section-subtitle">Galería Antes y Después</p>
+            
+            <div class="gallery-carousel">
+                <div class="carousel-container">
+                    <div class="carousel-track">
+                        <!-- Slide 1 -->
+                        <div class="carousel-slide active">
+                            <div class="before-after-comparison">
+                                <div class="before-section">
+                                    <img src="placeholder-before-1.jpg" alt="Antes - Terreno sin mantenimiento">
+                                    <span class="comparison-label before-label">ANTES</span>
+                                </div>
+                                <div class="divider"></div>
+                                <div class="after-section">
+                                    <img src="placeholder-after-1.jpg" alt="Después - Terreno mantenido por MF SOLUCIONES">
+                                    <span class="comparison-label after-label">DESPUÉS</span>
+                                </div>
+                            </div>
+                            <p class="slide-description">Corte profesional y bordeadora eléctrica - Transformación completa</p>
+                        </div>
+
+                        <!-- Slide 2 -->
+                        <div class="carousel-slide">
+                            <div class="before-after-comparison">
+                                <div class="before-section">
+                                    <img src="placeholder-before-2.jpg" alt="Antes - Bordes desprolijos">
+                                    <span class="comparison-label before-label">ANTES</span>
+                                </div>
+                                <div class="divider"></div>
+                                <div class="after-section">
+                                    <img src="placeholder-after-2.jpg" alt="Después - Bordes perfectos">
+                                    <span class="comparison-label after-label">DESPUÉS</span>
+                                </div>
+                            </div>
+                            <p class="slide-description">Eliminación de malezas y bordes perfectos - Acabado profesional</p>
+                        </div>
+
+                        <!-- Slide 3 -->
+                        <div class="carousel-slide">
+                            <div class="before-after-comparison">
+                                <div class="before-section">
+                                    <img src="placeholder-before-3.jpg" alt="Antes - Terreno descuidado">
+                                    <span class="comparison-label before-label">ANTES</span>
+                                </div>
+                                <div class="divider"></div>
+                                <div class="after-section">
+                                    <img src="placeholder-after-3.jpg" alt="Después - Espacio renovado">
+                                    <span class="comparison-label after-label">DESPUÉS</span>
+                                </div>
+                            </div>
+                            <p class="slide-description">Plan completo de mantenimiento - Jardín transformado</p>
+                        </div>
+                    </div>
+
+                    <!-- Carousel Controls -->
+                    <button class="carousel-btn prev-btn" onclick="moveSlide(-1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-btn next-btn" onclick="moveSlide(1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+
+                <!-- Carousel Indicators -->
+                <div class="carousel-indicators">
+                    <button class="indicator active" onclick="currentSlide(0)"></button>
+                    <button class="indicator" onclick="currentSlide(1)"></button>
+                    <button class="indicator" onclick="currentSlide(2)"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div include-html="footer.html"></div>
+
+    <script src="script.js"></script>
+    <script>
+        let currentSlideIndex = 0;
+        
+        function moveSlide(n) {
+            currentSlide(currentSlideIndex += n);
+        }
+        
+        function currentSlide(n) {
+            const slides = document.querySelectorAll('.carousel-slide');
+            const indicators = document.querySelectorAll('.indicator');
+            
+            if (n >= slides.length) { currentSlideIndex = 0; }
+            if (n < 0) { currentSlideIndex = slides.length - 1; }
+            
+            slides.forEach(slide => slide.classList.remove('active'));
+            indicators.forEach(ind => ind.classList.remove('active'));
+            
+            slides[currentSlideIndex].classList.add('active');
+            indicators[currentSlideIndex].classList.add('active');
+        }
+    </script>
+</body>
+</html>

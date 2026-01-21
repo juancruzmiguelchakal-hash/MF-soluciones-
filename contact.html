@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - MF SOLUCIONES</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div include-html="header.html"></div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Contacto</h1>
+            <p>Estamos aquí para ayudarte. Contáctanos y recibe un presupuesto personalizado</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Contact Form -->
+                <div class="contact-form-wrapper">
+                    <h2>Envíanos un Mensaje</h2>
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nombre Completo</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Teléfono</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Servicio de Interés</label>
+                            <select id="service" name="service" required>
+                                <option value="">Selecciona un servicio</option>
+                                <option value="corte">Corte de Pasto</option>
+                                <option value="mensual">Plan Mensual</option>
+                                <option value="bordeadora">Bordeadora</option>
+                                <option value="malezas-manual">Eliminación Manual de Malezas</option>
+                                <option value="herbicida">Aplicación de Herbicida</option>
+                                <option value="plagas">Control de Plagas</option>
+                                <option value="riego">Servicio de Riego</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensaje</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Cuéntanos sobre tu proyecto o consulta..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-large btn-block">Enviar Mensaje</button>
+                    </form>
+                    <div class="form-success" id="formSuccess" style="display: none;">
+                        <i class="fas fa-check-circle"></i>
+                        <p>¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.</p>
+                    </div>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="contact-info-wrapper">
+                    <h2>Información de Contacto</h2>
+                    <div class="contact-info-cards">
+                        <div class="contact-info-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <h3>Teléfono</h3>
+                            <p>+54 9 11 3048 9378</p>
+                            <span class="contact-note">Lun - Vie: 15:00 - 19:00</span>
+                        </div>
+                        <div class="contact-info-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <h3>Email</h3>
+                            <p>info@kort.com.ar</p>
+                            <span class="contact-note">Respuesta en 24 horas</span>
+                        </div>
+                        <div class="contact-info-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <h3>Zona de Cobertura</h3>
+                            <p>San vicente</p>
+                            <span class="contact-note">Consultar disponibilidad</span>
+                        </div>
+                    </div>
+
+                   <div class="contact-cta-box">
+                        <h3>¿Necesitas una cotización rápida?</h3>
+                        <p>Menciona en tu mensaje:</p>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Tamaño del terreno</li>
+                            <li><i class="fas fa-check"></i> Servicios requeridos</li>
+                            <li><i class="fas fa-check"></i> Frecuencia deseada</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-choose">
+        <div class="container">
+            <h2 class="section-title">¿Por qué elegir MF SOLUCIONES?</h2>
+            <div class="why-grid">
+                <div class="why-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Respuesta Rápida</h3>
+                    <p>Respondemos todas las consultas en menos de 24 horas</p>
+                </div>
+                <div class="why-card">
+                    <i class="fas fa-calculator"></i>
+                    <h3>Presupuestos Claros</h3>
+                    <p>Cotizaciones transparentes sin costos ocultos</p>
+                </div>
+                <div class="why-card">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Compromiso</h3>
+                    <p>Trabajamos con profesionalismo y dedicación</p>
+                </div>
+                <div class="why-card">
+                    <i class="fas fa-star"></i>
+                    <h3>Calidad Garantizada</h3>
+                    <p>Resultados que superan las expectativas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div include-html="footer.html"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

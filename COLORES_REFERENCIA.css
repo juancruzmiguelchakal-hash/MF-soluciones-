@@ -1,0 +1,230 @@
+/* ============================================
+   REFERENCIA DE COLORES KORT 2026
+   ============================================ */
+
+/*
+   PALETA DE COLORES EXACTA
+   
+   Todos estos colores están definidos en styles.css :root
+   y se pueden usar en cualquier archivo HTML usando las variables CSS
+*/
+
+:root {
+    /* Verde Primario - Uso: Títulos, acentos principales */
+    --primary-green: #5E8D20;
+    
+    /* Verde Oscuro - Uso: Fondos oscuros, gradientes, bordes */
+    --dark-green: #4D781B;
+    
+    /* Verde Claro - Uso: Iconos, acentos brillantes, highlights */
+    --light-green: #93BF34;
+    
+    /* Negro/Fondo - Uso: Fondos muy oscuros, texto oscuro */
+    --black: #161A12;
+}
+
+/* ============================================
+   EJEMPLOS DE USO
+   ============================================ */
+
+/* 1. Títulos principales */
+.title-main {
+    color: var(--primary-green); /* #5E8D20 */
+    font-weight: bold;
+}
+
+/* 2. Botones primarios */
+.btn-primary {
+    background: var(--primary-green); /* #5E8D20 */
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--light-green); /* #93BF34 */
+}
+
+/* 3. Fondos oscuros */
+.section-dark {
+    background: linear-gradient(135deg, var(--dark-green), var(--black));
+    color: white;
+}
+
+/* 4. Acentos y bordes */
+.border-accent {
+    border-left: 5px solid var(--primary-green); /* #5E8D20 */
+}
+
+.accent-text {
+    color: var(--light-green); /* #93BF34 */
+}
+
+/* 5. Iconos */
+.icon-accent {
+    color: var(--light-green); /* #93BF34 */
+    font-size: 2rem;
+}
+
+/* 6. Gradientes */
+.gradient-primary {
+    background: linear-gradient(135deg, var(--dark-green) 0%, var(--primary-green) 100%);
+}
+
+.gradient-accent {
+    background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 100%);
+}
+
+/* 7. Secciones de contenido */
+.section-hero {
+    background: linear-gradient(135deg, var(--dark-green) 0%, var(--primary-green) 100%);
+    color: white;
+    padding: 100px 20px;
+}
+
+/* 8. Tarjetas */
+.card {
+    background: white;
+    border-left: 5px solid var(--primary-green);
+}
+
+.card:hover {
+    border-left-color: var(--light-green);
+    box-shadow: 0 10px 30px rgba(94, 141, 32, 0.2);
+}
+
+/* 9. Efectos de hover */
+.hover-primary:hover {
+    color: var(--primary-green);
+}
+
+.hover-light:hover {
+    color: var(--light-green);
+}
+
+/* 10. Sombras con color */
+.shadow-green {
+    box-shadow: 0 5px 15px rgba(94, 141, 32, 0.2);
+}
+
+/* ============================================
+   COMBINACIONES RECOMENDADAS
+   ============================================ */
+
+/* Combinación 1: Clásica */
+.classic-combo {
+    background: white;
+    color: var(--dark-green); /* #4D781B */
+    border: 2px solid var(--primary-green); /* #5E8D20 */
+}
+
+/* Combinación 2: Oscura */
+.dark-combo {
+    background: var(--dark-green); /* #4D781B */
+    color: white;
+    border: 2px solid var(--light-green); /* #93BF34 */
+}
+
+/* Combinación 3: Gradiente */
+.gradient-combo {
+    background: linear-gradient(135deg, var(--dark-green) 0%, var(--primary-green) 100%);
+    color: white;
+}
+
+/* Combinación 4: Destacada */
+.highlight-combo {
+    background: var(--light-green); /* #93BF34 */
+    color: var(--black); /* #161A12 */
+}
+
+/* ============================================
+   RGBA VARIANTS (Con Transparencia)
+   ============================================ */
+
+/* Variantes semi-transparentes útiles */
+
+/* Verde primario con 10% opacidad */
+.overlay-light-10 {
+    background: rgba(94, 141, 32, 0.1);
+}
+
+/* Verde primario con 20% opacidad */
+.overlay-light-20 {
+    background: rgba(94, 141, 32, 0.2);
+}
+
+/* Verde primario con 30% opacidad */
+.overlay-light-30 {
+    background: rgba(94, 141, 32, 0.3);
+}
+
+/* Verde oscuro con 50% opacidad */
+.overlay-dark-50 {
+    background: rgba(77, 120, 27, 0.5);
+}
+
+/* Verde claro con 10% opacidad */
+.overlay-accent-10 {
+    background: rgba(147, 191, 52, 0.1);
+}
+
+/* ============================================
+   TIPS DE USO
+   ============================================ */
+
+/*
+1. SIEMPRE usa las variables CSS (--primary-green, etc.)
+   en lugar de los códigos hex directamente.
+   
+   ✓ Correcto:   background: var(--primary-green);
+   ✗ Incorrecto: background: #5E8D20;
+
+2. Para cambiar un color en toda la página,
+   solo actualiza el valor en :root
+
+3. Usa las variantes RGBA para overlays y transparencias
+
+4. Combina colores para crear jerarquía visual:
+   - Títulos: Verde Primario
+   - Acentos: Verde Claro
+   - Fondos: Verde Oscuro o Negro
+
+5. Para texto sobre fondos oscuros, usa blanco o gris claro
+   Para texto sobre fondos claros, usa verde oscuro o negro
+
+6. Los gradientes funcionan mejor combinando:
+   - Verde Oscuro → Verde Primario (profesional)
+   - Verde Primario → Verde Claro (energético)
+   - Verde Oscuro → Negro (dramático)
+*/
+
+/* ============================================
+   TESTING COLORS
+   ============================================ */
+
+/* Prueba visual de cada color */
+.test-primary {
+    background: #5E8D20;
+    padding: 20px;
+    color: white;
+}
+
+.test-dark {
+    background: #4D781B;
+    padding: 20px;
+    color: white;
+}
+
+.test-light {
+    background: #93BF34;
+    padding: 20px;
+    color: #161A12;
+}
+
+.test-bg {
+    background: #161A12;
+    padding: 20px;
+    color: white;
+}
+
+/* ============================================
+   FIN DE REFERENCIA DE COLORES
+   ============================================ */
