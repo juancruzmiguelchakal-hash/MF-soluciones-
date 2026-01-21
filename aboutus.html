@@ -399,29 +399,311 @@
         }
 
         /* Responsive */
+        @media (max-width: 1024px) {
+            .story-section .container {
+                gap: 30px;
+            }
+
+            .expertise-grid {
+                max-width: 100%;
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
         @media (max-width: 768px) {
+            .hero-kort {
+                padding: 80px 20px;
+            }
+
             .hero-kort h1 {
                 font-size: 2.5rem;
             }
 
+            .hero-kort p {
+                font-size: 1.1rem;
+            }
+
+            .container {
+                padding: 0 40px;
+            }
+
+            .story-section {
+                padding: 60px 20px;
+            }
+
             .story-section .container {
                 grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .story-content h2 {
+                font-size: 2rem;
+            }
+
+            .story-image {
+                height: 300px;
+            }
+
+            .values-kort {
+                padding: 60px 20px;
+            }
+
+            .section-title-kort {
+                font-size: 2rem;
+            }
+
+            .values-grid-kort {
+                gap: 20px;
+            }
+
+            .value-card-kort {
+                padding: 20px 15px;
+            }
+
+            .expertise-kort {
+                padding: 60px 20px;
+            }
+
+            .expertise-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+                max-width: 100%;
+            }
+
+            .expertise-item {
+                min-height: 140px;
+                padding: 15px 10px;
+            }
+
+            .expertise-item i {
+                font-size: 1.5rem;
+            }
+
+            .expertise-item h4 {
+                font-size: 1rem;
+            }
+
+            .team-kort {
+                padding: 60px 20px;
             }
 
             .team-grid {
                 grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .team-member-image {
+                height: 200px;
+            }
+
+            .stats-kort {
+                padding: 40px 20px;
             }
 
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .stat-item h4 {
+                font-size: 2rem;
+            }
+
+            .stat-item p {
+                font-size: 0.9rem;
+            }
+
+            .cta-kort {
+                padding: 60px 20px;
+            }
+
+            .cta-kort h2 {
+                font-size: 2rem;
+            }
+
+            .cta-kort p {
+                font-size: 1rem;
             }
 
             .cta-buttons-kort {
                 flex-direction: column;
+                gap: 15px;
             }
 
             .btn-kort {
                 width: 100%;
+                padding: 12px 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .hero-kort {
+                padding: 60px 20px;
+            }
+
+            .hero-kort h1 {
+                font-size: 1.8rem;
+                margin-bottom: 10px;
+            }
+
+            .hero-kort p {
+                font-size: 0.9rem;
+            }
+
+            .story-section {
+                padding: 40px 20px;
+            }
+
+            .story-content h2 {
+                font-size: 1.5rem;
+            }
+
+            .story-content p {
+                font-size: 0.9rem;
+            }
+
+            .story-image {
+                height: 200px;
+                font-size: 3rem;
+            }
+
+            .values-kort {
+                padding: 40px 20px;
+            }
+
+            .section-title-kort {
+                font-size: 1.5rem;
+                margin-bottom: 30px;
+            }
+
+            .values-grid-kort {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .value-card-kort {
+                padding: 15px 12px;
+            }
+
+            .value-card-kort i {
+                font-size: 2rem;
+                margin-bottom: 10px;
+            }
+
+            .value-card-kort h3 {
+                font-size: 1rem;
+            }
+
+            .value-card-kort p {
+                font-size: 0.8rem;
+            }
+
+            .expertise-kort {
+                padding: 40px 20px;
+            }
+
+            .expertise-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+                max-width: 100%;
+            }
+
+            .expertise-item {
+                min-height: 120px;
+                padding: 12px 10px;
+            }
+
+            .expertise-item i {
+                font-size: 1.3rem;
+                margin-bottom: 8px;
+            }
+
+            .expertise-item h4 {
+                font-size: 0.9rem;
+                margin-bottom: 5px;
+            }
+
+            .expertise-item p {
+                font-size: 0.75rem;
+            }
+
+            .team-kort {
+                padding: 40px 20px;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .team-member-image {
+                height: 150px;
+                font-size: 2.5rem;
+            }
+
+            .team-member-info {
+                padding: 15px;
+            }
+
+            .team-member-info h3 {
+                font-size: 1rem;
+            }
+
+            .team-member-role {
+                font-size: 0.8rem;
+            }
+
+            .team-member-info p {
+                font-size: 0.85rem;
+            }
+
+            .stats-kort {
+                padding: 30px 20px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .stat-item h4 {
+                font-size: 1.8rem;
+            }
+
+            .stat-item p {
+                font-size: 0.8rem;
+            }
+
+            .cta-kort {
+                padding: 40px 20px;
+            }
+
+            .cta-kort h2 {
+                font-size: 1.5rem;
+                margin-bottom: 15px;
+            }
+
+            .cta-kort p {
+                font-size: 0.9rem;
+                margin-bottom: 25px;
+            }
+
+            .cta-buttons-kort {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .btn-kort {
+                width: 100%;
+                padding: 10px 20px;
+                font-size: 0.9rem;
             }
         }
     </style>

@@ -1321,7 +1321,52 @@ section {
 /* ============================================
    RESPONSIVE DESIGN
    ============================================ */
+
+/* Tablets and smaller screens */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 60px;
+    }
+
+    .navbar .container {
+        padding: 0 60px;
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .before-after-comparison {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        min-height: auto;
+    }
+
+    .before-section,
+    .after-section {
+        min-height: 250px;
+    }
+
+    .divider {
+        height: 3px;
+        width: 100%;
+    }
+}
+
+/* Medium devices */
 @media (max-width: 768px) {
+    .container {
+        padding: 0 40px;
+    }
+
+    .navbar .container {
+        padding: 0 40px;
+    }
+
     .hamburger {
         display: flex;
     }
@@ -1344,22 +1389,69 @@ section {
     }
 
     .hero-title {
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
 
     .hero-subtitle {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
     }
 
     .hero-description {
-        font-size: 1rem;
+        font-size: 0.95rem;
     }
 
     .section-title {
         font-size: 2rem;
     }
 
+    .tagline-title {
+        font-size: 2rem;
+    }
+
+    .tagline-subtitle {
+        font-size: 1rem;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .feature-card {
+        padding: 2rem;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-card {
+        padding: 1.5rem;
+    }
+
+    .page-header {
+        padding: 80px 0 40px;
+    }
+
+    .page-header h1 {
+        font-size: 2rem;
+    }
+
+    .page-header p {
+        font-size: 1rem;
+    }
+
     .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .contact-form-wrapper,
+    .contact-info-wrapper {
+        padding: 2rem;
+    }
+
+    .contact-info-cards {
         grid-template-columns: 1fr;
     }
 
@@ -1367,17 +1459,49 @@ section {
         grid-template-columns: 1fr;
     }
 
-    .service-price-content {
-        padding-left: 0;
+    .price-card {
+        padding: 1.5rem;
     }
 
-    .page-header h1 {
-        font-size: 2rem;
+    .category-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .service-price-card {
+        padding: 1.5rem;
+    }
+
+    .service-price-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .service-price-content {
+        padding-left: 0;
+        margin-top: 1rem;
+    }
+
+    .why-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
     }
 
     .footer-content {
         grid-template-columns: 1fr;
         gap: 2rem;
+    }
+
+    .footer-brand {
+        margin-bottom: 2rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid rgba(90, 154, 53, 0.2);
     }
 
     .payment-item {
@@ -1386,18 +1510,306 @@ section {
     }
 }
 
+/* Small devices */
 @media (max-width: 480px) {
+    .container {
+        padding: 0 20px;
+    }
+
+    .navbar .container {
+        padding: 0 20px;
+    }
+
+    .nav-brand {
+        font-size: 1.2rem;
+    }
+
+    .brand-logo {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .hero-description {
+        font-size: 0.85rem;
     }
 
     .hero-buttons {
         flex-direction: column;
         width: 100%;
-        padding: 0 20px;
+        padding: 0;
     }
 
     .btn {
+        width: 100%;
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .tagline-title {
+        font-size: 1.5rem;
+    }
+
+    .tagline-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .feature-card {
+        padding: 1.5rem;
+    }
+
+    .feature-icon {
+        font-size: 2rem;
+    }
+
+    .feature-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .feature-card p {
+        font-size: 0.9rem;
+    }
+
+    .page-header {
+        padding: 60px 0 30px;
+    }
+
+    .page-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .page-header p {
+        font-size: 0.9rem;
+    }
+
+    .contact-form-wrapper,
+    .contact-info-wrapper {
+        padding: 1.5rem;
+        border-radius: 10px;
+    }
+
+    .form-group {
+        margin-bottom: 1rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    .contact-info-cards {
+        gap: 1rem;
+    }
+
+    .contact-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+
+    .contact-info-card {
+        padding: 1.5rem;
+    }
+
+    .contact-info-card h3 {
+        font-size: 1rem;
+    }
+
+    .contact-info-card p {
+        font-size: 0.9rem;
+    }
+
+    .price-category {
+        margin-bottom: 2rem;
+    }
+
+    .category-header {
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .category-header i {
+        font-size: 1.8rem;
+    }
+
+    .category-header h2 {
+        font-size: 1.3rem;
+    }
+
+    .price-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .price-amount {
+        font-size: 2rem;
+    }
+
+    .service-price-card {
+        padding: 1rem;
+    }
+
+    .service-price-header {
+        gap: 0.5rem;
+    }
+
+    .service-price-header i {
+        font-size: 1.5rem;
+    }
+
+    .service-price-header h3 {
+        font-size: 1rem;
+    }
+
+    .why-card {
+        padding: 1.5rem;
+    }
+
+    .why-card i {
+        font-size: 2rem;
+    }
+
+    .why-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .why-card p {
+        font-size: 0.85rem;
+    }
+
+    .cta h2 {
+        font-size: 1.5rem;
+    }
+
+    .cta p {
+        font-size: 1rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+    }
+
+    .carousel-container {
+        padding: 10px;
+    }
+
+    .carousel-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+
+    .carousel-slide {
+        padding: 0;
+    }
+
+    .comparison-label {
+        font-size: 0.7rem;
+        padding: 5px 10px;
+    }
+
+    .slide-description {
+        font-size: 0.85rem;
+        margin-top: 0.5rem;
+    }
+
+    .footer-top {
+        margin-bottom: 2rem;
+        padding-bottom: 1.5rem;
+    }
+
+    .footer-brand .brand-logo {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    .footer-brand .brand-info h2 {
+        font-size: 1.2rem;
+    }
+
+    .footer-brand .brand-info p {
+        font-size: 0.8rem;
+    }
+
+    .footer-section h3 {
+        font-size: 1.1rem;
+    }
+
+    .footer-section ul li {
+        font-size: 0.9rem;
+    }
+
+    .payment-item {
+        padding: 0.6rem 0.8rem;
+    }
+
+    .payment-item i {
+        font-size: 1.2rem;
+    }
+
+    .payment-item span {
+        font-size: 0.85rem;
+    }
+
+    .footer-bottom p {
+        font-size: 0.8rem;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 360px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .hero-title {
+        font-size: 1.5rem;
+    }
+
+    .section-title {
+        font-size: 1.3rem;
+    }
+
+    .btn {
+        padding: 0.6rem;
+        font-size: 0.8rem;
+    }
+
+    .page-header h1 {
+        font-size: 1.3rem;
+    }
+
+    .contact-info-card h3 {
+        font-size: 0.9rem;
+    }
+
+    .price-amount {
+        font-size: 1.5rem;
+    }
+
+    .carousel-indicators {
+        gap: 5px;
+    }
+
+    .indicator {
+        width: 10px;
+        height: 10px;
+    }
+}
         width: 100%;
     }
 
