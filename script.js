@@ -1,22 +1,24 @@
 // ============================================
-// NAVIGATION MENU TOGGLE
+// NAVIGATION MENU TOGGLE - FUNCTION
 // ============================================
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
+function initializeHamburger() {
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
 
-if (hamburger && navMenu) {
-    hamburger.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-        hamburger.classList.toggle('active');
-    });
-
-    // Close menu when clicking on a link
-    document.querySelectorAll('.nav-menu a').forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-            hamburger.classList.remove('active');
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
         });
-    });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
+        });
+    }
 }
 
 // ============================================
@@ -126,13 +128,15 @@ document.querySelectorAll('.service-preview-card').forEach(card => {
 // ============================================
 // ACTIVE NAVIGATION LINK HIGHLIGHTING
 // ============================================
-const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-document.querySelectorAll('.nav-menu a').forEach(link => {
-    const linkPage = link.getAttribute('href');
-    if (linkPage === currentPage || (currentPage === '' && linkPage === 'index.html')) {
-        link.classList.add('active');
-    }
-});
+function highlightActiveNavLink() {
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+        const linkPage = link.getAttribute('href');
+        if (linkPage === currentPage || (currentPage === '' && linkPage === 'index.html')) {
+            link.classList.add('active');
+        }
+    });
+}
 
 // ============================================
 // PRICE CARD HOVER EFFECTS
@@ -235,5 +239,8 @@ function includeHTML() {
             return;
         }
     }
+    // After all HTML has been included, initialize hamburger menu
+    initializeHamburger();
+    highlightActiveNavLink();
 }
 includeHTML();
