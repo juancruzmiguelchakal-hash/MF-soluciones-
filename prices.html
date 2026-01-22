@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Precios - Mantenimiento de Espacios Verdes</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="calculator-styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* ============================================
@@ -83,7 +84,7 @@
         /* Cards de planes */
         .plans-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             margin-bottom: 40px;
         }
@@ -460,25 +461,289 @@
         }
 
         /* Nota importante */
-        .important-note {
-            background: linear-gradient(135deg, rgba(147, 191, 52, 0.2), rgba(93, 141, 32, 0.2));
-            border-left: 4px solid var(--light-green);
-            border-radius: 8px;
-            padding: 25px;
-            margin-top: 40px;
+        .plan-explanation-section {
+            margin-top: 60px;
         }
 
-        .important-note h4 {
+        .explanation-title {
             color: var(--light-green);
-            margin-bottom: 10px;
+            font-size: 1.8rem;
+            margin-bottom: 45px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            text-align: center;
+            justify-content: center;
         }
 
-        .important-note p {
+        .plan-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .plan-explanation-card {
+            background: linear-gradient(135deg, rgba(147, 191, 52, 0.08), rgba(93, 141, 32, 0.08));
+            border: 2px solid rgba(147, 191, 52, 0.3);
+            border-radius: 12px;
+            padding: 35px 28px;
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-height: 320px;
+        }
+
+        .plan-explanation-card:hover {
+            border-color: var(--light-green);
+            box-shadow: 0 12px 30px rgba(147, 191, 52, 0.2);
+            transform: translateY(-6px);
+        }
+
+        .plan-explanation-card.featured {
+            border-color: var(--light-green);
+            border-width: 3px;
+            background: linear-gradient(135deg, rgba(147, 191, 52, 0.18), rgba(93, 141, 32, 0.15));
+            transform: scale(1.04);
+        }
+
+        .plan-explanation-card.featured:hover {
+            transform: scale(1.04) translateY(-6px);
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--light-green);
+            color: var(--black);
+            padding: 7px 18px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            white-space: nowrap;
+            box-shadow: 0 4px 12px rgba(147, 191, 52, 0.3);
+        }
+
+        .card-header {
+            margin-bottom: 18px;
+            padding-top: 8px;
+        }
+
+        .card-header h3 {
+            color: var(--primary-green);
+            font-size: 1.4rem;
+            margin: 0 0 10px 0;
+            font-weight: 700;
+        }
+
+        .card-price {
+            color: var(--light-green);
+            font-size: 1.7rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
+
+        .card-description {
             color: var(--text-gray);
+            font-size: 0.98rem;
             line-height: 1.7;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .card-highlight {
+            background: rgba(147, 191, 52, 0.15);
+            color: var(--primary-green);
+            padding: 12px 18px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-align: center;
+            border-left: 4px solid var(--light-green);
+        }
+
+        .benefits-section {
+            background: linear-gradient(135deg, rgba(147, 191, 52, 0.1), rgba(93, 141, 32, 0.08));
+            border: 1.5px solid rgba(147, 191, 52, 0.25);
+            border-radius: 14px;
+            padding: 50px 45px;
+            margin-top: 50px;
+        }
+
+        .benefits-title {
+            color: var(--light-green);
+            font-size: 1.4rem;
+            margin-bottom: 40px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 35px;
+            justify-items: center;
+            text-align: center;
+        }
+
+        .centered-items {
+            justify-items: center;
+        }
+
+        .centered-items {
+            justify-items: center;
+        }
+
+        .centered-text {
+            text-align: center;
+        }
+
+        .benefit-item {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .benefit-item i {
+            color: var(--light-green);
+            font-size: 2.8rem;
+            margin-bottom: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-item:hover i {
+            transform: scale(1.15);
+            color: var(--primary-green);
+        }
+
+        .benefit-item h6 {
+            color: var(--primary-green);
+            font-size: 1.1rem;
+            margin: 0 0 12px 0;
+            font-weight: 700;
+        }
+
+        .benefit-item p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* Responsive: Tablet (768px) */
+        @media (max-width: 768px) {
+            .plan-cards-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                margin-bottom: 40px;
+            }
+
+            .explanation-title {
+                font-size: 1.5rem;
+                margin-bottom: 30px;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .benefit-item {
+                padding: 15px;
+                background: rgba(147, 191, 52, 0.05);
+                border-radius: 8px;
+                border-left: 3px solid var(--light-green);
+                text-align: center;
+                align-items: center;
+            }
+
+            .benefit-item i {
+                font-size: 2rem;
+            }
+
+            .benefits-section {
+                padding: 30px 25px;
+            }
+
+            .plan-explanation-card {
+                padding: 25px 20px;
+            }
+        }
+
+        /* Responsive: Mobile (480px) */
+        @media (max-width: 480px) {
+            .explanation-title {
+                font-size: 1.3rem;
+                margin-bottom: 20px;
+            }
+
+            .plan-cards-grid {
+                gap: 15px;
+                margin-bottom: 30px;
+            }
+
+            .plan-explanation-card {
+                padding: 20px 15px;
+            }
+
+            .card-header h3 {
+                font-size: 1.1rem;
+                margin-bottom: 5px;
+            }
+
+            .card-price {
+                font-size: 1.3rem;
+            }
+
+            .card-description {
+                font-size: 0.9rem;
+                margin-bottom: 12px;
+            }
+
+            .featured-badge {
+                font-size: 0.75rem;
+                padding: 5px 12px;
+            }
+
+            .benefits-section {
+                padding: 25px 15px;
+                margin-top: 30px;
+            }
+
+            .benefits-title {
+                font-size: 1.1rem;
+                margin-bottom: 20px;
+            }
+
+            .benefits-grid {
+                gap: 15px;
+            }
+
+            .benefit-item {
+                padding: 12px;
+                text-align: center;
+                align-items: center;
+                background: rgba(147, 191, 52, 0.05);
+                border-left: 3px solid var(--light-green);
+                border-radius: 6px;
+            }
+
+            .benefit-item i {
+                font-size: 1.8rem;
+                margin-bottom: 10px;
+            }
+
+            .benefit-item h6 {
+                font-size: 0.95rem;
+            }
+
+            .benefit-item p {
+                font-size: 0.85rem;
+            }
         }
 
         /* ==========================================
@@ -491,344 +756,199 @@
             border-radius: 12px;
             padding: 50px 40px;
             margin: 80px 0;
-            max-width: 1100px;
+            max-width: 1200px;
             margin-left: auto;
             margin-right: auto;
         }
 
         .calculator-title {
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: var(--light-green);
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            justify-content: center;
+            gap: 15px;
+            text-align: center;
         }
 
         .calculator-title i {
-            font-size: 2rem;
+            font-size: 2.2rem;
         }
 
         .calculator-subtitle {
             color: var(--text-gray);
-            margin-bottom: 40px;
-            font-size: 0.95rem;
+            margin-bottom: 50px;
+            font-size: 1rem;
+            text-align: center;
         }
 
-        /* 3 Bloques principales */
-        .calc-blocks {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .calc-block {
+        /* Step by step layout */
+        .calc-step {
             background: rgba(22, 26, 18, 0.6);
             border: 2px solid rgba(147, 191, 52, 0.3);
-            border-radius: 8px;
+            border-radius: 10px;
             padding: 30px;
+            margin-bottom: 25px;
             transition: all 0.3s ease;
         }
 
-        .calc-block:hover {
+        .calc-step:hover {
             border-color: var(--light-green);
             background: rgba(93, 141, 32, 0.15);
+            box-shadow: 0 8px 20px rgba(93, 141, 32, 0.2);
         }
 
-        .block-title {
-            font-size: 1.2rem;
-            color: var(--light-green);
-            margin-bottom: 25px;
+        .calc-step-header {
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-weight: 600;
+            gap: 15px;
+            margin-bottom: 25px;
         }
 
-        .block-title i {
-            font-size: 1.6rem;
-        }
-
-        /* Bloque 1: Césped */
-        .block-cesped {
-            background: rgba(93, 141, 32, 0.12);
-        }
-
-        .cesped-options {
+        .calc-step-number {
+            background: var(--light-green);
+            color: var(--black);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
             display: flex;
-            flex-direction: column;
-            gap: 12px;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            flex-shrink: 0;
         }
 
-        /* Opción de servicio con checkbox */
-        .service-option {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            padding: 12px;
-            background: rgba(22, 26, 18, 0.5);
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(147, 191, 52, 0.2);
-        }
-
-        .service-option:hover {
-            background: rgba(93, 141, 32, 0.1);
-            border-color: var(--light-green);
-        }
-
-        .service-option input[type="checkbox"] {
-            width: 18px;
-            height: 18px;
-            margin-top: 2px;
-            cursor: pointer;
-            accent-color: var(--light-green);
-        }
-
-        .service-info {
-            flex-grow: 1;
-        }
-
-        .service-name {
-            font-weight: 600;
-            color: white;
-            margin-bottom: 4px;
-        }
-
-        .service-desc {
-            font-size: 0.85rem;
-            color: var(--text-gray);
-            margin-bottom: 6px;
-        }
-
-        .service-price {
-            font-size: 1.1rem;
+        .calc-step-title {
+            font-size: 1.3rem;
             color: var(--light-green);
             font-weight: 600;
         }
 
-        /* Bloque 2: Control de Malezas */
-        .block-malezas {
-            background: rgba(255, 107, 107, 0.08);
+        /* Opciones de selección */
+        .calc-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 15px;
         }
 
-        .malezas-table {
+        .option-button {
+            background: rgba(93, 141, 32, 0.1);
+            border: 2px solid rgba(147, 191, 52, 0.3);
+            border-radius: 10px;
+            padding: 18px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .option-button:hover {
+            border-color: var(--light-green);
+            background: rgba(147, 191, 52, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .option-button input {
+            display: none;
+        }
+
+        .option-button.selected {
+            border-color: var(--light-green);
+            background: rgba(147, 191, 52, 0.25);
+            box-shadow: 0 0 20px rgba(147, 191, 52, 0.3);
+        }
+
+        .option-label {
+            font-size: 1rem;
+            color: white;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .option-desc {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+        }
+
+        .option-price {
+            font-size: 1.2rem;
+            color: var(--light-green);
+            font-weight: 600;
+            margin-top: 5px;
+            transition: all 0.3s ease;
+        }
+
+        /* Tabla de precios */
+        .price-table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 15px;
+            margin: 0;
         }
 
-        .malezas-table th {
-            background: rgba(147, 191, 52, 0.15);
+        .price-table th {
+            background: rgba(147, 191, 52, 0.25);
             color: var(--light-green);
-            padding: 10px;
-            text-align: left;
+            padding: 12px;
+            text-align: center;
             border-bottom: 2px solid var(--light-green);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             font-weight: 600;
         }
 
-        .malezas-table td {
-            padding: 10px;
+        .price-table td {
+            padding: 12px;
+            text-align: center;
             border-bottom: 1px solid rgba(147, 191, 52, 0.2);
             color: var(--text-gray);
-            font-size: 0.85rem;
+            font-size: 0.9rem;
         }
 
-        .malezas-table tr:hover {
+        .price-table tr:hover {
             background: rgba(93, 141, 32, 0.1);
         }
 
-        .malezas-option-wrapper {
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 1px solid rgba(147, 191, 52, 0.2);
-        }
-
-        /* Bloque 3: Planes Mensuales */
-        .block-planes {
-            background: rgba(93, 141, 32, 0.12);
-        }
-
-        .plan-options {
+        /* Slider */
+        .slider-group {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 15px;
         }
 
-        .plan-option {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            padding: 12px;
-            background: rgba(22, 26, 18, 0.5);
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(147, 191, 52, 0.2);
-            position: relative;
-        }
-
-        .plan-option:hover {
-            background: rgba(93, 141, 32, 0.1);
-            border-color: var(--light-green);
-        }
-
-        .plan-option input[type="radio"] {
-            width: 18px;
-            height: 18px;
-            margin-top: 2px;
-            cursor: pointer;
-            accent-color: var(--light-green);
-        }
-
-        .plan-badge-featured {
-            position: absolute;
-            top: 8px;
-            right: 8px;
-            background: linear-gradient(135deg, var(--light-green), var(--primary-green));
-            color: var(--black);
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-size: 0.7rem;
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-
-        .plan-info {
-            flex-grow: 1;
-        }
-
-        .plan-name {
-            font-weight: 600;
-            color: white;
-            margin-bottom: 4px;
-            padding-right: 60px;
-        }
-
-        .plan-features {
-            font-size: 0.8rem;
-            color: var(--text-gray);
-            margin-bottom: 6px;
-            line-height: 1.4;
-        }
-
-        .plan-price {
-            font-size: 1.2rem;
-            color: var(--light-green);
-            font-weight: 700;
-        }
-
-        /* Detalles adicionales */
-        .extra-services {
-            background: rgba(22, 26, 18, 0.5);
-            border: 2px solid rgba(147, 191, 52, 0.3);
-            border-radius: 8px;
-            padding: 25px;
-            margin-bottom: 30px;
-        }
-
-        .extra-title {
-            font-size: 1.1rem;
-            color: var(--light-green);
-            margin-bottom: 15px;
+        .slider-display {
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-weight: 600;
-        }
-
-        .extra-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            padding: 10px;
-            margin-bottom: 10px;
-            background: rgba(93, 141, 32, 0.08);
-            border-radius: 6px;
-            border-left: 3px solid var(--light-green);
-        }
-
-        .extra-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .extra-item input[type="checkbox"] {
-            width: 16px;
-            height: 16px;
-            margin-top: 3px;
-            cursor: pointer;
-            accent-color: var(--light-green);
-        }
-
-        .extra-info {
-            flex-grow: 1;
-        }
-
-        .extra-name {
-            font-weight: 600;
-            color: white;
-            margin-bottom: 3px;
-        }
-
-        .extra-desc {
-            font-size: 0.85rem;
-            color: var(--text-gray);
-            margin-bottom: 4px;
-        }
-
-        .extra-price {
-            font-size: 1rem;
-            color: var(--light-green);
-            font-weight: 600;
-        }
-
-        /* Slider altura */
-        .slider-container {
-            background: rgba(22, 26, 18, 0.5);
-            border: 2px solid rgba(147, 191, 52, 0.3);
-            border-radius: 8px;
-            padding: 30px;
-            margin-bottom: 30px;
-        }
-
-        .slider-title {
-            font-size: 1.1rem;
-            color: var(--light-green);
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 600;
-        }
-
-        .slider-label {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-            color: var(--text-gray);
+            gap: 20px;
+            width: 100%;
         }
 
         .slider-value {
             background: var(--primary-green);
             color: white;
-            padding: 6px 16px;
+            padding: 10px 20px;
             border-radius: 20px;
             font-weight: bold;
-            font-size: 1.1rem;
+            font-size: 1.3rem;
+            min-width: 120px;
+            text-align: center;
+            flex-shrink: 0;
         }
 
         .slider {
             width: 100%;
-            height: 10px;
-            border-radius: 5px;
-            background: rgba(147, 191, 52, 0.2);
+            height: 12px;
+            border-radius: 6px;
+            background: rgba(147, 191, 52, 0.3);
             outline: none;
             -webkit-appearance: none;
             appearance: none;
+            margin: 0;
+            padding: 0;
         }
 
         .slider::-webkit-slider-thumb {
@@ -856,7 +976,6 @@
         .slider-labels {
             display: flex;
             justify-content: space-between;
-            margin-top: 10px;
             color: var(--text-gray);
             font-size: 0.8rem;
         }
@@ -866,20 +985,18 @@
             background: rgba(255, 107, 107, 0.15);
             border-left: 4px solid #ff6b6b;
             padding: 15px 20px;
-            border-radius: 4px;
-            margin-top: 15px;
+            border-radius: 6px;
             color: #ff9999;
             font-size: 0.9rem;
+            animation: slideIn 0.3s ease;
         }
 
         .surcharge-alert.show {
             display: block;
-            animation: slideIn 0.3s ease;
         }
 
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
+        .surcharge-alert strong {
+            color: #ffb3b3;
         }
 
         /* Resultado */
@@ -887,19 +1004,21 @@
             background: linear-gradient(135deg, var(--dark-green) 0%, var(--black) 100%);
             border: 2px solid var(--light-green);
             border-radius: 12px;
-            padding: 40px;
+            padding: 50px 40px;
             text-align: center;
-            margin-bottom: 30px;
+            grid-column: 1 / -1;
+            margin-top: 20px;
         }
 
         .result-label {
-            font-size: 1rem;
+            font-size: 1.1rem;
             color: var(--text-gray);
             margin-bottom: 15px;
+            font-weight: 500;
         }
 
         .result-price {
-            font-size: 3rem;
+            font-size: 3.5rem;
             color: var(--light-green);
             font-weight: bold;
             margin: 20px 0;
@@ -908,25 +1027,24 @@
 
         .result-description {
             color: var(--text-gray);
-            font-size: 0.9rem;
-            margin-top: 15px;
+            font-size: 0.95rem;
+            margin-bottom: 30px;
         }
 
-        .calc-button {
+        .calc-buttons {
             display: flex;
-            gap: 15px;
+            gap: 20px;
             justify-content: center;
             flex-wrap: wrap;
-            margin-top: 20px;
         }
 
         .btn-whatsapp {
             background: linear-gradient(135deg, #25D366, #128C7E);
             color: white;
             border: none;
-            padding: 14px 35px;
-            border-radius: 6px;
-            font-size: 1rem;
+            padding: 16px 40px;
+            border-radius: 8px;
+            font-size: 1.05rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -939,16 +1057,16 @@
 
         .btn-whatsapp:hover {
             transform: scale(1.05);
-            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.3);
+            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.4);
         }
 
         .btn-reset {
             background: transparent;
             color: var(--light-green);
             border: 2px solid var(--light-green);
-            padding: 12px 35px;
-            border-radius: 6px;
-            font-size: 1rem;
+            padding: 14px 40px;
+            border-radius: 8px;
+            font-size: 1.05rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -963,6 +1081,129 @@
         }
 
         /* Responsive */
+        @media (max-width: 1200px) {
+            .plans-grid {
+                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            }
+
+            .plan-explanation-section {
+                margin-top: 50px;
+            }
+
+            .explanation-title {
+                font-size: 1.6rem;
+            }
+
+            .plan-cards-grid {
+                gap: 25px;
+                margin-bottom: 50px;
+            }
+
+            .plan-explanation-card {
+                padding: 30px 24px;
+                min-height: 300px;
+            }
+
+            .card-header h3 {
+                font-size: 1.25rem;
+            }
+
+            .card-price {
+                font-size: 1.5rem;
+            }
+
+            .benefits-section {
+                padding: 40px 35px;
+                margin-top: 40px;
+            }
+
+            .benefits-grid {
+                gap: 30px;
+            }
+
+            .benefit-item i {
+                font-size: 2.5rem;
+                margin-bottom: 15px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .calc-container {
+                grid-template-columns: 1fr;
+            }
+
+            .slider-content {
+                grid-template-columns: 1fr;
+            }
+
+            .plans-grid {
+                grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+                gap: 25px;
+            }
+
+            .plan-card {
+                padding: 35px 25px;
+            }
+
+            .plan-explanation-section {
+                margin-top: 40px;
+            }
+
+            .explanation-title {
+                font-size: 1.5rem;
+            }
+
+            .plan-cards-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+                margin-bottom: 40px;
+            }
+
+            .plan-explanation-card {
+                padding: 28px 22px;
+                min-height: 280px;
+            }
+
+            .plan-explanation-card.featured {
+                grid-column: 1 / -1;
+                transform: none;
+            }
+
+            .plan-explanation-card.featured:hover {
+                transform: translateY(-6px);
+            }
+
+            .card-header h3 {
+                font-size: 1.2rem;
+            }
+
+            .benefits-section {
+                padding: 35px 30px;
+                margin-top: 35px;
+            }
+
+            .benefit-item {
+                text-align: center;
+                align-items: center;
+                padding: 15px;
+                background: rgba(147, 191, 52, 0.05);
+                border-left: 3px solid var(--light-green);
+                border-radius: 6px;
+            }
+
+            .benefit-item i {
+                font-size: 2rem;
+            }
+
+            .surcharges-grid {
+                gap: 25px;
+            }
+
+            .visits-grid {
+                gap: 20px;
+            }
+        }
+
         @media (max-width: 768px) {
             .calculator-section {
                 padding: 30px 20px;
@@ -970,40 +1211,26 @@
             }
 
             .calculator-title {
-                font-size: 1.4rem;
+                font-size: 1.5rem;
             }
 
-            .calc-blocks {
-                grid-template-columns: 1fr;
+            .calc-container {
                 gap: 20px;
             }
 
-            .calc-block {
+            .service-card {
                 padding: 20px;
             }
 
-            .block-title {
-                font-size: 1rem;
-            }
-
-            .malezas-table {
-                font-size: 0.75rem;
-            }
-
-            .malezas-table th,
-            .malezas-table td {
-                padding: 8px 5px;
-            }
-
-            .slider-container {
-                padding: 20px;
+            .calc-result {
+                padding: 30px 20px;
             }
 
             .result-price {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
 
-            .calc-button {
+            .calc-buttons {
                 flex-direction: column;
             }
 
@@ -1013,10 +1240,426 @@
                 justify-content: center;
             }
 
-            .service-option,
-            .plan-option,
-            .extra-item {
+            .section-title h2 {
+                font-size: 1.6rem;
+                gap: 10px;
+            }
+
+            .section-title h2 i {
+                font-size: 1.8rem;
+            }
+
+            .section-title p {
+                font-size: 0.95rem;
+            }
+
+            .plans-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .plan-card {
+                padding: 30px 20px;
+            }
+
+            .plan-price {
+                font-size: 2.2rem;
+            }
+
+            .plan-title {
+                font-size: 1.2rem;
+            }
+
+            .plan-explanation-section {
+                margin-top: 30px;
+            }
+
+            .explanation-title {
+                font-size: 1.3rem;
+                margin-bottom: 25px;
+            }
+
+            .plan-cards-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+                margin-bottom: 30px;
+            }
+
+            .plan-explanation-card {
+                padding: 25px 20px;
+                min-height: auto;
+            }
+
+            .plan-explanation-card.featured {
+                grid-column: auto;
+                transform: scale(1);
+            }
+
+            .card-header h3 {
+                font-size: 1.15rem;
+            }
+
+            .card-price {
+                font-size: 1.5rem;
+            }
+
+            .card-description {
+                font-size: 0.92rem;
+                margin-bottom: 12px;
+            }
+
+            .card-highlight {
+                padding: 10px 15px;
+                font-size: 0.85rem;
+            }
+
+            .featured-badge {
+                font-size: 0.7rem;
+                padding: 5px 10px;
+                top: -12px;
+            }
+
+            .benefits-section {
+                padding: 30px 20px;
+                margin-top: 30px;
+            }
+
+            .benefits-title {
+                font-size: 1.2rem;
+                margin-bottom: 25px;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .benefit-item {
+                text-align: center;
+                align-items: center;
+                padding: 15px;
+                background: rgba(147, 191, 52, 0.05);
+                border-left: 3px solid var(--light-green);
+                border-radius: 6px;
+            }
+
+            .benefit-item i {
+                font-size: 1.8rem;
+                margin-bottom: 10px;
+            }
+
+            .benefit-item h6 {
+                font-size: 1rem;
+            }
+
+            .benefit-item p {
+                font-size: 0.85rem;
+            }
+
+            .visits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .visit-price {
+                font-size: 1.8rem;
+            }
+
+            .surcharges-section {
+                padding: 30px 20px;
+                margin-bottom: 60px;
+            }
+
+            .surcharges-title {
+                font-size: 1.4rem;
+                margin-bottom: 20px;
+            }
+
+            .surcharges-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .surcharge-item {
+                padding: 20px;
+            }
+
+            .malezas-table th,
+            .malezas-table td {
+                padding: 8px 5px;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Small devices (480px) */
+        @media (max-width: 480px) {
+            .plans-section,
+            .visits-section {
+                margin-bottom: 50px;
+            }
+
+            .section-title {
+                margin-bottom: 30px;
+            }
+
+            .section-title h2 {
+                font-size: 1.4rem;
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .section-title h2 i {
+                font-size: 1.6rem;
+            }
+
+            .plan-card {
+                padding: 25px 15px;
+            }
+
+            .plan-badge {
+                font-size: 0.65rem;
+                padding: 5px 10px;
+                margin-bottom: 10px;
+            }
+
+            .plan-title {
+                font-size: 1.1rem;
+                margin: 10px 0;
+            }
+
+            .plan-price {
+                font-size: 1.9rem;
+            }
+
+            .plan-features {
+                margin: 15px 0;
+                padding: 15px 0;
+            }
+
+            .plan-features li {
+                padding: 8px 0;
+                font-size: 0.85rem;
+            }
+
+            .visit-card {
+                padding: 20px 15px;
+            }
+
+            .visit-title {
+                font-size: 1.1rem;
+            }
+
+            .visit-price {
+                font-size: 1.6rem;
+            }
+
+            .visit-description {
+                font-size: 0.9rem;
+            }
+
+            .plan-explanation-section {
+                margin-top: 25px;
+            }
+
+            .explanation-title {
+                font-size: 1.15rem;
+                margin-bottom: 18px;
+            }
+
+            .plan-cards-grid {
+                gap: 12px;
+            }
+
+            .plan-explanation-card {
+                padding: 16px 12px;
+                min-height: auto;
+            }
+
+            .card-header {
+                margin-bottom: 12px;
+                padding-top: 6px;
+            }
+
+            .card-header h3 {
+                font-size: 1rem;
+                margin: 0 0 5px 0;
+            }
+
+            .card-price {
+                font-size: 1.3rem;
+            }
+
+            .card-description {
+                font-size: 0.85rem;
+                line-height: 1.5;
+                margin-bottom: 10px;
+            }
+
+            .card-highlight {
+                padding: 8px 10px;
+                font-size: 0.8rem;
+                border-left: 3px solid var(--light-green);
+            }
+
+            .featured-badge {
+                font-size: 0.65rem;
+                padding: 4px 8px;
+                top: -12px;
+                left: 50%;
+            }
+
+            .benefits-section {
+                padding: 20px 12px;
+                margin-top: 25px;
+                border-radius: 10px;
+            }
+
+            .benefits-title {
+                font-size: 1rem;
+                margin-bottom: 15px;
+            }
+
+            .benefits-grid {
+                gap: 12px;
+            }
+
+            .benefit-item {
+                padding: 12px;
+                text-align: center;
+                align-items: center;
+                background: rgba(147, 191, 52, 0.05);
+                border-left: 3px solid var(--light-green);
+                border-radius: 6px;
+            }
+
+            .benefit-item i {
+                font-size: 1.5rem;
+                margin-bottom: 8px;
+            }
+
+            .benefit-item h6 {
+                font-size: 0.9rem;
+                margin-bottom: 5px;
+            }
+
+            .benefit-item p {
+                font-size: 0.8rem;
+            }
+
+            .surcharges-section {
+                padding: 20px 12px;
+                margin-bottom: 50px;
+                border-radius: 10px;
+            }
+
+            .surcharges-title {
+                font-size: 1.15rem;
+                margin-bottom: 15px;
+            }
+
+            .surcharge-item {
+                padding: 12px 10px;
+            }
+
+            .surcharge-item h4 {
+                font-size: 0.95rem;
+                margin-bottom: 8px;
+            }
+
+            .surcharge-item p {
+                font-size: 0.8rem;
+            }
+
+            .calculator-section {
+                padding: 20px 12px;
+                margin: 40px 0;
+            }
+
+            .calculator-title {
+                font-size: 1.3rem;
+                margin-bottom: 20px;
+            }
+
+            .calc-step {
+                padding: 15px;
+                margin-bottom: 12px;
+            }
+
+            .calc-step-header {
+                margin-bottom: 12px;
+            }
+
+            .calc-step-number {
+                width: 32px;
+                height: 32px;
+                font-size: 0.85rem;
+            }
+
+            .calc-step-title {
+                font-size: 1rem;
+            }
+
+            .option-button {
                 padding: 10px;
+                margin: 6px 0;
+            }
+
+            .option-button label {
+                padding: 8px 10px;
+                font-size: 0.85rem;
+            }
+
+            .option-price {
+                font-size: 0.8rem;
+            }
+
+            .calc-result {
+                padding: 20px 12px;
+                margin-top: 15px;
+            }
+
+            .result-label {
+                font-size: 0.9rem;
+            }
+
+            .result-price {
+                font-size: 2rem;
+                margin: 15px 0;
+            }
+
+            .result-description {
+                font-size: 0.8rem;
+                margin-bottom: 15px;
+            }
+
+            .calc-buttons {
+                gap: 8px;
+                flex-direction: column;
+            }
+
+            .btn-whatsapp,
+            .btn-reset {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+                width: 100%;
+            }
+
+            .slider-content {
+                padding: 12px 8px;
+            }
+
+            .slider-labels {
+                font-size: 0.7rem;
+                margin-top: 6px;
+            }
+
+            .malezas-table {
+                margin: 10px 0;
+            }
+
+            .malezas-table th,
+            .malezas-table td {
+                padding: 5px 3px;
+                font-size: 0.7rem;
             }
         }
     </style>
@@ -1064,7 +1707,7 @@
                 <!-- Plan Full - Bestseller -->
                 <div class="plan-card">
                     <div class="plan-badge bestseller"><i class="fas fa-crown"></i> MÁS POPULAR</div>
-                    <h3 class="plan-title">Corte + Bordeado</h3>
+                    <h3 class="plan-title"> 2 Cortes + Bordeado</h3>
                     <div class="plan-visits"><i class="fas fa-calendar-check"></i> 2 visitas incluidas</div>
                     <div class="plan-price">$60.000 <span>ARS</span></div>
                     <ul class="plan-features">
@@ -1076,13 +1719,77 @@
                     </ul>
                     <a href="https://wa.me/54911304893780?text=Hola%21%20Quiero%20contratar%20el%20Plan%20Full%20-%20Corte%20%2B%20Bordeado" class="plan-cta" style="display: inline-block; text-decoration: none; text-align: center;"><i class="fas fa-whatsapp"></i> Reservar Plan</a>
                 </div>
-            </div>
 
-            <div class="important-note">
-                <h4><i class="fas fa-star"></i> ¿Por qué elegir Plan Mensual?</h4>
-                <p>✓ <strong>Garantía de lugar:</strong> Como solo trabajamos fines de semana, los cupos son limitados. El plan te asegura prioridad en la agenda.<br>
-                ✓ <strong>Ahorro garantizado:</strong> Cada visita sale $2.500 más barata que contratarla individual.<br>
-                ✓ <strong>Mantenimiento perfecto:</strong> Al cortar regularmente, evitás el recargo por "pasto alto".</p>
+                <!-- Plan Premium -->
+                <div class="plan-card">
+                    <div class="plan-badge">PLAN PREMIUM</div>
+                    <h3 class="plan-title">Corte + Bordeado + Desyuyado</h3>
+                    <div class="plan-visits"><i class="fas fa-calendar-check"></i> 2 visitas incluidas</div>
+                    <div class="plan-price">$75.000 <span>ARS</span></div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> 2 cortes de césped con máquina</li>
+                        <li><i class="fas fa-check"></i> 2 bordeadas en el perímetro</li>
+                        <li><i class="fas fa-check"></i> 1 desyuyado manual (control de malezas)</li>
+                        <li><i class="fas fa-check"></i> Combustible incluido</li>
+                        <li><i class="fas fa-check"></i> Bolsas de consorcio</li>
+                        <li><i class="fas fa-check"></i> Tarifa: $37.500 por visita</li>
+                    </ul>
+                    <a href="https://wa.me/54911304893780?text=Hola%21%20Quiero%20contratar%20el%20Plan%20Premium%20-%20Corte%20%2B%20Bordeado%20%2B%20Desyuyado" class="plan-cta" style="display: inline-block; text-decoration: none; text-align: center;"><i class="fas fa-whatsapp"></i> Reservar Plan</a>
+                </div>
+
+            <div class="plan-explanation-section">
+                <h4 class="explanation-title"><i class="fas fa-star"></i> ¿Por qué elegir Plan Mensual?</h4>
+                
+                <div class="plan-cards-grid">
+                    <div class="plan-explanation-card">
+                        <div class="card-header">
+                            <h3>Plan Básico</h3>
+                            <div class="card-price">$50.000</div>
+                        </div>
+                        <p class="card-description">Ideal para espacios pequeños. 2 cortes mensuales para mantener tu jardín limpio y ordenado. Perfecto si solo necesitas lo esencial.</p>
+                        <div class="card-highlight">2 cortes/mes</div>
+                    </div>
+
+                    <div class="plan-explanation-card featured">
+                        <div class="featured-badge">⭐ Más Popular</div>
+                        <div class="card-header">
+                            <h3>Plan Full</h3>
+                            <div class="card-price">$60.000</div>
+                        </div>
+                        <p class="card-description">El más popular. Incluye 2 cortes + bordeado profesional en los contornos. Tu jardín se verá pulido y bien terminado. Recomendado para la mayoría.</p>
+                        <div class="card-highlight">2 cortes + Bordeado</div>
+                    </div>
+
+                    <div class="plan-explanation-card">
+                        <div class="card-header">
+                            <h3>Plan Premium</h3>
+                            <div class="card-price">$75.000</div>
+                        </div>
+                        <p class="card-description">La opción completa. Incluye 2 cortes, bordeado Y control de malezas (desyuyado). Ideal para jardines con mayor mantenimiento o si querés evitar malas hierbas.</p>
+                        <div class="card-highlight">2 cortes + Bordeado + Desyuyado</div>
+                    </div>
+                </div>
+
+                <div class="benefits-section">
+                    <h5 class="benefits-title">Ventajas de suscribirse a un plan</h5>
+                    <div class="benefits-grid">
+                        <div class="benefit-item">
+                            <i class="fas fa-calendar-check"></i>
+                            <h6>Garantía de lugar</h6>
+                            <p>Como solo trabajamos fines de semana, los cupos son limitados. El plan te asegura prioridad en la agenda.</p>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-piggy-bank"></i>
+                            <h6>Ahorro garantizado</h6>
+                            <p>Cada visita sale $2.500 a $5.000 más barata que contratarla individual.</p>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-leaf"></i>
+                            <h6>Mantenimiento perfecto</h6>
+                            <p>Al cortar regularmente, evitás el recargo por "pasto alto".</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -1206,214 +1913,214 @@
             </div>
         </div>
 
-        <!-- CALCULADORA INTERACTIVA -->
+        <!-- CALCULADORA INTERACTIVA REDISEÑADA -->
         <div class="calculator-section">
             <h3 class="calculator-title">
                 <i class="fas fa-calculator"></i> Calculadora de Presupuesto
             </h3>
             <p class="calculator-subtitle">Armá tu presupuesto personalizado en segundos</p>
 
-            <!-- 3 BLOQUES PRINCIPALES -->
-            <div class="calc-blocks">
+            <!-- PASO 1: TIPO DE SERVICIO -->
+            <div class="calc-step">
+                <div class="calc-step-header">
+                    <div class="calc-step-number">1</div>
+                    <div class="calc-step-title">¿Qué tipo de servicio queres?</div>
+                </div>
+                <div class="calc-options">
+                    <label class="option-button selected">
+                        <input type="radio" name="serviceType" value="plan" data-name="Plan Mensual" checked>
+                        <div class="option-label">Plan Mensual</div>
+                        <div class="option-desc">2 visitas por mes</div>
+                        <div class="option-price">Recurrente</div>
+                    </label>
+                    <label class="option-button">
+                        <input type="radio" name="serviceType" value="visit" data-name="Visita Particular">
+                        <div class="option-label">Visita Particular</div>
+                        <div class="option-desc">Una sola visita</div>
+                        <div class="option-price">Única</div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- PASO 2: PLAN MENSUAL (mostrado por defecto) -->
+            <div class="calc-step" id="planStep">
+                <div class="calc-step-header">
+                    <div class="calc-step-number">2</div>
+                    <div class="calc-step-title">Elige tu Plan Mensual</div>
+                </div>
+                <div class="calc-options plans-grid">
+                    <label class="option-button plan-option">
+                        <input type="radio" name="plan" value="50000" data-name="Plan Básico">
+                        <div class="option-label">Plan Básico</div>
+                        <div class="option-desc">2 cortes/mes</div>
+                        <div class="option-price">$50.000</div>
+                    </label>
+                    <label class="option-button selected plan-option">
+                        <input type="radio" name="plan" value="60000" data-name="Plan Full" checked>
+                        <div class="option-label">⭐ Plan Full</div>
+                        <div class="option-desc">Corte + Bordeado</div>
+                        <div class="option-price">$60.000</div>
+                    </label>
+                    <label class="option-button plan-option">
+                        <input type="radio" name="plan" value="75000" data-name="Plan Premium">
+                        <div class="option-label">Plan Premium</div>
+                        <div class="option-desc">Corte + Bordeado + Desyuyado</div>
+                        <div class="option-price">$75.000</div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- PASO 2B: VISITA PARTICULAR (oculto por defecto) -->
+            <div class="calc-step" id="visitStep" style="display: none;">
+                <div class="calc-step-header">
+                    <div class="calc-step-number">2</div>
+                    <div class="calc-step-title">¿Qué servicios necesitás?</div>
+                </div>
+                <div class="calc-options">
+                    <label class="option-button">
+                        <input type="checkbox" name="visitService" value="27500" data-name="Corte del Césped">
+                        <div class="option-label">Corte del Césped</div>
+                        <div class="option-desc">Máquina de corte</div>
+                        <div class="option-price">$27.500</div>
+                    </label>
+                    <label class="option-button">
+                        <input type="checkbox" name="visitService" value="12000" data-name="Fumigación de Exteriores">
+                        <div class="option-label">Fumigación de Exteriores</div>
+                        <div class="option-desc">Bajas cantidades</div>
+                        <div class="option-price">$12.000</div>
+                    </label>
+                    <label class="option-button">
+                        <input type="checkbox" name="visitService" value="9000" data-name="Bordeado">
+                        <div class="option-label">Bordeado</div>
+                        <div class="option-desc">Terminaciones</div>
+                        <div class="option-price">$9.000</div>
+                    </label>
+                    <label class="option-button">
+                        <input type="checkbox" name="visitService" value="0" data-name="Desyuyado (custom)">
+                        <div class="option-label">Desyuyado Manual</div>
+                        <div class="option-desc">Control de malezas</div>
+                        <div class="option-price">Ver abajo</div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- PASO 3: CONTROL DE MALEZAS (si aplica) -->
+            <div class="calc-step" id="malezasStep">
+                <div class="calc-step-header">
+                    <div class="calc-step-number">3</div>
+                    <div class="calc-step-title">Control de Malezas</div>
+                </div>
                 
-                <!-- BLOQUE 1: CÉSPED -->
-                <div class="calc-block block-cesped">
-                    <h4 class="block-title">
-                        <i class="fas fa-leaf"></i> Corte de Césped
-                    </h4>
-                    <div class="cesped-options">
-                        <label class="service-option">
-                            <input type="checkbox" name="cesped" value="5000" data-name="Corte Simple (Hasta 10m²)" data-type="cesped">
-                            <div class="service-info">
-                                <div class="service-name">Corte Simple</div>
-                                <div class="service-desc">Hasta 10 m²</div>
-                                <div class="service-price">$5.000</div>
-                            </div>
+                <p style="color: var(--text-gray); margin-bottom: 20px; font-size: 0.95rem;">Selecciona los metros cuadrados y el método:</p>
+                <table class="price-table">
+                    <thead>
+                        <tr>
+                            <th>Superficie</th>
+                            <th>Manual</th>
+                            <th>Químico</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Hasta 10 m²</td>
+                            <td>$10.000</td>
+                            <td>$20.000</td>
+                        </tr>
+                        <tr>
+                            <td>10 a 25 m²</td>
+                            <td>$15.000</td>
+                            <td>$20.000</td>
+                        </tr>
+                        <tr>
+                            <td>25 a 50 m²</td>
+                            <td>$20.000</td>
+                            <td>$30.000</td>
+                        </tr>
+                        <tr>
+                            <td>50 a 100 m²</td>
+                            <td>Consultar</td>
+                            <td>$40.000</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="malezas-grid" style="margin-top: 25px;">
+                    <div class="malezas-column">
+                        <div class="malezas-method-header">Desyuyado Manual</div>
+                        <label class="option-button malezas-option">
+                            <input type="checkbox" name="malezas" value="10000" data-name="Desyuyado Manual (Hasta 10m²)">
+                            <div class="option-label">Hasta 10 m²</div>
+                            <div class="option-price">$10.000</div>
                         </label>
-                        <label class="service-option">
-                            <input type="checkbox" name="cesped" value="8000" data-name="Corte (10 a 25 m²)" data-type="cesped">
-                            <div class="service-info">
-                                <div class="service-name">Corte Regular</div>
-                                <div class="service-desc">10 a 25 m²</div>
-                                <div class="service-price">$8.000</div>
-                            </div>
+                        <label class="option-button malezas-option">
+                            <input type="checkbox" name="malezas" value="15000" data-name="Desyuyado Manual (10-25 m²)">
+                            <div class="option-label">10 a 25 m²</div>
+                            <div class="option-price">$15.000</div>
                         </label>
-                        <label class="service-option">
-                            <input type="checkbox" name="cesped" value="12000" data-name="Corte (25 a 50 m²)" data-type="cesped">
-                            <div class="service-info">
-                                <div class="service-name">Corte Mediano</div>
-                                <div class="service-desc">25 a 50 m²</div>
-                                <div class="service-price">$12.000</div>
-                            </div>
-                        </label>
-                        <label class="service-option">
-                            <input type="checkbox" name="cesped" value="15000" data-name="Corte (50 a 100 m²)" data-type="cesped">
-                            <div class="service-info">
-                                <div class="service-name">Corte Amplio</div>
-                                <div class="service-desc">50 a 100 m²</div>
-                                <div class="service-price">$15.000+</div>
-                            </div>
+                        <label class="option-button malezas-option">
+                            <input type="checkbox" name="malezas" value="20000" data-name="Desyuyado Manual (25-50 m²)">
+                            <div class="option-label">25 a 50 m²</div>
+                            <div class="option-price">$20.000</div>
                         </label>
                     </div>
-                </div>
-
-                <!-- BLOQUE 2: CONTROL DE MALEZAS -->
-                <div class="calc-block block-malezas">
-                    <h4 class="block-title">
-                        <i class="fas fa-bug"></i> Control de Malezas
-                    </h4>
-                    <table class="malezas-table">
-                        <thead>
-                            <tr>
-                                <th>Superficie</th>
-                                <th>Manual</th>
-                                <th>Químico*</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Hasta 10 m²</td>
-                                <td>$10.000</td>
-                                <td>$20.000</td>
-                            </tr>
-                            <tr>
-                                <td>10 a 25 m²</td>
-                                <td>$15.000</td>
-                                <td>$20.000</td>
-                            </tr>
-                            <tr>
-                                <td>25 a 50 m²</td>
-                                <td>$20.000</td>
-                                <td>$30.000</td>
-                            </tr>
-                            <tr>
-                                <td>50 a 100 m²</td>
-                                <td>Consultar</td>
-                                <td>$40.000</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="malezas-option-wrapper">
-                        <label class="service-option">
-                            <input type="checkbox" name="malezas" value="10000" data-name="Desyuyado Manual (Hasta 10m²)" data-type="extra">
-                            <div class="service-info">
-                                <div class="service-name">Desyuyado Manual</div>
-                                <div class="service-desc">Control de raíces hasta 10m²</div>
-                                <div class="service-price">$10.000</div>
-                            </div>
+                    <div class="malezas-column">
+                        <div class="malezas-method-header">Herbicida Químico</div>
+                        <label class="option-button malezas-option">
+                            <input type="checkbox" name="malezas" value="20000" data-name="Herbicida (Hasta 10m²)">
+                            <div class="option-label">Hasta 10 m²</div>
+                            <div class="option-price">$20.000</div>
                         </label>
-                        <label class="service-option">
-                            <input type="checkbox" name="malezas" value="20000" data-name="Herbicida (Hasta 10m²)" data-type="extra">
-                            <div class="service-info">
-                                <div class="service-name">Herbicida Químico</div>
-                                <div class="service-desc">Control químico hasta 10m²</div>
-                                <div class="service-price">$20.000</div>
-                            </div>
+                        <label class="option-button malezas-option">
+                            <input type="checkbox" name="malezas" value="30000" data-name="Herbicida (25-50 m²)">
+                            <div class="option-label">25 a 50 m²</div>
+                            <div class="option-price">$30.000</div>
                         </label>
-                    </div>
-                </div>
-
-                <!-- BLOQUE 3: PLANES MENSUALES -->
-                <div class="calc-block block-planes">
-                    <h4 class="block-title">
-                        <i class="fas fa-calendar-check"></i> Planes Mensuales
-                    </h4>
-                    <div class="plan-options">
-                        <label class="plan-option">
-                            <input type="radio" name="plan" value="0" data-name="Sin Plan" data-type="plan">
-                            <div class="plan-info">
-                                <div class="plan-name">Sin Plan</div>
-                                <div class="plan-features">Servicios por única vez</div>
-                                <div class="plan-price">Variable</div>
-                            </div>
-                        </label>
-                        <label class="plan-option">
-                            <input type="radio" name="plan" value="50000" data-name="Plan Básico" data-type="plan">
-                            <div class="plan-info">
-                                <div class="plan-name">Plan Básico</div>
-                                <div class="plan-features">2 cortes + Limpieza + Bolsas</div>
-                                <div class="plan-price">$50.000</div>
-                            </div>
-                        </label>
-                        <label class="plan-option">
-                            <input type="radio" name="plan" value="60000" data-name="Plan Full" data-type="plan" checked>
-                            <div class="plan-badge-featured">El más elegido</div>
-                            <div class="plan-info">
-                                <div class="plan-name">Plan Full ⭐</div>
-                                <div class="plan-features">2 cortes + Bordeado + Limpieza + Bolsas</div>
-                                <div class="plan-price">$60.000</div>
-                            </div>
-                        </label>
-                        <label class="plan-option">
-                            <input type="radio" name="plan" value="75000" data-name="Plan Premium" data-type="plan">
-                            <div class="plan-info">
-                                <div class="plan-name">Plan Premium</div>
-                                <div class="plan-features">2 cortes + Bordeado + Desyuyado (10m²) + Limpieza</div>
-                                <div class="plan-price">$75.000</div>
-                            </div>
+                        <label class="option-button malezas-option">
+                            <input type="checkbox" name="malezas" value="40000" data-name="Herbicida (50-100 m²)">
+                            <div class="option-label">50 a 100 m²</div>
+                            <div class="option-price">$40.000</div>
                         </label>
                     </div>
                 </div>
             </div>
 
-            <!-- ALTURA DE PASTO -->
-            <div class="slider-container">
-                <div class="slider-title">
-                    <i class="fas fa-arrow-up"></i> ¿Cuál es la altura de tu pasto?
+            <!-- PASO 4: ALTURA DEL PASTO -->
+            <div class="calc-step">
+                <div class="calc-step-header">
+                    <div class="calc-step-number">4</div>
+                    <div class="calc-step-title">¿Cuál es la altura de tu pasto?</div>
                 </div>
-                <div class="slider-label">
-                    <span>Altura aproximada:</span>
-                    <div class="slider-value"><span id="grassHeight">15</span> cm</div>
-                </div>
-                <input type="range" min="5" max="30" value="15" class="slider" id="grassSlider">
-                <div class="slider-labels">
-                    <span><i class="fas fa-water"></i> Bajo (5 cm)</span>
-                    <span>Normal</span>
-                    <span>Alto (30 cm)</span>
-                </div>
-                <div class="surcharge-alert" id="surchargeAlert">
-                    <i class="fas fa-exclamation-triangle"></i> <strong>⚠️ Atención:</strong> El pasto mide más de 20 cm. Se aplicará un <strong>recargo del 30%</strong> por mayor desgaste de máquinas.
+                <div class="slider-group">
+                    <div class="slider-display">
+                        <input type="range" min="5" max="30" value="15" class="slider" id="grassSlider">
+                        <div class="slider-value"><span id="grassHeight">15</span> cm</div>
+                    </div>
+                    <div class="slider-labels">
+                        <span>Bajo (5 cm)</span>
+                        <span>Normal</span>
+                        <span>Alto (30 cm)</span>
+                    </div>
+                    <div class="surcharge-alert" id="surchargeAlert">
+                        <i class="fas fa-exclamation-triangle"></i> <strong>⚠️ Pasto Alto:</strong> Se aplicará un <strong>recargo del 30%</strong>
+                    </div>
                 </div>
             </div>
 
-            <!-- SERVICIOS EXTRA -->
-            <div class="extra-services">
-                <div class="extra-title">
-                    <i class="fas fa-plus-circle"></i> Servicios Adicionales
-                </div>
-                <label class="extra-item">
-                    <input type="checkbox" name="extra" value="15000" data-name="Control de Plagas">
-                    <div class="extra-info">
-                        <div class="extra-name">Control de Plagas</div>
-                        <div class="extra-desc">Hormigas, insectos y plagas del jardín</div>
-                        <div class="extra-price">Desde $15.000</div>
-                    </div>
-                </label>
-                <label class="extra-item">
-                    <input type="checkbox" name="extra" value="0" data-name="Servicio de Regado">
-                    <div class="extra-info">
-                        <div class="extra-name">Servicio de Regado</div>
-                        <div class="extra-desc">Riego durante la semana (a coordinar)</div>
-                        <div class="extra-price">A coordinar</div>
-                    </div>
-                </label>
-            </div>
-
-            <!-- RESULTADO -->
+            <!-- RESULTADO FINAL -->
             <div class="calc-result">
-                <div class="result-label">Tu presupuesto estimado:</div>
-                <div class="result-price" id="finalPrice">$0</div>
-                <div class="result-description">Presupuesto aproximado sin impuestos</div>
-
-                <div class="calc-button">
-                    <a id="whatsappLink" href="https://wa.me/54911304893780?text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n" class="btn-whatsapp" target="_blank" rel="noopener noreferrer">
-                        <i class="fas fa-whatsapp"></i> Enviar Presupuesto por WhatsApp
+                <div class="result-label">Tu presupuesto:</div>
+                <div class="result-price" id="finalPrice">$60.000</div>
+                <div class="result-description">Presupuesto aproximado | Válido por 7 días</div>
+                <div class="calc-buttons">
+                    <a id="whatsappLink" href="https://wa.me/54911304893780?text=Hola%21%20Tengo%20este%20presupuesto%3A%20ARS%20%2460.000" class="btn-whatsapp" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-whatsapp"></i> Enviar por WhatsApp
                     </a>
                     <button class="btn-reset" id="resetCalc">
                         <i class="fas fa-redo"></i> Reiniciar
                     </button>
                 </div>
             </div>
+
         </div>
 
         <!-- CTA Final -->
@@ -1431,115 +2138,235 @@
 
     <script src="script.js"></script>
     <script>
-        // CALCULADORA INTERACTIVA
+        // CALCULADORA - VERSIÓN SIMPLIFICADA
         let calcState = {
-            frequency: null,
-            service: null,
+            serviceType: 'plan',
             grassHeight: 15,
-            surcharge: 0
+            plan: 60000,
+            visitServices: 0,
+            visitBaseCost: 0,
+            malezas: 0,
+            surcharge: 0,
+            selectedServices: ['Plan Mensual', 'Plan Full']
         };
 
-        const prices = {
-            frequency: {
-                single: { 'cut-only': 27500, 'cut-trim': 34000 },
-                monthly: { 'cut-only': 50000, 'cut-trim': 60000 }
-            }
-        };
+        let selectedPlan = '60000';
 
-        // Event listeners para tarjetas de selección
-        document.querySelectorAll('.calc-step').forEach(card => {
-            card.addEventListener('click', function() {
-                const option = this.dataset.option;
-                const value = this.dataset.value;
+        // DEFER: Se ejecuta cuando el script termina de cargar
+        function setupCalculator() {
+            setupServiceType();
+            setupPlans();
+            setupVisitServices();
+            setupMalezas();
+            setupSlider();
+            setupReset();
+            updateCalculator();
+        }
 
-                // Remover selección anterior del mismo grupo
-                document.querySelectorAll(`[data-option="${option}"]`).forEach(c => {
-                    c.classList.remove('active');
+        function setupServiceType() {
+            document.querySelectorAll('input[name="serviceType"]').forEach(input => {
+                input.addEventListener('change', () => {
+                    calcState.serviceType = input.value;
+                    const planStep = document.getElementById('planStep');
+                    const visitStep = document.getElementById('visitStep');
+                    
+                    if (input.value === 'plan') {
+                        if (planStep) planStep.style.display = 'block';
+                        if (visitStep) visitStep.style.display = 'none';
+                    } else {
+                        if (planStep) planStep.style.display = 'none';
+                        if (visitStep) visitStep.style.display = 'block';
+                    }
+
+                    document.querySelectorAll('input[name="serviceType"]').forEach(i => {
+                        if (i.checked) {
+                            i.parentElement.classList.add('selected');
+                        } else {
+                            i.parentElement.classList.remove('selected');
+                        }
+                    });
+
+                    updateCalculator();
                 });
-
-                // Agregar nueva selección
-                this.classList.add('active');
-                calcState[option] = value;
-
-                // Actualizar pantalla
-                updateCalculator();
             });
-        });
+        }
 
-        // Event listener para slider
-        document.getElementById('grassSlider').addEventListener('input', function() {
-            calcState.grassHeight = parseInt(this.value);
-            document.getElementById('grassHeight').textContent = this.value;
-            updateCalculator();
-        });
+        function setupPlans() {
+            document.querySelectorAll('input[name="plan"]').forEach(input => {
+                input.addEventListener('change', () => {
+                    const planValue = input.value;
+                    
+                    if (selectedPlan === planValue) {
+                        input.checked = false;
+                        selectedPlan = null;
+                        calcState.plan = 0;
+                    } else {
+                        selectedPlan = planValue;
+                        calcState.plan = parseFloat(planValue);
+                    }
 
-        // Event listener para botón reiniciar
-        document.getElementById('resetCalc').addEventListener('click', function() {
-            document.querySelectorAll('.calc-step').forEach(c => c.classList.remove('active'));
-            document.getElementById('grassSlider').value = 15;
-            document.getElementById('grassHeight').textContent = '15';
-            calcState = { frequency: null, service: null, grassHeight: 15, surcharge: 0 };
-            updateCalculator();
-        });
+                    document.querySelectorAll('input[name="plan"]').forEach(i => {
+                        if (i.checked) {
+                            i.parentElement.classList.add('selected');
+                        } else {
+                            i.parentElement.classList.remove('selected');
+                        }
+                    });
 
-        // Función para actualizar la calculadora
+                    updateCalculator();
+                });
+            });
+        }
+
+        function setupVisitServices() {
+            document.querySelectorAll('input[name="visitService"]').forEach(input => {
+                input.addEventListener('change', () => {
+                    if (input.checked) {
+                        input.parentElement.classList.add('selected');
+                    } else {
+                        input.parentElement.classList.remove('selected');
+                    }
+
+                    let visitTotal = 0;
+                    document.querySelectorAll('input[name="visitService"]:checked').forEach(cb => {
+                        visitTotal += parseFloat(cb.value);
+                    });
+                    calcState.visitServices = visitTotal;
+
+                    updateCalculator();
+                });
+            });
+        }
+
+        function setupMalezas() {
+            document.querySelectorAll('input[name="malezas"]').forEach(input => {
+                input.addEventListener('change', () => {
+                    if (input.checked) {
+                        document.querySelectorAll('input[name="malezas"]').forEach(i => {
+                            if (i !== input) {
+                                i.checked = false;
+                                i.parentElement.classList.remove('selected');
+                            }
+                        });
+                        input.parentElement.classList.add('selected');
+                        calcState.malezas = parseFloat(input.value);
+                    } else {
+                        input.parentElement.classList.remove('selected');
+                        calcState.malezas = 0;
+                    }
+
+                    updateCalculator();
+                });
+            });
+        }
+
+        function setupSlider() {
+            const slider = document.getElementById('grassSlider');
+            if (slider) {
+                slider.addEventListener('input', () => {
+                    calcState.grassHeight = parseInt(slider.value);
+                    const grassHeight = document.getElementById('grassHeight');
+                    if (grassHeight) grassHeight.textContent = slider.value;
+                    updateCalculator();
+                });
+            }
+        }
+
+        function setupReset() {
+            const resetBtn = document.getElementById('resetCalc');
+            if (resetBtn) {
+                resetBtn.addEventListener('click', () => {
+                    document.querySelectorAll('input[type="checkbox"], input[type="radio"]').forEach(inp => {
+                        inp.checked = false;
+                        inp.parentElement.classList.remove('selected');
+                    });
+
+                    const slider = document.getElementById('grassSlider');
+                    if (slider) slider.value = 15;
+                    const grassHeight = document.getElementById('grassHeight');
+                    if (grassHeight) grassHeight.textContent = '15';
+
+                    document.querySelector('input[name="serviceType"][value="plan"]').checked = true;
+                    document.querySelector('input[name="serviceType"][value="plan"]').parentElement.classList.add('selected');
+
+                    document.querySelector('input[name="plan"][value="60000"]').checked = true;
+                    document.querySelector('input[name="plan"][value="60000"]').parentElement.classList.add('selected');
+
+                    const planStep = document.getElementById('planStep');
+                    const visitStep = document.getElementById('visitStep');
+                    if (planStep) planStep.style.display = 'block';
+                    if (visitStep) visitStep.style.display = 'none';
+
+                    selectedPlan = '60000';
+                    calcState = {
+                        serviceType: 'plan',
+                        grassHeight: 15,
+                        plan: 60000,
+                        visitServices: 0,
+                        visitBaseCost: 0,
+                        malezas: 0,
+                        surcharge: 0,
+                        selectedServices: ['Plan Mensual', 'Plan Full']
+                    };
+
+                    updateCalculator();
+                });
+            }
+        }
+
         function updateCalculator() {
-            let basePrice = 0;
-            let frequencyLabel = '';
-            let serviceLabel = '';
+            let baseTotal = calcState.serviceType === 'plan' ? calcState.plan + calcState.malezas : calcState.visitServices + calcState.malezas;
 
-            if (calcState.frequency && calcState.service) {
-                basePrice = prices.frequency[calcState.frequency][calcState.service];
-                frequencyLabel = calcState.frequency === 'single' ? 'Visita Única' : 'Plan Mensual (2 visitas)';
-                serviceLabel = calcState.service === 'cut-only' ? 'Solo Corte' : 'Corte + Bordeado';
+            if (calcState.grassHeight > 20 && baseTotal > 0) {
+                calcState.surcharge = Math.round(baseTotal * 0.30);
+            } else {
+                calcState.surcharge = 0;
+            }
 
-                // Calcular recargo
-                if (calcState.grassHeight > 20) {
-                    calcState.surcharge = Math.round(basePrice * 0.30);
+            const finalPrice = baseTotal + calcState.surcharge;
+
+            const finalPriceEl = document.getElementById('finalPrice');
+            if (finalPriceEl) {
+                finalPriceEl.textContent = '$' + finalPrice.toLocaleString('es-AR');
+            }
+
+            const alert = document.getElementById('surchargeAlert');
+            if (alert) {
+                if (calcState.grassHeight > 20 && baseTotal > 0) {
+                    alert.classList.add('show');
                 } else {
-                    calcState.surcharge = 0;
+                    alert.classList.remove('show');
                 }
             }
 
-            const finalPrice = basePrice + calcState.surcharge;
-
-            // Mostrar resultado
-            if (calcState.frequency && calcState.service) {
-                document.getElementById('finalPrice').textContent = '$' + finalPrice.toLocaleString('es-AR');
-            } else {
-                document.getElementById('finalPrice').textContent = 'Selecciona opciones';
-            }
-
-            // Mostrar/ocultar alerta de pasto alto
-            const alert = document.getElementById('surchargeAlert');
-            if (calcState.grassHeight > 20) {
-                alert.classList.add('show');
-            } else {
-                alert.classList.remove('show');
-            }
-
-            // Actualizar link de WhatsApp
-            updateWhatsappLink(frequencyLabel, serviceLabel, finalPrice);
+            updateWhatsappLink(finalPrice);
         }
 
-        // Función para actualizar link de WhatsApp
-        function updateWhatsappLink(frequency, service, price) {
+        function updateWhatsappLink(price) {
             const whatsappLink = document.getElementById('whatsappLink');
-            
-            if (frequency && service) {
-                const message = `Hola! Quisiera contratar un servicio. Mi presupuesto es ARS $${price.toLocaleString('es-AR')}%0A%0AOpción: ${frequency}%0AServicio: ${service}%0AAltura del pasto: ${calcState.grassHeight} cm`;
-                whatsappLink.href = 'https://wa.me/54911304893780?text=' + encodeURI(message).replace(/%25/g, '%');
-                whatsappLink.style.opacity = '1';
-                whatsappLink.style.pointerEvents = 'auto';
-            } else {
-                whatsappLink.href = 'https://wa.me/54911304893780?text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n';
-                whatsappLink.style.opacity = '0.6';
-                whatsappLink.style.pointerEvents = 'none';
+            if (!whatsappLink) return;
+
+            let message = 'Hola! Tengo este presupuesto:%0A%0A';
+            message += 'Presupuesto: ARS $' + price.toLocaleString('es-AR') + '%0A';
+
+            if (calcState.selectedServices.length > 0) {
+                message += '%0AServicios:%0A';
+                calcState.selectedServices.forEach(service => {
+                    message += '• ' + service + '%0A';
+                });
             }
+
+            if (calcState.grassHeight > 20) {
+                message += '%0AAltura de pasto: ' + calcState.grassHeight + ' cm (recargo 30%)%0A';
+            }
+
+            message += '%0A¿Podés confirmar?';
+
+            whatsappLink.href = 'https://wa.me/54911304893780?text=' + message;
         }
 
-        // Inicializar
-        updateCalculator();
+        // Ejecutar cuando el script se carga
+        setupCalculator();
     </script>
 </body>
 </html>

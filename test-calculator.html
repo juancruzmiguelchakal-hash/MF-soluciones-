@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Calculadora</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #1a1a1a;
+            color: #ccc;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #93BF34;
+            margin-bottom: 30px;
+        }
+
+        .calc-step {
+            background: #2a2a2a;
+            border: 1px solid #93BF34;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+
+        .calc-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .option-button {
+            background: #333;
+            border: 2px solid #555;
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .option-button:hover {
+            border-color: #93BF34;
+        }
+
+        .option-button.selected {
+            border-color: #93BF34;
+            background: #1a3a1a;
+        }
+
+        .option-button input {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .option-label {
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .option-price {
+            color: #93BF34;
+            margin-top: 10px;
+        }
+
+        #result {
+            background: #2a2a2a;
+            border: 2px solid #93BF34;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Test Calculadora</h1>
+
+        <div class="calc-step">
+            <h3>Tipo de Servicio</h3>
+            <div class="calc-options">
+                <label class="option-button selected">
+                    <input type="radio" name="serviceType" value="plan" data-name="Plan Mensual" checked>
+                    <div class="option-label">Plan Mensual</div>
+                    <div class="option-price">$50.000+</div>
+                </label>
+                <label class="option-button">
+                    <input type="radio" name="serviceType" value="visit" data-name="Visita Particular">
+                    <div class="option-label">Visita Particular</div>
+                    <div class="option-price">Variable</div>
+                </label>
+            </div>
+        </div>
+
+        <div class="calc-step" id="planStep">
+            <h3>Plan Mensual</h3>
+            <div class="calc-options">
+                <label class="option-button">
+                    <input type="radio" name="plan" value="50000" data-name="Plan Básico">
+                    <div class="option-label">Plan Básico</div>
+                    <div class="option-price">$50.000</div>
+                </label>
+                <label class="option-button selected">
+                    <input type="radio" name="plan" value="60000" data-name="Plan Full" checked>
+                    <div class="option-label">⭐ Plan Full</div>
+                    <div class="option-price">$60.000</div>
+                </label>
+                <label class="option-button">
+                    <input type="radio" name="plan" value="75000" data-name="Plan Premium">
+                    <div class="option-label">Plan Premium</div>
+                    <div class="option-price">$75.000</div>
+                </label>
+            </div>
+        </div>
+
+        <div id="result">
+            Presupuesto: $60.000
+        </div>
+    </div>
+
+    <script>
+        console.log('Script cargado');
+
+        let state = {
+            serviceType: 'plan',
+            plan: 60000
+        };
+
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM cargado');
+            initCalculator();
+        });
+
+        function initCalculator() {
+            console.log('Inicializando calculadora...');
+
+            // Service Type
+            document.querySelectorAll('input[name="serviceType"]').forEach(input => {
+                console.log('Agregando listener a serviceType:', input.value);
+                input.addEventListener('change', function() {
+                    console.log('Service Type cambió a:', this.value);
+                    state.serviceType = this.value;
+                    updateUI();
+                    updateResult();
+                });
+            });
+
+            // Plans
+            let selectedPlan = '60000';
+            document.querySelectorAll('input[name="plan"]').forEach(input => {
+                console.log('Agregando listener a plan:', input.value);
+                input.addEventListener('change', function() {
+                    console.log('Plan cambió a:', this.value, 'Anteriormente:', selectedPlan);
+                    
+                    if (selectedPlan === this.value) {
+                        console.log('Deseleccionando plan');
+                        this.checked = false;
+                        selectedPlan = null;
+                        state.plan = 0;
+                    } else {
+                        console.log('Seleccionando plan');
+                        selectedPlan = this.value;
+                        state.plan = parseFloat(this.value);
+                    }
+                    
+                    updateUI();
+                    updateResult();
+                });
+            });
+
+            updateUI();
+        }
+
+        function updateUI() {
+            // Update serviceType UI
+            document.querySelectorAll('input[name="serviceType"]').forEach(input => {
+                if (input.checked) {
+                    input.parentElement.classList.add('selected');
+                } else {
+                    input.parentElement.classList.remove('selected');
+                }
+            });
+
+            // Update plan UI
+            document.querySelectorAll('input[name="plan"]').forEach(input => {
+                if (input.checked) {
+                    input.parentElement.classList.add('selected');
+                } else {
+                    input.parentElement.classList.remove('selected');
+                }
+            });
+        }
+
+        function updateResult() {
+            const result = document.getElementById('result');
+            result.textContent = 'Presupuesto: $' + state.plan.toLocaleString('es-AR');
+        }
+    </script>
+</body>
+</html>
