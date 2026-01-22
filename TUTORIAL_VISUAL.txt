@@ -1,0 +1,382 @@
+════════════════════════════════════════════════════════════════════════════════
+ TUTORIAL RÁPIDO - CÓMO USAR TUS NUEVAS PÁGINAS
+════════════════════════════════════════════════════════════════════════════════
+
+Esto es un tutorial visual paso a paso para entender y usar tus nuevas páginas.
+
+════════════════════════════════════════════════════════════════════════════════
+PASO 1: VER LA PÁGINA DE PRECIOS
+════════════════════════════════════════════════════════════════════════════════
+
+Para abrir la página de precios:
+
+1. Abre tu navegador (Chrome, Firefox, Edge, Safari)
+2. Presiona Ctrl+O (abrir archivo)
+3. Navega a: c:\Users\Usuario\Desktop\kort 2\prices.html
+4. Selecciona el archivo y abre
+
+¿QUÉ VAS A VER?
+
+    ┌──────────────────────────────────────────────────────┐
+    │                                                        │
+    │    🌿 MANTENIMIENTO DE ESPACIOS VERDES              │
+    │    Servicio profesional para tu jardín               │
+    │                                                        │
+    │    📅 ATENCIÓN EXCLUSIVA: SÁBADOS Y DOMINGOS         │
+    │                                                        │
+    ├──────────────────────────────────────────────────────┤
+    │                                                        │
+    │    Plan Básico    Plan Full (⭐ MÁS POPULAR)        │
+    │    $50.000       $60.000                             │
+    │                                                        │
+    │    Visitas Particulares                              │
+    │    Corte Simple: $27.500                             │
+    │    Corte + Bordeado: $34.000                         │
+    │                                                        │
+    │    Recargos y Condiciones                            │
+    │    Beneficios de Elegir Abono                        │
+    │                                                        │
+    │    ¿Listo para contratar? [📱 WhatsApp]            │
+    │                                                        │
+    └──────────────────────────────────────────────────────┘
+
+════════════════════════════════════════════════════════════════════════════════
+PASO 2: VER LA CALCULADORA INTERACTIVA
+════════════════════════════════════════════════════════════════════════════════
+
+Para abrir la calculadora:
+
+1. Abre tu navegador (Chrome, Firefox, Edge, Safari)
+2. Presiona Ctrl+O (abrir archivo)
+3. Navega a: c:\Users\Usuario\Desktop\kort 2\calculator.html
+4. Selecciona el archivo y abre
+
+¿QUÉ VAS A VER?
+
+    ┌──────────────────────────────────────────────────────┐
+    │                                                        │
+    │    🧮 CALCULADORA DE PRESUPUESTO                    │
+    │    Descubrí cuánto cuesta tu jardín                  │
+    │                                                        │
+    ├──────────────────────────────────────────────────────┤
+    │                                                        │
+    │  PASO 1: ¿Con qué frecuencia?                        │
+    │          ☐ Visita Única   ☑ Plan Mensual           │
+    │                                                        │
+    │  PASO 2: ¿Qué servicio?                              │
+    │          ☐ Solo Corte     ☑ Corte+Bordeado         │
+    │                                                        │
+    │  PASO 3: ¿Altura del pasto?                          │
+    │          [====●=========] 15 cm                      │
+    │                                                        │
+    ├──────────────────────────────────────────────────────┤
+    │                                                        │
+    │    TU PRESUPUESTO ESTIMADO                           │
+    │              $60.000                                 │
+    │                                                        │
+    │    DETALLES:                                          │
+    │    Frecuencia: Plan Mensual                          │
+    │    Servicio: Corte + Bordeado                        │
+    │    Altura: 15 cm                                     │
+    │    Recargo: No aplica                                │
+    │                                                        │
+    │    AHORRAS: $8.000/mes                               │
+    │                                                        │
+    │    [📱 Contratar]  [🔄 Reiniciar]                  │
+    │                                                        │
+    └──────────────────────────────────────────────────────┘
+
+════════════════════════════════════════════════════════════════════════════════
+PASO 3: PRUEBA LA CALCULADORA
+════════════════════════════════════════════════════════════════════════════════
+
+Vamos a probar la calculadora paso a paso:
+
+1. SELECCIONA FRECUENCIA:
+   → Haz clic en "Plan Mensual"
+   → Verás que se resalta
+
+2. SELECCIONA SERVICIO:
+   → Haz clic en "Corte + Bordeado"
+   → Verás que se resalta
+
+3. AJUSTA EL SLIDER:
+   → Mueve el slider a 25 cm
+   → Fíjate que:
+      ✓ El precio cambia (ahora $78.000 con recargo)
+      ✓ Aparece una advertencia naranja
+      ✓ La tabla de comparación se actualiza
+
+4. OBSERVA LOS RESULTADOS:
+   → Precio calculado: $60.000 + 30% recargo = $78.000
+   → Detalles mostrados
+   → Ahorros calculados
+
+5. PRUEBA DIFERENTES COMBINACIONES:
+   → Cambia a "Visita Única"
+   → Cambia a "Solo Corte"
+   → Ajusta el slider a 5 cm (sin recargo)
+   → Verás cómo todo se actualiza automáticamente
+
+════════════════════════════════════════════════════════════════════════════════
+PASO 4: PRUEBA EN TU CELULAR
+════════════════════════════════════════════════════════════════════════════════
+
+Para ver cómo se ve en móvil:
+
+1. USANDO PC/MAC:
+   → Abre la página en navegador
+   → Presiona F12 (abrir herramientas de desarrollo)
+   → Presiona Ctrl+Shift+M (modo responsive)
+   → Elige un dispositivo móvil de la lista
+
+2. O USANDO TU CELULAR:
+   → Busca el archivo en tu PC
+   → Copia la ruta completa
+   → Abre navegador en celular
+   → En la barra de dirección escribe la ruta (o usa USB)
+
+¿QUÉ DEBERÍAS VER EN MÓVIL?
+
+   - Las página ocupan ancho completo
+   - Texto es legible
+   - Los botones son grandes y fáciles de tocar
+   - Formato vertical tipo "historia de WhatsApp"
+   - Sin barras horizontales que hacer scroll
+
+════════════════════════════════════════════════════════════════════════════════
+PASO 5: ENTENDER LA ESTRUCTURA
+════════════════════════════════════════════════════════════════════════════════
+
+PRICES.HTML (Lista de Precios)
+├─ SECCIÓN HERO
+│  ├─ Título principal
+│  ├─ Subtítulo
+│  └─ Badge de información
+│
+├─ PLANES MENSUALES
+│  ├─ Plan Básico: $50.000
+│  └─ Plan Full: $60.000
+│
+├─ VISITAS PARTICULARES
+│  ├─ Corte Simple: $27.500
+│  └─ Corte + Bordeado: $34.000
+│
+├─ RECARGOS Y CONDICIONES
+│  ├─ Pasto alto (+30%)
+│  ├─ Días de lluvia
+│  └─ Insumos incluidos
+│
+├─ CALCULADORA VISUAL
+│  └─ 3 pasos simples
+│
+├─ BENEFICIOS
+│  └─ 6 razones para elegir
+│
+└─ CTA FINAL
+   └─ Botón WhatsApp
+
+CALCULATOR.HTML (Calculadora)
+├─ SECCIÓN HERO
+│  └─ Título y descripción
+│
+├─ PASO 1: FRECUENCIA
+│  ├─ Visita Única
+│  └─ Plan Mensual
+│
+├─ PASO 2: SERVICIO
+│  ├─ Solo Corte
+│  └─ Corte + Bordeado
+│
+├─ PASO 3: ALTURA
+│  └─ Slider 5-30 cm
+│
+├─ RESULTADO
+│  ├─ Precio calculado
+│  ├─ Detalles
+│  └─ Tabla comparativa
+│
+└─ BOTONES CTA
+   ├─ Contratar por WhatsApp
+   └─ Reiniciar cálculo
+
+════════════════════════════════════════════════════════════════════════════════
+PASO 6: ENTENDER LOS COLORES
+════════════════════════════════════════════════════════════════════════════════
+
+Los colores usados son:
+
+Verde Primario:    #5E8D20
+└─ Usado en: Títulos, acentos principales
+
+Verde Claro:       #93BF34
+└─ Usado en: Highlights, botones, resaltes
+
+Negro:             #161A12
+└─ Usado en: Fondo principal, secciones oscuras
+
+Gris Texto:        #cccccc
+└─ Usado en: Texto de descripción
+
+EJEMPLO DE USO:
+┌──────────────────────────────┐
+│ Título Verde (#5E8D20)       │  ← Verde Primario
+│                              │
+│ $50.000 (#93BF34)           │  ← Verde Claro para precio
+│ Descripción gris             │  ← Gris para texto
+│ [Button Verde+Claro]         │  ← Gradiente de verdes
+└──────────────────────────────┘
+Fondo Negro (#161A12)         ← Negro de fondo
+
+════════════════════════════════════════════════════════════════════════════════
+PASO 7: ENTENDER LAS MATRICES DE PRECIOS
+════════════════════════════════════════════════════════════════════════════════
+
+PLANES MENSUALES (2 visitas):
+┌──────────────────────────────────────────┐
+│ Plan Básico       │ Plan Full            │
+│ $50.000 ARS/mes   │ $60.000 ARS/mes      │
+├──────────────────────────────────────────┤
+│ Solo corte        │ Corte + Bordeado     │
+│ 2 visitas         │ 2 visitas            │
+│ Con máquina       │ Con máquina           │
+│ Combustible ✓     │ Combustible ✓        │
+│                   │ Bordeadora ✓         │
+└──────────────────────────────────────────┘
+
+VISITAS PARTICULARES (Sin compromiso):
+┌──────────────────────────────────────────┐
+│ Corte Simple      │ Corte + Bordeado     │
+│ $27.500 ARS       │ $34.000 ARS          │
+└──────────────────────────────────────────┘
+
+AHORROS CON PLAN:
+┌──────────────────────────────────────────┐
+│ 2 Cortes sueltos: $27.500 x 2 = $55.000  │
+│ Plan Básico:                    $50.000  │
+│ Diferencia:                     $5.000 ↓ │
+│                                          │
+│ 2 Cortes sueltos: $34.000 x 2 = $68.000  │
+│ Plan Full:                      $60.000  │
+│ Diferencia:                     $8.000 ↓ │
+└──────────────────────────────────────────┘
+
+════════════════════════════════════════════════════════════════════════════════
+PASO 8: CÓMO FUNCIONA EL RECARGO DEL 30%
+════════════════════════════════════════════════════════════════════════════════
+
+El recargo automático del 30% se aplica cuando:
+PASTO > 20 cm (equivale a altura de botella de agua chica)
+
+EJEMPLO:
+
+Escenario 1: Pasto Normal (15 cm)
+────────────────────────────────────
+Plan Mensual (Corte + Bordeado): $60.000
+Altura del pasto: 15 cm
+¿Aplica recargo? NO
+Precio final: $60.000
+
+
+Escenario 2: Pasto Alto (25 cm)
+────────────────────────────────────
+Plan Mensual (Corte + Bordeado): $60.000
+Altura del pasto: 25 cm
+¿Aplica recargo? SÍ (porque > 20 cm)
+Recargo 30%: $60.000 × 0.30 = $18.000
+Precio final: $60.000 + $18.000 = $78.000
+
+⚠️ Advertencia: Aparece en rojo explicando el recargo
+
+
+CÓMO CALCULAR EL RECARGO MANUALMENTE:
+1. Toma el precio base
+2. Multiplica por 0.30 (30%)
+3. Suma al precio base
+
+Ejemplo:
+$50.000 × 0.30 = $15.000
+$50.000 + $15.000 = $65.000
+
+════════════════════════════════════════════════════════════════════════════════
+PASO 9: ARCHIVOS QUE NECESITAS SABER
+════════════════════════════════════════════════════════════════════════════════
+
+Archivos principales:
+  prices.html                     ← Página de precios
+  calculator.html                 ← Calculadora interactiva
+
+Archivos de ayuda:
+  COMIENZA_AQUI.txt              ← Comienzo rápido (Este)
+  PRECIOS_CALCULADORA_README.md  ← Documentación técnica
+  VINCULACION_GUIA.txt           ← Cómo vincular en tu sitio
+
+Archivos de referencia:
+  styles.css                     ← Estilos principales
+  header.html                    ← Donde agregar los links
+  footer.html                    ← Donde agregar los links
+
+════════════════════════════════════════════════════════════════════════════════
+PASO 10: PRÓXIMOS PASOS DESPUÉS DE PROBAR
+════════════════════════════════════════════════════════════════════════════════
+
+DESPUÉS DE VERIFICAR QUE TODO FUNCIONA:
+
+1. VER SI TE GUSTAN LOS COLORES
+   Si quieres cambiarlos, edita:
+   • prices.html: línea ~20 con estilos
+   • calculator.html: línea ~20 con estilos
+
+2. CAMBIAR LOS PRECIOS
+   Si necesitas ajustar precios:
+   • prices.html: Busca los números
+   • calculator.html: Busca objeto "prices"
+
+3. VINCULAR EN TU SITIO
+   Lee VINCULACION_GUIA.txt para:
+   • Agregar links en menú
+   • Integrar con WhatsApp
+   • Publicar en producción
+
+4. COMPARTIR CON CLIENTES
+   Una vez vinculado:
+   • Comparte el link de tu sitio
+   • Publica en redes sociales
+   • Envía a clientes existentes
+
+════════════════════════════════════════════════════════════════════════════════
+TROUBLESHOOTING - PROBLEMAS COMUNES
+════════════════════════════════════════════════════════════════════════════════
+
+PROBLEMA: No se ve bien en mobile
+SOLUCIÓN: Presiona F12 y usa el modo responsive (Ctrl+Shift+M)
+
+PROBLEMA: Los iconos no aparecen (se ven cuadritos)
+SOLUCIÓN: Font Awesome necesita internet. Verifica conexión.
+
+PROBLEMA: El slider no se mueve
+SOLUCIÓN: Verifica que JavaScript esté habilitado (F12 → Console)
+
+PROBLEMA: El precio no se actualiza
+SOLUCIÓN: Actualiza la página (F5). Si sigue igual, verifica consola.
+
+PROBLEMA: No se abre el archivo
+SOLUCIÓN: Arrastra el archivo .html directo al navegador
+
+════════════════════════════════════════════════════════════════════════════════
+RESUMEN FINAL
+════════════════════════════════════════════════════════════════════════════════
+
+✅ Tienes 2 páginas profesionales
+✅ Totalmente funcionales
+✅ Responsive en todos los dispositivos
+✅ Listas para vincular en tu sitio
+✅ Documentación completa
+
+Próximo paso: Lee VINCULACION_GUIA.txt para integrar en tu sitio.
+
+════════════════════════════════════════════════════════════════════════════════
+
+¡Esperamos que disfrutes tus nuevas páginas! 🎉
+
+════════════════════════════════════════════════════════════════════════════════

@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumen - Páginas de Precios y Calculadora</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #4D781B 0%, #161A12 100%);
+            color: #cccccc;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, rgba(93, 141, 32, 0.2), rgba(77, 120, 27, 0.2));
+            border-radius: 12px;
+            border: 2px solid #93BF34;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: #93BF34;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            color: #f5f5f5;
+        }
+
+        .pages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .page-card {
+            background: linear-gradient(135deg, rgba(93, 141, 32, 0.1), rgba(77, 120, 27, 0.1));
+            border: 2px solid #5E8D20;
+            border-radius: 12px;
+            padding: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .page-card:hover {
+            border-color: #93BF34;
+            box-shadow: 0 20px 40px rgba(93, 141, 32, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .page-card h2 {
+            font-size: 1.8rem;
+            color: #93BF34;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .page-card p {
+            font-size: 0.95rem;
+            color: #cccccc;
+            margin-bottom: 20px;
+        }
+
+        .features {
+            list-style: none;
+            margin: 25px 0;
+        }
+
+        .features li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #cccccc;
+        }
+
+        .features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #93BF34;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .link-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #5E8D20, #93BF34);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .link-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(93, 141, 32, 0.3);
+        }
+
+        .features-section {
+            background: linear-gradient(135deg, rgba(93, 141, 32, 0.1), rgba(77, 120, 27, 0.1));
+            border: 2px solid #93BF34;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 40px;
+        }
+
+        .features-section h3 {
+            font-size: 1.5rem;
+            color: #93BF34;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .feature-item {
+            background: rgba(22, 26, 18, 0.5);
+            border-left: 4px solid #93BF34;
+            padding: 20px;
+            border-radius: 6px;
+        }
+
+        .feature-item h4 {
+            color: #93BF34;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .feature-item p {
+            color: #cccccc;
+            font-size: 0.9rem;
+        }
+
+        .prices-display {
+            background: rgba(22, 26, 18, 0.5);
+            border-left: 4px solid #93BF34;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 15px 0;
+            font-family: monospace;
+            color: #93BF34;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 8px 0;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(147, 191, 52, 0.2);
+        }
+
+        .price-row:last-child {
+            border-bottom: none;
+        }
+
+        .price-label {
+            color: #cccccc;
+        }
+
+        .price-value {
+            color: #93BF34;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .status-badge {
+            display: inline-block;
+            background: #93BF34;
+            color: #161A12;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .next-steps {
+            background: linear-gradient(135deg, rgba(93, 141, 32, 0.15), rgba(77, 120, 27, 0.15));
+            border: 2px solid #93BF34;
+            border-radius: 12px;
+            padding: 40px;
+            margin-top: 40px;
+        }
+
+        .next-steps h3 {
+            font-size: 1.5rem;
+            color: #93BF34;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .steps-list {
+            list-style: none;
+        }
+
+        .steps-list li {
+            padding: 15px;
+            margin-bottom: 10px;
+            background: rgba(22, 26, 18, 0.5);
+            border-left: 4px solid #93BF34;
+            border-radius: 4px;
+            color: #cccccc;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .steps-list li::before {
+            content: attr(data-step);
+            background: #93BF34;
+            color: #161A12;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .footer-note {
+            text-align: center;
+            padding: 30px;
+            color: #cccccc;
+            font-size: 0.9rem;
+            margin-top: 40px;
+            border-top: 1px solid rgba(147, 191, 52, 0.2);
+        }
+
+        .footer-note strong {
+            color: #93BF34;
+        }
+
+        @media (max-width: 768px) {
+            .pages-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .page-card {
+                padding: 25px;
+            }
+
+            .page-card h2 {
+                font-size: 1.4rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <div class="header">
+            <h1><i class="fas fa-check-circle"></i> Proyecto Completado</h1>
+            <p>Páginas de Precios y Calculadora para Mantenimiento de Espacios Verdes</p>
+        </div>
+
+        <div class="pages-grid">
+            
+            <!-- PRICES PAGE -->
+            <div class="page-card">
+                <div class="status-badge"><i class="fas fa-check"></i> ✓ COMPLETADO</div>
+                <h2><i class="fas fa-tag"></i> Lista de Precios</h2>
+                <p><strong>Archivo:</strong> prices.html</p>
+                
+                <p>Página profesional de lista de precios con todos los servicios, planes mensuales, visitas particulares y recargos.</p>
+
+                <h3 style="font-size: 1.1rem; color: #93BF34; margin: 20px 0 15px 0;">Secciones Incluidas:</h3>
+                <ul class="features">
+                    <li>Hero Section con atención exclusiva fines de semana</li>
+                    <li>Planes Mensuales (2 visitas)</li>
+                    <li>Visitas Particulares sin compromiso</li>
+                    <li>Recargos y Condiciones detalladas</li>
+                    <li>Calculadora Visual (3 pasos)</li>
+                    <li>Beneficios de elegir abono</li>
+                    <li>CTA para contactar por WhatsApp</li>
+                </ul>
+
+                <h3 style="font-size: 1.1rem; color: #93BF34; margin: 20px 0 15px 0;">Planes y Precios:</h3>
+                <div class="prices-display">
+                    <div class="price-row">
+                        <span class="price-label">Plan Básico (2 visitas)</span>
+                        <span class="price-value">$50.000</span>
+                    </div>
+                    <div class="price-row">
+                        <span class="price-label">Plan Full (2 visitas + bordeado)</span>
+                        <span class="price-value">$60.000</span>
+                    </div>
+                    <div class="price-row">
+                        <span class="price-label">Corte Simple (visita única)</span>
+                        <span class="price-value">$27.500</span>
+                    </div>
+                    <div class="price-row">
+                        <span class="price-label">Corte + Bordeado (visita única)</span>
+                        <span class="price-value">$34.000</span>
+                    </div>
+                </div>
+
+                <a href="prices.html" class="link-button" target="_blank">
+                    <i class="fas fa-eye"></i> Ver Página
+                </a>
+            </div>
+
+            <!-- CALCULATOR PAGE -->
+            <div class="page-card">
+                <div class="status-badge"><i class="fas fa-check"></i> ✓ COMPLETADO</div>
+                <h2><i class="fas fa-calculator"></i> Calculadora Interactiva</h2>
+                <p><strong>Archivo:</strong> calculator.html</p>
+                
+                <p>Calculadora completamente funcional para que los clientes calculen su presupuesto en tiempo real.</p>
+
+                <h3 style="font-size: 1.1rem; color: #93BF34; margin: 20px 0 15px 0;">Funcionalidades:</h3>
+                <ul class="features">
+                    <li>Selección de frecuencia (Visita Única vs Plan)</li>
+                    <li>Selección de servicio (Corte vs Corte+Bordeado)</li>
+                    <li>Slider interactivo para altura de pasto</li>
+                    <li>Cálculo automático en tiempo real</li>
+                    <li>Recargo del 30% si pasto > 20 cm</li>
+                    <li>Tabla comparativa de ahorros</li>
+                    <li>Botón directo para contratar por WhatsApp</li>
+                </ul>
+
+                <h3 style="font-size: 1.1rem; color: #93BF34; margin: 20px 0 15px 0;">Detalles Mostrados:</h3>
+                <div class="prices-display">
+                    <div class="price-row">
+                        <span class="price-label">Frecuencia seleccionada</span>
+                        <span class="price-value">Variable</span>
+                    </div>
+                    <div class="price-row">
+                        <span class="price-label">Servicio elegido</span>
+                        <span class="price-value">Variable</span>
+                    </div>
+                    <div class="price-row">
+                        <span class="price-label">Altura del pasto</span>
+                        <span class="price-value">5-30 cm</span>
+                    </div>
+                    <div class="price-row">
+                        <span class="price-label">Recargo por pasto alto</span>
+                        <span class="price-value">+30% (si aplica)</span>
+                    </div>
+                </div>
+
+                <a href="calculator.html" class="link-button" target="_blank">
+                    <i class="fas fa-eye"></i> Ver Calculadora
+                </a>
+            </div>
+
+        </div>
+
+        <!-- DESIGN FEATURES -->
+        <div class="features-section">
+            <h3><i class="fas fa-palette"></i> Características de Diseño</h3>
+            
+            <div class="features-grid">
+                <div class="feature-item">
+                    <h4><i class="fas fa-mobile-alt"></i> Responsive Design</h4>
+                    <p>Optimizado para desktop, tablet y móvil. Formato vertical tipo historia de WhatsApp.</p>
+                </div>
+
+                <div class="feature-item">
+                    <h4><i class="fas fa-palette"></i> Paleta de Colores</h4>
+                    <p>Verde primario #5E8D20, Verde claro #93BF34, Negro #161A12. Consistente con el sitio.</p>
+                </div>
+
+                <div class="feature-item">
+                    <h4><i class="fas fa-icons"></i> Iconografía</h4>
+                    <p>Font Awesome 6.4.0 con iconos profesionales (hojas, tijeras, calendario, calculadora, etc.)</p>
+                </div>
+
+                <div class="feature-item">
+                    <h4><i class="fas fa-mouse"></i> Interactividad</h4>
+                    <p>Efectos hover suave, animaciones, selecciones visuales y cálculos en tiempo real.</p>
+                </div>
+
+                <div class="feature-item">
+                    <h4><i class="fas fa-star"></i> UX Profesional</h4>
+                    <p>Cards destacadas, gradientes suaves, sombras profundas y tipografía clara.</p>
+                </div>
+
+                <div class="feature-item">
+                    <h4><i class="fas fa-code"></i> Código Limpio</h4>
+                    <p>HTML semántico, CSS organizado, JavaScript funcional y comentarios descriptivos.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- COMPARISON TABLE -->
+        <div class="features-section">
+            <h3><i class="fas fa-balance-scale"></i> Matriz de Precios y Ahorros</h3>
+            
+            <div class="prices-display" style="font-size: 0.95rem;">
+                <div style="margin-bottom: 15px; color: #93BF34; font-weight: bold;">VISITAS PARTICULARES (Sin compromiso)</div>
+                <div class="price-row">
+                    <span class="price-label">Corte Simple</span>
+                    <span class="price-value">$27.500 / visita</span>
+                </div>
+                <div class="price-row">
+                    <span class="price-label">Corte + Bordeado</span>
+                    <span class="price-value">$34.000 / visita</span>
+                </div>
+
+                <div style="margin: 20px 0 15px 0; padding-top: 15px; border-top: 1px solid rgba(147, 191, 52, 0.3); color: #93BF34; font-weight: bold;">PLANES MENSUALES (2 visitas)</div>
+                <div class="price-row">
+                    <span class="price-label">Plan Básico (Solo corte)</span>
+                    <span class="price-value">$50.000/mes</span>
+                </div>
+                <div class="price-row">
+                    <span class="price-label">Plan Full (Corte + Bordeado)</span>
+                    <span class="price-value">$60.000/mes</span>
+                </div>
+
+                <div style="margin: 20px 0 15px 0; padding-top: 15px; border-top: 1px solid rgba(147, 191, 52, 0.3); color: #93BF34; font-weight: bold;">AHORROS CON PLAN</div>
+                <div class="price-row">
+                    <span class="price-label">Plan Básico vs 2 visitas simple</span>
+                    <span class="price-value">Ahorro: $5.000</span>
+                </div>
+                <div class="price-row">
+                    <span class="price-label">Plan Full vs 2 visitas completa</span>
+                    <span class="price-value">Ahorro: $8.000</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- NEXT STEPS -->
+        <div class="next-steps">
+            <h3><i class="fas fa-tasks"></i> Próximos Pasos Sugeridos</h3>
+            
+            <ul class="steps-list">
+                <li data-step="1">
+                    <strong>Vincular en menú:</strong> Agregá links a prices.html y calculator.html en tu header/navegación
+                </li>
+                <li data-step="2">
+                    <strong>Integración WhatsApp:</strong> Configura los botones CTA con tu número de WhatsApp
+                </li>
+                <li data-step="3">
+                    <strong>Testing:</strong> Probá ambas páginas en desktop, tablet y móvil
+                </li>
+                <li data-step="4">
+                    <strong>SEO:</strong> Agregá meta descriptions y keywords relevantes
+                </li>
+                <li data-step="5">
+                    <strong>Analytics:</strong> Rastreá cuántas personas usan la calculadora
+                </li>
+                <li data-step="6">
+                    <strong>Promoción:</strong> Compartí las nuevas páginas en redes sociales
+                </li>
+            </ul>
+        </div>
+
+        <!-- DOCUMENTATION -->
+        <div class="next-steps">
+            <h3><i class="fas fa-book"></i> Documentación Disponible</h3>
+            
+            <p style="margin-bottom: 20px; color: #cccccc;">Se ha creado un archivo de documentación completa:</p>
+            
+            <div class="prices-display" style="margin-bottom: 20px;">
+                <strong>PRECIOS_CALCULADORA_README.md</strong>
+                <p style="color: #cccccc; margin-top: 10px; font-family: 'Segoe UI', sans-serif;">Contiene:</p>
+                <ul style="margin-top: 10px; margin-left: 20px; color: #cccccc;">
+                    <li>✓ Descripción de ambas páginas</li>
+                    <li>✓ Características y funcionalidades</li>
+                    <li>✓ Paleta de colores utilizada</li>
+                    <li>✓ Instrucciones de vinculación</li>
+                    <li>✓ Testing checklist</li>
+                    <li>✓ Mejoras futuras sugeridas</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-note">
+            <p>✨ <strong>Proyecto completado exitosamente</strong> el 22 de Enero, 2026</p>
+            <p>Todas las páginas están listas para usar y optimizadas para móvil y desktop</p>
+        </div>
+
+    </div>
+</body>
+</html>

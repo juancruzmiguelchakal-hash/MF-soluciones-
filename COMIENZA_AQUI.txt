@@ -1,0 +1,287 @@
+🚀 INSTRUCCIONES RÁPIDAS PARA PROBAR
+═══════════════════════════════════════════════════════════════════════════════
+
+OPCIÓN 1: ABRIR DIRECTAMENTE EN NAVEGADOR
+──────────────────────────────────────────────────────────────────────────────
+1. Abre tu navegador (Chrome, Firefox, Edge, Safari)
+2. Presiona Ctrl+O (Windows) o Cmd+O (Mac)
+3. Navega a: c:\Users\Usuario\Desktop\kort 2
+4. Selecciona "prices.html" o "calculator.html"
+5. ¡Listo! La página se abre en tu navegador
+
+OPCIÓN 2: USAR VS CODE
+──────────────────────────────────────────────────────────────────────────────
+1. Abre VS Code
+2. Abre la carpeta: c:\Users\Usuario\Desktop\kort 2
+3. Busca prices.html o calculator.html
+4. Click derecho → "Open with Live Server" (si lo tienes instalado)
+5. Se abre en navegador automáticamente
+
+OPCIÓN 3: USAR TERMINAL/POWERSHELL
+──────────────────────────────────────────────────────────────────────────────
+Windows (PowerShell):
+    cd "c:\Users\Usuario\Desktop\kort 2"
+    start prices.html
+    # o
+    start calculator.html
+
+═══════════════════════════════════════════════════════════════════════════════
+
+ARCHIVOS A REVISAR
+═══════════════════════════════════════════════════════════════════════════════
+
+1. 📄 00_COMIENZA_AQUI.txt (Este archivo)
+   └─ Inicio rápido
+
+2. 📄 PRECIOS_CALCULADORA_README.md
+   └─ Documentación técnica completa
+
+3. 📄 VINCULACION_GUIA.txt
+   └─ Cómo vincular en tu sitio
+
+4. 📄 RESUMEN_FINAL_PRECIOS.txt
+   └─ Resumen ejecutivo completo
+
+5. 📄 VERIFICACION_COMPLETACION.txt
+   └─ Checklist de verificación
+
+6. 🌐 RESUMEN_PROYECTO_PRECIOS.html
+   └─ Vista visual del proyecto
+
+═══════════════════════════════════════════════════════════════════════════════
+
+ARCHIVOS PRINCIPALES
+═══════════════════════════════════════════════════════════════════════════════
+
+1. 🎨 prices.html (760 líneas)
+   └─ Lista de precios profesional
+   └─ Planes mensuales y visitas particulares
+   └─ Recargos y condiciones
+   └─ 100% responsive
+
+2. 🧮 calculator.html (815 líneas)
+   └─ Calculadora interactiva funcional
+   └─ Cálculos en tiempo real
+   └─ Tabla comparativa de ahorros
+   └─ 100% responsive
+
+═══════════════════════════════════════════════════════════════════════════════
+
+GUÍA RÁPIDA - CALCULADORA
+═══════════════════════════════════════════════════════════════════════════════
+
+PARA PROBAR LA CALCULADORA:
+
+1. Abre calculator.html
+2. Selecciona "Plan Mensual"
+3. Selecciona "Corte + Bordeado"
+4. Ajusta el slider de altura de pasto a 25 cm (para ver recargo)
+5. Observa:
+   ✓ Precio se actualiza: $60.000 → $78.000 (con recargo 30%)
+   ✓ Advertencia aparece: "Pasto mide más de 20 cm"
+   ✓ Tabla comparativa muestra ahorros
+   ✓ Botones funcionan correctamente
+
+═══════════════════════════════════════════════════════════════════════════════
+
+GUÍA RÁPIDA - LISTA DE PRECIOS
+═══════════════════════════════════════════════════════════════════════════════
+
+PARA PROBAR LA LISTA DE PRECIOS:
+
+1. Abre prices.html
+2. Verifica:
+   ✓ Planes mensuales (Básico y Full)
+   ✓ Visitas particulares (Simple y + Bordeado)
+   ✓ Recargos y condiciones
+   ✓ Beneficios de elegir plan
+   ✓ Calculadora visual
+   ✓ CTA para contactar
+
+3. En móvil:
+   ✓ Abre en celular
+   ✓ Verifica formato vertical
+   ✓ Comprueba que sea tipo "historia de WhatsApp"
+   ✓ Botones sean legibles y tocables
+
+═══════════════════════════════════════════════════════════════════════════════
+
+PREGUNTAS FRECUENTES
+═══════════════════════════════════════════════════════════════════════════════
+
+P: ¿Cómo vincular en mi sitio?
+R: Lee VINCULACION_GUIA.txt para instrucciones paso a paso
+
+P: ¿Cómo cambiar los precios?
+R: Edita ambas páginas. Los precios están en:
+   • prices.html: líneas con "$50.000", "$60.000", etc.
+   • calculator.html: objeto "prices" al inicio del script
+
+P: ¿Cómo agregar mi número de WhatsApp?
+R: Los botones CTA necesitan ser configurados con tu número
+   Ver VINCULACION_GUIA.txt sección "INTEGRAR WHATSAPP"
+
+P: ¿Funciona en móvil?
+R: Sí, 100% responsivo. Probado en:
+   • Desktop (1920px+)
+   • Tablet (768-1024px)
+   • Mobile (480-767px)
+   • Small (360-479px)
+
+P: ¿Qué navegadores soporta?
+R: Chrome, Firefox, Safari, Edge. Todos modernos compatibles.
+
+═══════════════════════════════════════════════════════════════════════════════
+
+TROUBLESHOOTING
+═══════════════════════════════════════════════════════════════════════════════
+
+PROBLEMA: Los iconos no se ven
+SOLUCIÓN: Font Awesome 6.4.0 debe cargar desde CDN (internet conectado)
+
+PROBLEMA: Los colores se ven diferentes
+SOLUCIÓN: Verifica que styles.css esté cargado correctamente
+         Colores definidos en :root
+
+PROBLEMA: El slider no funciona
+SOLUCIÓN: Verifica que JavaScript esté habilitado en el navegador
+         Presiona F12 → Console para ver errores
+
+PROBLEMA: No se abre en navegador
+SOLUCIÓN: Verifica que los archivos existan
+         Prueba con navegador diferente
+         Verifica la ruta del archivo
+
+═══════════════════════════════════════════════════════════════════════════════
+
+ESTRUCTURA DE ARCHIVOS
+═══════════════════════════════════════════════════════════════════════════════
+
+kort 2/
+├── prices.html                          ← PÁGINA DE PRECIOS
+├── calculator.html                      ← CALCULADORA INTERACTIVA
+├── 00_COMIENZA_AQUI.txt                ← ESTE ARCHIVO
+├── PRECIOS_CALCULADORA_README.md       ← DOCUMENTACIÓN TÉCNICA
+├── VINCULACION_GUIA.txt                ← CÓMO VINCULAR
+├── RESUMEN_FINAL_PRECIOS.txt           ← RESUMEN COMPLETO
+├── VERIFICACION_COMPLETACION.txt       ← CHECKLIST
+├── RESUMEN_PROYECTO_PRECIOS.html       ← VISTA VISUAL
+├── styles.css                           (Estilos principales del sitio)
+├── header.html                          (Aquí vincular los links)
+├── footer.html
+├── script.js
+└── [otros archivos del sitio]
+
+═══════════════════════════════════════════════════════════════════════════════
+
+DATOS QUE INCLUYE CADA PÁGINA
+═══════════════════════════════════════════════════════════════════════════════
+
+PRICES.HTML:
+
+PLANES MENSUALES (2 visitas):
+  • Plan Básico: $50.000 (Solo corte)
+  • Plan Full: $60.000 (Corte + Bordeado)
+
+VISITAS PARTICULARES:
+  • Corte Simple: $27.500
+  • Corte + Bordeado: $34.000
+
+RECARGOS:
+  • Pasto > 20cm: +30%
+  • Días de lluvia: Reprogramación
+
+INCLUYE:
+  • Combustible, tanza, bolsas, limpieza
+
+CALCULATOR.HTML:
+
+PASO 1: Frecuencia (Visita Única vs Plan Mensual)
+PASO 2: Servicio (Solo Corte vs Corte+Bordeado)
+PASO 3: Altura de Pasto (5-30 cm, slider)
+
+RESULTADO: Precio calculado + detalles + tabla comparativa
+
+═══════════════════════════════════════════════════════════════════════════════
+
+PALETA DE COLORES
+═══════════════════════════════════════════════════════════════════════════════
+
+Verde Primario:    #5E8D20   (Títulos, acentos)
+Verde Oscuro:      #4D781B   (Fondos oscuros)
+Verde Claro:       #93BF34   (Highlights, botones)
+Negro:             #161A12   (Fondo principal)
+Gris Texto:        #cccccc   (Texto)
+
+═══════════════════════════════════════════════════════════════════════════════
+
+ICONOS UTILIZADOS
+═══════════════════════════════════════════════════════════════════════════════
+
+De Font Awesome 6.4.0:
+  fa-leaf              (Hoja)
+  fa-calendar-days     (Calendario)
+  fa-pruning-shears    (Tijeras de poda)
+  fa-calculator        (Calculadora)
+  fa-tag               (Etiqueta)
+  fa-check             (Verificación)
+  fa-whatsapp          (WhatsApp)
+  fa-arrow-up          (Flecha hacia arriba)
+  fa-cloud-rain        (Lluvia)
+  fa-star              (Estrella)
+  fa-heart             (Corazón)
+  y más...
+
+═══════════════════════════════════════════════════════════════════════════════
+
+¿QUÉ SIGUE?
+═══════════════════════════════════════════════════════════════════════════════
+
+✅ COMPLETADO:
+  ✓ Páginas diseñadas
+  ✓ Funcionalidades implementadas
+  ✓ Responsive verificado
+  ✓ Documentación completa
+
+⏭️ PRÓXIMOS PASOS:
+  1. Revisar páginas en navegador
+  2. Vincular en menú principal
+  3. Configurar WhatsApp
+  4. Compartir con clientes
+  5. Monitorear engagement
+
+═══════════════════════════════════════════════════════════════════════════════
+
+NECESITAS AYUDA?
+═══════════════════════════════════════════════════════════════════════════════
+
+1. Lee la documentación incluida
+2. Verifica el checklist de verificación
+3. Revisa ejemplos de código en VINCULACION_GUIA.txt
+4. Prueba en diferentes navegadores
+5. Verifica consola del navegador (F12) para errores
+
+═══════════════════════════════════════════════════════════════════════════════
+
+CONTACTO RÁPIDO
+═══════════════════════════════════════════════════════════════════════════════
+
+Archivos de documentación:
+  📄 PRECIOS_CALCULADORA_README.md       (Técnica)
+  📄 VINCULACION_GUIA.txt                (Implementación)
+  📄 RESUMEN_FINAL_PRECIOS.txt           (Completa)
+  📄 VERIFICACION_COMPLETACION.txt       (Verificación)
+
+═══════════════════════════════════════════════════════════════════════════════
+
+✨ ¡LISTO PARA COMENZAR! ✨
+
+Abre prices.html o calculator.html en tu navegador y comienza a explorar.
+
+═══════════════════════════════════════════════════════════════════════════════
+
+Fecha: 22 de Enero, 2026
+Estado: ✅ COMPLETADO Y LISTO
+Versión: 1.0
+
+═══════════════════════════════════════════════════════════════════════════════

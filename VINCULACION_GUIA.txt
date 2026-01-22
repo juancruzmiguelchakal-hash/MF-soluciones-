@@ -1,0 +1,325 @@
+<!-- 
+  INSTRUCCIONES DE VINCULACIÓN
+  Cómo agregar links a las nuevas páginas de precios y calculadora en tu sitio
+-->
+
+═══════════════════════════════════════════════════════════════════════════════
+PASO 1: AGREGAR LINKS EN EL MENÚ PRINCIPAL (header.html)
+═══════════════════════════════════════════════════════════════════════════════
+
+Busca en tu archivo header.html la sección de navegación (probablemente <nav> o <ul class="nav-menu">)
+y agrega estos dos links:
+
+OPCIÓN A - Si usas estructura HTML básica:
+──────────────────────────────────────────────────────────────────────────────
+<nav class="navbar">
+    <ul class="nav-menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="aboutus.html">Sobre Nosotros</a></li>
+        <li><a href="services.html">Servicios</a></li>
+        
+        <!-- AGREGAR ESTOS DOS LINKS -->
+        <li><a href="prices.html"><i class="fas fa-tag"></i> Precios</a></li>
+        <li><a href="calculator.html"><i class="fas fa-calculator"></i> Calculadora</a></li>
+        
+        <li><a href="contact.html">Contacto</a></li>
+    </ul>
+</nav>
+──────────────────────────────────────────────────────────────────────────────
+
+OPCIÓN B - Si usas versión con más estilos:
+──────────────────────────────────────────────────────────────────────────────
+<div class="nav-item">
+    <a href="prices.html" class="nav-link">
+        <i class="fas fa-tag"></i>
+        <span>Precios</span>
+    </a>
+</div>
+
+<div class="nav-item">
+    <a href="calculator.html" class="nav-link">
+        <i class="fas fa-calculator"></i>
+        <span>Calculadora</span>
+    </a>
+</div>
+──────────────────────────────────────────────────────────────────────────────
+
+═══════════════════════════════════════════════════════════════════════════════
+PASO 2: AGREGAR LINKS EN EL FOOTER (footer.html)
+═══════════════════════════════════════════════════════════════════════════════
+
+Si tienes una sección de links en el footer, puedes agregar:
+
+<div class="footer-section">
+    <h4>Servicios</h4>
+    <ul>
+        <li><a href="services.html">Todos los Servicios</a></li>
+        <li><a href="prices.html">Lista de Precios</a></li>
+        <li><a href="calculator.html">Calculadora</a></li>
+    </ul>
+</div>
+
+═══════════════════════════════════════════════════════════════════════════════
+PASO 3: AGREGAR BOTONES CTA EN PÁGINA DE INICIO (index.html)
+═══════════════════════════════════════════════════════════════════════════════
+
+Puedes agregar botones destacados para dirigir a usuarios a estas nuevas páginas:
+
+OPCIÓN A - Banner o Hero Section:
+──────────────────────────────────────────────────────────────────────────────
+<section class="cta-section">
+    <div class="container">
+        <h2>¿Cuánto cuesta mantener tu jardín?</h2>
+        <p>Descubrí nuestros planes y usa nuestra calculadora interactiva</p>
+        
+        <div class="cta-buttons">
+            <a href="prices.html" class="btn btn-primary">
+                <i class="fas fa-tag"></i> Ver Precios
+            </a>
+            <a href="calculator.html" class="btn btn-secondary">
+                <i class="fas fa-calculator"></i> Calcular Presupuesto
+            </a>
+        </div>
+    </div>
+</section>
+──────────────────────────────────────────────────────────────────────────────
+
+OPCIÓN B - Cards con links:
+──────────────────────────────────────────────────────────────────────────────
+<div class="services-grid">
+    <div class="service-card">
+        <i class="fas fa-leaf"></i>
+        <h3>Precios Transparentes</h3>
+        <p>Conocé nuestros planes mensuales y visitas particulares</p>
+        <a href="prices.html" class="btn">Ir a Precios</a>
+    </div>
+    
+    <div class="service-card">
+        <i class="fas fa-calculator"></i>
+        <h3>Calcula Tu Presupuesto</h3>
+        <p>Herramienta interactiva para calcular tu costo exacto</p>
+        <a href="calculator.html" class="btn">Ir a Calculadora</a>
+    </div>
+</div>
+──────────────────────────────────────────────────────────────────────────────
+
+═══════════════════════════════════════════════════════════════════════════════
+PASO 4: INTEGRAR WHATSAPP EN LOS BOTONES CTA
+═══════════════════════════════════════════════════════════════════════════════
+
+Los botones "Contratar por WhatsApp" en ambas páginas pueden enviarse a tu 
+número de WhatsApp con el presupuesto. Para hacerlo funcionar:
+
+REEMPLAZAR EN PRICES.HTML (línea ~450):
+──────────────────────────────────────────────────────────────────────────────
+CAMBIAR:
+    <button class="plan-cta"><i class="fas fa-whatsapp"></i> Reservar Plan</button>
+
+POR:
+    <a href="https://wa.me/5491234567890?text=Hola!%20Me%20interesa%20el%20Plan%20de%20Mantenimiento"
+       class="plan-cta" target="_blank">
+        <i class="fas fa-whatsapp"></i> Reservar Plan
+    </a>
+
+NOTA: Reemplaza "5491234567890" con tu número de WhatsApp (código de país + número)
+──────────────────────────────────────────────────────────────────────────────
+
+REEMPLAZAR EN CALCULATOR.HTML (línea ~650):
+──────────────────────────────────────────────────────────────────────────────
+CAMBIAR:
+    <button class="btn-calculate">
+        <i class="fas fa-whatsapp"></i> Contratar por WhatsApp
+    </button>
+
+POR:
+    <a href="https://wa.me/5491234567890?text=Presupuesto%20generado%20en%20calculadora"
+       class="btn-calculate" target="_blank">
+        <i class="fas fa-whatsapp"></i> Contratar por WhatsApp
+    </a>
+──────────────────────────────────────────────────────────────────────────────
+
+ALTERNATIVA: VERSIÓN MEJORADA CON JAVASCRIPT
+──────────────────────────────────────────────────────────────────────────────
+Si quieres enviar el presupuesto calculado en el mensaje de WhatsApp:
+
+En calculator.html, modifica el botón así:
+
+<button class="btn-calculate" onclick="sendToWhatsApp()">
+    <i class="fas fa-whatsapp"></i> Contratar por WhatsApp
+</button>
+
+Y agrega este script al final del archivo (antes de </body>):
+
+<script>
+function sendToWhatsApp() {
+    const phoneNumber = '5491234567890'; // TU NÚMERO
+    const finalPrice = document.getElementById('finalPrice').textContent;
+    const frequency = document.getElementById('detailFrequency').textContent;
+    const service = document.getElementById('detailService').textContent;
+    
+    const message = `Hola! Me interesa contratar: ${service}. Presupuesto: ${finalPrice} (${frequency})`;
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    
+    window.open(whatsappUrl, '_blank');
+}
+</script>
+──────────────────────────────────────────────────────────────────────────────
+
+═══════════════════════════════════════════════════════════════════════════════
+PASO 5: VERIFICAR Enlaces FUNCIONEN
+═══════════════════════════════════════════════════════════════════════════════
+
+Después de agregar los links, verifica que:
+
+✓ Los links funcionen correctamente
+✓ Las páginas se carguen rápidamente
+✓ Los iconos se muestren correctamente
+✓ La navegación sea fluida
+✓ En móvil se adapte bien
+✓ Los botones WhatsApp abran la app
+
+═══════════════════════════════════════════════════════════════════════════════
+PASO 6: AGREGAR BREADCRUMBS (Opcional pero recomendado)
+═══════════════════════════════════════════════════════════════════════════════
+
+En las páginas de precios.html y calculator.html, puedes agregar breadcrumbs:
+
+<nav class="breadcrumbs">
+    <a href="index.html">Inicio</a> > 
+    <a href="services.html">Servicios</a> > 
+    <span>Precios</span>
+</nav>
+
+═══════════════════════════════════════════════════════════════════════════════
+PASO 7: SEO - ACTUALIZAR META TAGS
+═══════════════════════════════════════════════════════════════════════════════
+
+Los meta tags ya están incluidos en las páginas, pero verifica que sean correctos:
+
+EN PRICES.HTML:
+<title>Precios - Mantenimiento de Espacios Verdes</title>
+<meta name="description" content="Conocé nuestros planes mensuales y precios de mantenimiento de jardín. Atención exclusiva fines de semana.">
+<meta name="keywords" content="precios jardinería, mantenimiento jardín, planes mensuales">
+
+EN CALCULATOR.HTML:
+<title>Calculadora de Presupuesto - Mantenimiento de Espacios Verdes</title>
+<meta name="description" content="Calculadora interactiva para calcular tu presupuesto de mantenimiento de jardín en tiempo real.">
+<meta name="keywords" content="calculadora presupuesto, presupuesto jardinería, cálculo corte pasto">
+
+═══════════════════════════════════════════════════════════════════════════════
+PASO 8: AGREGAR ANALYTICS (Google Analytics) - Opcional
+═══════════════════════════════════════════════════════════════════════════════
+
+Para rastrear cuántas personas visitan estas páginas, agrega Google Analytics:
+
+Agrega esto antes de </head> en ambas páginas:
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'GA_MEASUREMENT_ID');
+</script>
+
+Reemplaza GA_MEASUREMENT_ID con tu ID de Google Analytics.
+
+═══════════════════════════════════════════════════════════════════════════════
+ESTRUCTURA DE NAVEGACIÓN RECOMENDADA
+═══════════════════════════════════════════════════════════════════════════════
+
+Menú Principal (header.html):
+├─ Inicio
+├─ Sobre Nosotros
+├─ Servicios
+├─ Precios ← NUEVO
+├─ Calculadora ← NUEVO
+└─ Contacto
+
+Footer (footer.html):
+├─ Servicios
+│  ├─ Corte de Pasto
+│  ├─ Bordeadora
+│  └─ Otros Servicios
+├─ Información
+│  ├─ Precios ← NUEVO
+│  ├─ Calculadora ← NUEVO
+│  └─ FAQ
+└─ Legal
+   ├─ Términos
+   └─ Privacidad
+
+═══════════════════════════════════════════════════════════════════════════════
+EJEMPLO COMPLETO: HEADER CON NUEVOS LINKS
+═══════════════════════════════════════════════════════════════════════════════
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MF Soluciones - Mantenimiento de Jardines</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-leaf"></i>
+                <a href="index.html">MF Soluciones</a>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="aboutus.html">Sobre Nosotros</a></li>
+                <li><a href="services.html">Servicios</a></li>
+                <li><a href="prices.html"><i class="fas fa-tag"></i> Precios</a></li>
+                <li><a href="calculator.html"><i class="fas fa-calculator"></i> Calculadora</a></li>
+                <li><a href="contact.html">Contacto</a></li>
+            </ul>
+            
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- El resto de tu contenido -->
+
+</body>
+</html>
+
+═══════════════════════════════════════════════════════════════════════════════
+¿NECESITAS AYUDA?
+═══════════════════════════════════════════════════════════════════════════════
+
+Si tienes problemas con la vinculación:
+
+1. Verifica que los archivos existan en la misma carpeta
+2. Revisa la consola del navegador (F12) para errores
+3. Asegúrate de que los nombres de archivo sean exactos (minúsculas)
+4. Prueba en diferentes navegadores
+
+═══════════════════════════════════════════════════════════════════════════════
+RESUMEN DE ARCHIVOS
+═══════════════════════════════════════════════════════════════════════════════
+
+Archivos a vincular:
+✓ prices.html         → Lista de precios profesional
+✓ calculator.html     → Calculadora interactiva
+
+Documentación:
+✓ PRECIOS_CALCULADORA_README.md      → Guía técnica
+✓ RESUMEN_PROYECTO_PRECIOS.html      → Vista visual
+✓ RESUMEN_FINAL_PRECIOS.txt          → Resumen ejecutivo
+✓ VINCULACION_GUIA.txt               → Este archivo
+
+═══════════════════════════════════════════════════════════════════════════════
+Fecha: 22 de Enero, 2026 | Estado: ✅ LISTO PARA VINCULAR
+═══════════════════════════════════════════════════════════════════════════════
