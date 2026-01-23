@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,16 +8,19 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-:root {
-    --primary-green: #5E8D20;
-    --dark-green: #4D781B;
-    --light-green: #93BF34;
-    --accent-green: #93BF34;
-    --color-primary: #5E8D20;
-    --color-dark: #4D781B;
-    --color-light: #93BF34;
-    --color-bg: #161A12;
-}
+        :root {
+            --primary-green: #255923;
+            --dark-green: #1A4019;
+            --light-green: #9D8643;
+            /* Reemplazado por dorado */
+            --accent-gold: #9D8643;
+            --color-primary: #255923;
+            --color-dark: #1A4019;
+            --color-light: #9D8643;
+            /* Reemplazado por dorado */
+            --color-bg: #161A12;
+            --dark-gray: #0e120d;
+        }
 
         * {
             margin: 0;
@@ -33,7 +37,7 @@
 
         /* Hero Section */
         .hero-kort {
-            background: linear-gradient(135deg, var(--black) 0%, var(--dark-green) 100%);
+            background: linear-gradient(135deg, var(--black, #0e120d) 0%, var(--dark-green) 100%);
             color: white;
             padding: 100px 20px;
             text-align: center;
@@ -50,7 +54,8 @@
             margin-bottom: 15px;
             position: relative;
             z-index: 1;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            color: var(--accent-gold);
         }
 
         .hero-kort p {
@@ -117,12 +122,13 @@
             justify-content: center;
             font-size: 5rem;
             color: white;
-            box-shadow: 0 10px 30px rgba(94, 141, 32, 0.2);
+            box-shadow: 0 10px 30px rgba(37, 89, 35, 0.2);
+            border: 2px solid var(--accent-gold);
         }
 
         /* Values Grid */
         .values-kort {
-            background: var(--black);
+            background: var(--dark-green);
             padding: 80px 20px;
         }
 
@@ -151,18 +157,18 @@
         }
 
         .value-card-kort {
-            background: rgba(147, 191, 52, 0.15);
+            background: rgba(157, 134, 67, 0.1);
             padding: 30px 20px;
             border-radius: 10px;
             text-align: center;
             transition: all 0.3s ease;
-            border: 2px solid var(--color-primary);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            border: 2px solid var(--accent-gold);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
         }
 
         .value-card-kort:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(94, 141, 32, 0.15);
+            box-shadow: 0 15px 40px rgba(157, 134, 67, 0.2);
             border-left-color: var(--color-light);
         }
 
@@ -191,7 +197,7 @@
         }
 
         .expertise-kort .section-title-kort {
-            color: white;
+            color: var(--accent-gold);
         }
 
         .expertise-kort .section-title-kort::after {
@@ -209,10 +215,10 @@
         }
 
         .expertise-item {
-            background: rgba(147, 191, 52, 0.1);
+            background: rgba(157, 134, 67, 0.1);
             padding: 25px 15px;
             border-radius: 8px;
-            border: 2px solid var(--color-primary);
+            border: 2px solid var(--accent-gold);
             text-align: center;
             transition: all 0.3s ease;
             display: flex;
@@ -223,7 +229,7 @@
         }
 
         .expertise-item:hover {
-            background: rgba(147, 191, 52, 0.2);
+            background: rgba(157, 134, 67, 0.2);
             transform: scale(1.05);
             border-color: var(--color-light);
         }
@@ -248,7 +254,7 @@
 
         /* Team Section */
         .team-kort {
-            background: var(--black);
+            background: var(--black, #0e120d);
             padding: 80px 20px;
         }
 
@@ -260,17 +266,17 @@
         }
 
         .team-member {
-            background: rgba(93, 135, 32, 0.25);
+            background: rgba(37, 89, 35, 0.25);
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
             transition: all 0.3s ease;
-            border: 2px solid var(--color-primary);
+            border: 2px solid var(--accent-gold);
         }
 
         .team-member:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(94, 141, 32, 0.2);
+            box-shadow: 0 15px 40px rgba(37, 89, 35, 0.3);
         }
 
         .team-member-image {
@@ -287,7 +293,7 @@
         .team-member-info {
             padding: 20px;
             text-align: center;
-            background: rgba(93, 135, 32, 0.25);
+            background: rgba(37, 89, 35, 0.25);
         }
 
         .team-member-info h3 {
@@ -377,13 +383,13 @@
 
         .btn-primary-kort {
             background: var(--color-light);
-            color: var(--color-bg);
+            color: var(--color-bg, #161A12);
         }
 
         .btn-primary-kort:hover {
             background: white;
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(147, 191, 52, 0.4);
+            box-shadow: 0 10px 30px rgba(157, 134, 67, 0.4);
         }
 
         .btn-secondary-kort {
@@ -394,7 +400,7 @@
 
         .btn-secondary-kort:hover {
             background: var(--color-light);
-            color: var(--color-bg);
+            color: var(--color-bg, #161A12);
             transform: translateY(-3px);
         }
 
@@ -708,6 +714,7 @@
         }
     </style>
 </head>
+
 <body>
     <div include-html="header.html"></div>
 
@@ -724,8 +731,12 @@
         <div class="container">
             <div class="story-content">
                 <h2>Nuestra Historia</h2>
-                <p>MF SOLUCIONES nace como una empresa dedicada a transformar y mantener espacios verdes con excelencia profesional. Con años de experiencia en el cuidado de jardines, nos apasiona crear soluciones innovadoras que impacten positivamente en nuestros clientes.</p>
-                <p>Creemos que cada jardín es único, por eso ofrecemos servicios personalizados adaptados a las necesidades específicas de cada espacio. Desde el corte de pasto hasta el control de plagas, somos tu socio en la transformación de tu jardín.</p>
+                <p>MF SOLUCIONES nace como una empresa dedicada a transformar y mantener espacios verdes con excelencia
+                    profesional. Con años de experiencia en el cuidado de jardines, nos apasiona crear soluciones
+                    innovadoras que impacten positivamente en nuestros clientes.</p>
+                <p>Creemos que cada jardín es único, por eso ofrecemos servicios personalizados adaptados a las
+                    necesidades específicas de cada espacio. Desde el corte de pasto hasta el control de plagas, somos
+                    tu socio en la transformación de tu jardín.</p>
             </div>
             <div class="story-image">
                 <i class="fas fa-leaf"></i>
@@ -741,12 +752,14 @@
                 <div class="value-card-kort">
                     <i class="fas fa-bullseye"></i>
                     <h3>Misión</h3>
-                    <p>Transformar espacios verdes en oasis de belleza con servicios profesionales de jardinería de calidad superior.</p>
+                    <p>Transformar espacios verdes en oasis de belleza con servicios profesionales de jardinería de
+                        calidad superior.</p>
                 </div>
                 <div class="value-card-kort">
                     <i class="fas fa-eye"></i>
                     <h3>Visión</h3>
-                    <p>Ser la empresa líder en servicios de jardinería, reconocidos por nuestra dedicación y profesionalismo.</p>
+                    <p>Ser la empresa líder en servicios de jardinería, reconocidos por nuestra dedicación y
+                        profesionalismo.</p>
                 </div>
                 <div class="value-card-kort">
                     <i class="fas fa-star"></i>
@@ -880,4 +893,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>

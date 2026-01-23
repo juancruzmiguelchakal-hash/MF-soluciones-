@@ -14,7 +14,7 @@
 .calculator-title {
     text-align: center;
     font-size: 2rem;
-    color: var(--light-green);
+    color: var(--accent-gold);
     margin-bottom: 10px;
     font-weight: 700;
     display: flex;
@@ -25,7 +25,7 @@
 
 .calculator-subtitle {
     text-align: center;
-    color: var(--text-gray);
+    color: var(--text-color);
     margin-bottom: 40px;
     font-size: 1.1rem;
 }
@@ -55,14 +55,14 @@
 .calc-step-number {
     width: 50px;
     height: 50px;
-    background: linear-gradient(135deg, var(--light-green) 0%, var(--primary-green) 100%);
+    background: linear-gradient(135deg, var(--accent-gold) 0%, var(--primary-green) 100%);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
     font-weight: bold;
-    color: var(--black);
+    color: var(--white);
     flex-shrink: 0;
     box-shadow: 0 4px 15px rgba(157, 134, 67, 0.3);
 }
@@ -70,7 +70,7 @@
 .calc-step-title {
     font-size: 1.3rem;
     font-weight: 600;
-    color: var(--light-green);
+    color: var(--accent-gold);
 }
 
 /* Calculator Options Grid */
@@ -123,7 +123,7 @@
 }
 
 .option-button.selected {
-    border-color: var(--light-green);
+    border-color: var(--accent-gold);
     background: linear-gradient(135deg, rgba(157, 134, 67, 0.15) 0%, rgba(37, 89, 35, 0.1) 100%);
     box-shadow: 0 0 20px rgba(157, 134, 67, 0.3);
 }
@@ -133,7 +133,7 @@
     position: absolute;
     top: 8px;
     right: 12px;
-    color: var(--light-green);
+    color: var(--accent-gold);
     font-weight: bold;
     font-size: 1.2rem;
 }
@@ -146,13 +146,13 @@
 
 .option-desc {
     font-size: 0.9rem;
-    color: var(--text-gray);
+    color: var(--text-color);
 }
 
 .option-price {
     font-size: 1.1rem;
     font-weight: 700;
-    color: var(--light-green);
+    color: var(--accent-gold);
     margin-top: auto;
 }
 
@@ -172,7 +172,7 @@
 .malezas-method-header {
     font-size: 1.1rem;
     font-weight: 700;
-    color: var(--light-green);
+    color: var(--accent-gold);
     padding-bottom: 12px;
     border-bottom: 2px solid rgba(157, 134, 67, 0.3);
     margin-bottom: 8px;
@@ -199,7 +199,7 @@
 }
 
 .price-table th {
-    color: var(--light-green);
+    color: var(--accent-gold);
     font-weight: 700;
     padding: 15px;
     text-align: left;
@@ -209,7 +209,7 @@
 .price-table td {
     padding: 12px 15px;
     border-bottom: 1px solid rgba(157, 134, 67, 0.1);
-    color: var(--text-gray);
+    color: var(--text-color);
 }
 
 .price-table tbody tr:hover {
@@ -237,7 +237,7 @@
     flex: 1;
     height: 8px;
     border-radius: 5px;
-    background: linear-gradient(to right, var(--primary-green) 0%, var(--light-green) 100%);
+    background: linear-gradient(to right, var(--primary-green) 0%, var(--accent-gold) 100%);
     outline: none;
     -webkit-appearance: none;
     appearance: none;
@@ -249,7 +249,7 @@
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    background: var(--light-green);
+    background: var(--accent-gold);
     cursor: pointer;
     box-shadow: 0 2px 10px rgba(157, 134, 67, 0.4);
     transition: all 0.3s ease;
@@ -265,7 +265,7 @@
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    background: var(--light-green);
+    background: var(--accent-gold);
     cursor: pointer;
     border: none;
     box-shadow: 0 2px 10px rgba(157, 134, 67, 0.4);
@@ -281,7 +281,7 @@
 .slider-value {
     font-size: 1.3rem;
     font-weight: 700;
-    color: var(--light-green);
+    color: var(--accent-gold);
     background: rgba(157, 134, 67, 0.1);
     padding: 8px 16px;
     border-radius: 8px;
@@ -294,7 +294,7 @@
     display: flex;
     justify-content: space-between;
     font-size: 0.85rem;
-    color: var(--text-gray);
+    color: var(--text-color);
 }
 
 /* Surcharge Alert */
@@ -329,7 +329,7 @@
 /* Result */
 .calc-result {
     background: linear-gradient(135deg, rgba(157, 134, 67, 0.1) 0%, rgba(37, 89, 35, 0.08) 100%);
-    border: 2px solid var(--light-green);
+    border: 2px solid var(--accent-gold);
     border-radius: 15px;
     padding: 40px;
     text-align: center;
@@ -338,7 +338,7 @@
 
 .result-label {
     font-size: 1.1rem;
-    color: var(--text-gray);
+    color: var(--text-color);
     margin-bottom: 10px;
     font-weight: 600;
 }
@@ -346,13 +346,13 @@
 .result-price {
     font-size: 2.5rem;
     font-weight: 900;
-    color: var(--light-green);
+    color: var(--accent-gold);
     margin-bottom: 10px;
     text-shadow: 0 2px 10px rgba(157, 134, 67, 0.2);
 }
 
 .result-description {
-    color: var(--text-gray);
+    color: var(--text-color);
     font-size: 0.9rem;
     margin-bottom: 25px;
 }
@@ -390,7 +390,7 @@
 }
 
 .btn-reset {
-    background: linear-gradient(135deg, var(--light-green) 0%, var(--primary-green) 100%);
+    background: linear-gradient(135deg, var(--accent-gold) 0%, var(--primary-green) 100%);
     color: var(--black);
 }
 

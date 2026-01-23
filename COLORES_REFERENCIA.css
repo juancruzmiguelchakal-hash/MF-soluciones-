@@ -10,17 +10,23 @@
 */
 
 :root {
-    /* Verde Primario - Uso: Títulos, acentos principales */
-    --primary-green: #5E8D20;
+    /* Verde Primario - Uso: Fondos de secciones, gradientes */
+    --primary-green: #255923;
     
-    /* Verde Oscuro - Uso: Fondos oscuros, gradientes, bordes */
-    --dark-green: #4D781B;
+    /* Verde Oscuro - Uso: Fondos más oscuros, gradientes profundos */
+    --dark-green: #1A4019;
     
-    /* Verde Claro - Uso: Iconos, acentos brillantes, highlights */
-    --light-green: #93BF34;
+    /* Dorado de Acento - Uso: Títulos, botones, íconos, highlights */
+    --accent-gold: #9D8643;
     
-    /* Negro/Fondo - Uso: Fondos muy oscuros, texto oscuro */
-    --black: #161A12;
+    /* Gris Oscuro - Uso: Tarjetas, fondos secundarios */
+    --dark-gray: #0e120d;
+
+    /* Gris Claro - Uso: Texto principal, fondos claros */
+    --light-gray: #F2F2F2;
+    
+    /* Negro/Fondo - Uso: Fondos principales, gradientes */
+    --black: #0e120d;
 }
 
 /* ============================================
@@ -29,38 +35,38 @@
 
 /* 1. Títulos principales */
 .title-main {
-    color: var(--primary-green); /* #5E8D20 */
+    color: var(--accent-gold); /* #9D8643 */
     font-weight: bold;
 }
 
 /* 2. Botones primarios */
 .btn-primary {
-    background: var(--primary-green); /* #5E8D20 */
-    color: white;
+    background: var(--accent-gold); /* #9D8643 */
+    color: var(--black);
 }
 
 .btn-primary:hover {
-    background: var(--light-green); /* #93BF34 */
+    filter: brightness(1.1);
 }
 
 /* 3. Fondos oscuros */
 .section-dark {
     background: linear-gradient(135deg, var(--dark-green), var(--black));
-    color: white;
+    color: var(--light-gray);
 }
 
 /* 4. Acentos y bordes */
 .border-accent {
-    border-left: 5px solid var(--primary-green); /* #5E8D20 */
+    border-left: 5px solid var(--accent-gold); /* #9D8643 */
 }
 
 .accent-text {
-    color: var(--light-green); /* #93BF34 */
+    color: var(--accent-gold); /* #9D8643 */
 }
 
 /* 5. Iconos */
 .icon-accent {
-    color: var(--light-green); /* #93BF34 */
+    color: var(--accent-gold); /* #9D8643 */
     font-size: 2rem;
 }
 
@@ -69,70 +75,50 @@
     background: linear-gradient(135deg, var(--dark-green) 0%, var(--primary-green) 100%);
 }
 
-.gradient-accent {
-    background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 100%);
+.gradient-dark {
+    background: linear-gradient(135deg, var(--dark-green) 0%, var(--black) 100%);
 }
 
 /* 7. Secciones de contenido */
 .section-hero {
-    background: linear-gradient(135deg, var(--dark-green) 0%, var(--primary-green) 100%);
-    color: white;
+    background: linear-gradient(135deg, var(--black) 0%, var(--dark-green) 100%);
+    color: var(--light-gray);
     padding: 100px 20px;
 }
 
 /* 8. Tarjetas */
 .card {
-    background: white;
-    border-left: 5px solid var(--primary-green);
+    background: var(--dark-gray); /* #0e120d */
+    border-left: 5px solid var(--accent-gold);
+    color: var(--light-gray);
 }
 
 .card:hover {
-    border-left-color: var(--light-green);
-    box-shadow: 0 10px 30px rgba(94, 141, 32, 0.2);
-}
-
-/* 9. Efectos de hover */
-.hover-primary:hover {
-    color: var(--primary-green);
-}
-
-.hover-light:hover {
-    color: var(--light-green);
-}
-
-/* 10. Sombras con color */
-.shadow-green {
-    box-shadow: 0 5px 15px rgba(94, 141, 32, 0.2);
+    box-shadow: 0 10px 30px rgba(157, 134, 67, 0.2);
 }
 
 /* ============================================
    COMBINACIONES RECOMENDADAS
    ============================================ */
 
-/* Combinación 1: Clásica */
-.classic-combo {
-    background: white;
-    color: var(--dark-green); /* #4D781B */
-    border: 2px solid var(--primary-green); /* #5E8D20 */
+/* Combinación 1: Oscura y Verde */
+.dark-green-combo {
+    background: var(--dark-green);
+    color: var(--light-gray);
+    border: 2px solid var(--primary-green);
 }
 
-/* Combinación 2: Oscura */
-.dark-combo {
-    background: var(--dark-green); /* #4D781B */
-    color: white;
-    border: 2px solid var(--light-green); /* #93BF34 */
+/* Combinación 2: Contraste con Gris */
+.gray-combo {
+    background: var(--dark-gray);
+    color: var(--light-gray);
+    border: 2px solid var(--accent-gold);
 }
 
-/* Combinación 3: Gradiente */
-.gradient-combo {
-    background: linear-gradient(135deg, var(--dark-green) 0%, var(--primary-green) 100%);
-    color: white;
-}
-
-/* Combinación 4: Destacada */
+/* Combinación 3: Destacada en Dorado */
 .highlight-combo {
-    background: var(--light-green); /* #93BF34 */
-    color: var(--black); /* #161A12 */
+    background: var(--accent-gold);
+    color: var(--black);
 }
 
 /* ============================================
@@ -141,29 +127,19 @@
 
 /* Variantes semi-transparentes útiles */
 
-/* Verde primario con 10% opacidad */
-.overlay-light-10 {
-    background: rgba(94, 141, 32, 0.1);
+/* Dorado con 10% opacidad */
+.overlay-gold-10 {
+    background: rgba(157, 134, 67, 0.1);
 }
 
-/* Verde primario con 20% opacidad */
-.overlay-light-20 {
-    background: rgba(94, 141, 32, 0.2);
+/* Dorado con 20% opacidad */
+.overlay-gold-20 {
+    background: rgba(157, 134, 67, 0.2);
 }
 
-/* Verde primario con 30% opacidad */
-.overlay-light-30 {
-    background: rgba(94, 141, 32, 0.3);
-}
-
-/* Verde oscuro con 50% opacidad */
-.overlay-dark-50 {
-    background: rgba(77, 120, 27, 0.5);
-}
-
-/* Verde claro con 10% opacidad */
-.overlay-accent-10 {
-    background: rgba(147, 191, 52, 0.1);
+/* Verde Primario con 30% opacidad */
+.overlay-green-30 {
+    background: rgba(37, 89, 35, 0.3);
 }
 
 /* ============================================
@@ -175,24 +151,20 @@
    en lugar de los códigos hex directamente.
    
    ✓ Correcto:   background: var(--primary-green);
-   ✗ Incorrecto: background: #5E8D20;
+   ✗ Incorrecto: background: #255923;
 
 2. Para cambiar un color en toda la página,
-   solo actualiza el valor en :root
+   solo actualiza el valor en :root de styles.css
 
 3. Usa las variantes RGBA para overlays y transparencias
 
 4. Combina colores para crear jerarquía visual:
-   - Títulos: Verde Primario
-   - Acentos: Verde Claro
-   - Fondos: Verde Oscuro o Negro
+   - Títulos e íconos: Dorado de Acento
+   - Fondos: Verde oscuro, Verde primario o Negro
+   - Texto: Gris claro
 
-5. Para texto sobre fondos oscuros, usa blanco o gris claro
-   Para texto sobre fondos claros, usa verde oscuro o negro
-
-6. Los gradientes funcionan mejor combinando:
+5. Los gradientes funcionan mejor combinando:
    - Verde Oscuro → Verde Primario (profesional)
-   - Verde Primario → Verde Claro (energético)
    - Verde Oscuro → Negro (dramático)
 */
 
@@ -201,26 +173,38 @@
    ============================================ */
 
 /* Prueba visual de cada color */
-.test-primary {
-    background: #5E8D20;
+.test-primary-green {
+    background: #255923;
     padding: 20px;
     color: white;
 }
 
-.test-dark {
-    background: #4D781B;
+.test-dark-green {
+    background: #1A4019;
     padding: 20px;
     color: white;
 }
 
-.test-light {
-    background: #93BF34;
+.test-accent-gold {
+    background: #9D8643;
     padding: 20px;
-    color: #161A12;
+    color: #0e120d;
+}
+
+.test-dark-gray {
+    background: #0e120d;
+    padding: 20px;
+    color: white;
+}
+
+.test-light-gray {
+    background: #F2F2F2;
+    padding: 20px;
+    color: #0e120d;
 }
 
 .test-bg {
-    background: #161A12;
+    background: #0e120d;
     padding: 20px;
     color: white;
 }
