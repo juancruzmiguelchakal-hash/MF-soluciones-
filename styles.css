@@ -2,16 +2,16 @@
    VARIABLES & RESET
    ============================================ */
 :root {
-    --primary-green: #5E8D20;
-    --dark-green: #4D781B;
-    --light-green: #93BF34;
-    --accent-green: #93BF34;
-    --black: #161A12;
-    --dark-gray: #1a1a1a;
-    --medium-gray: #333333;
-    --light-gray: #f5f5f5;
+    --primary-green: #255923;
+    --dark-green: #1A4019;
+    --light-green: #9D8643;
+    --accent-green: #9D8643;
+    --black: #0e120d;
+    --dark-gray: #1A4019;
+    --medium-gray: #575859;
+    --light-gray: #F2F2F2;
     --white: #ffffff;
-    --text-gray: #cccccc;
+    --text-gray: #F2F2F2;
     --shadow: rgba(0, 0, 0, 0.3);
     --shadow-lg: rgba(0, 0, 0, 0.5);
 }
