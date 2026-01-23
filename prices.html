@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +12,7 @@
         /* ============================================
            SECCIÓN DE PRECIOS - ESTILOS PERSONALIZADOS
            ============================================ */
-        
+
         .prices-hero {
             background: linear-gradient(135deg, var(--dark-green) 0%, var(--black) 100%);
             color: white;
@@ -476,11 +477,39 @@
             justify-content: center;
         }
 
+        /* Desktop Layout Force */
+        @media (min-width: 1024px) {
+            .plan-cards-grid {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: stretch;
+                gap: 30px;
+                margin-bottom: 60px;
+                flex-wrap: nowrap;
+                /* Force single row on PC */
+            }
+
+            .plan-explanation-card {
+                flex: 1;
+                width: auto;
+                /* Let flex handle width */
+                min-width: 0;
+                /* Allow shrinking if needed */
+                max-width: none;
+                /* Remove constraint */
+                height: auto;
+                margin-bottom: 0;
+            }
+        }
+
+        /* Default/Mobile Fallback */
         .plan-cards-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-bottom: 60px;
+            grid-template-columns: 1fr;
+            /* Stack by default on mobile */
+            gap: 20px;
+            margin-bottom: 40px;
         }
 
         .plan-explanation-card {
@@ -492,7 +521,12 @@
             position: relative;
             display: flex;
             flex-direction: column;
-            min-height: 320px;
+            height: auto;
+            /* Allow stretch to control height */
+            flex: 1;
+            min-width: 300px;
+            max-width: 400px;
+            /* Prevent over-stretching on huge screens */
         }
 
         .plan-explanation-card:hover {
@@ -505,11 +539,10 @@
             border-color: var(--light-green);
             border-width: 3px;
             background: linear-gradient(135deg, rgba(147, 191, 52, 0.18), rgba(93, 141, 32, 0.15));
-            transform: scale(1.04);
         }
 
         .plan-explanation-card.featured:hover {
-            transform: scale(1.04) translateY(-6px);
+            transform: translateY(-6px);
         }
 
         .featured-badge {
@@ -557,12 +590,18 @@
         .card-highlight {
             background: rgba(147, 191, 52, 0.15);
             color: var(--primary-green);
-            padding: 12px 18px;
+            padding: 5px 10px;
             border-radius: 8px;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 700;
             text-align: center;
             border-left: 4px solid var(--light-green);
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1.2;
+            margin-top: auto;
         }
 
         .benefits-section {
@@ -1392,6 +1431,7 @@
 
         /* Small devices (480px) */
         @media (max-width: 480px) {
+
             .plans-section,
             .visits-section {
                 margin-bottom: 50px;
@@ -1664,6 +1704,7 @@
         }
     </style>
 </head>
+
 <body>
     <div include-html="header.html"></div>
 
@@ -1680,7 +1721,7 @@
 
     <!-- Main Pricing Content -->
     <section class="pricing-container">
-        
+
         <!-- PLANES MENSUALES SECTION -->
         <div class="plans-section">
             <div class="section-title">
@@ -1701,7 +1742,9 @@
                         <li><i class="fas fa-check"></i> Bolsas de consorcio</li>
                         <li><i class="fas fa-check"></i> Tarifa: $25.000 por visita</li>
                     </ul>
-                    <a href="https://wa.me/54911304893780?text=Hola%21%20Quiero%20contratar%20el%20Plan%20B%C3%A1sico%20-%20Corte%20Mensual" class="plan-cta" style="display: inline-block; text-decoration: none; text-align: center;"><i class="fas fa-whatsapp"></i> Reservar Plan</a>
+                    <a href="https://wa.me/54911304893780?text=Hola%21%20Quiero%20contratar%20el%20Plan%20B%C3%A1sico%20-%20Corte%20Mensual"
+                        class="plan-cta" style="display: inline-block; text-decoration: none; text-align: center;"><i
+                            class="fas fa-whatsapp"></i> Reservar Plan</a>
                 </div>
 
                 <!-- Plan Full - Bestseller -->
@@ -1717,7 +1760,9 @@
                         <li><i class="fas fa-check"></i> Bolsas de consorcio</li>
                         <li><i class="fas fa-check"></i> Tarifa: $30.000 por visita</li>
                     </ul>
-                    <a href="https://wa.me/54911304893780?text=Hola%21%20Quiero%20contratar%20el%20Plan%20Full%20-%20Corte%20%2B%20Bordeado" class="plan-cta" style="display: inline-block; text-decoration: none; text-align: center;"><i class="fas fa-whatsapp"></i> Reservar Plan</a>
+                    <a href="https://wa.me/54911304893780?text=Hola%21%20Quiero%20contratar%20el%20Plan%20Full%20-%20Corte%20%2B%20Bordeado"
+                        class="plan-cta" style="display: inline-block; text-decoration: none; text-align: center;"><i
+                            class="fas fa-whatsapp"></i> Reservar Plan</a>
                 </div>
 
                 <!-- Plan Premium -->
@@ -1734,403 +1779,380 @@
                         <li><i class="fas fa-check"></i> Bolsas de consorcio</li>
                         <li><i class="fas fa-check"></i> Tarifa: $37.500 por visita</li>
                     </ul>
-                    <a href="https://wa.me/54911304893780?text=Hola%21%20Quiero%20contratar%20el%20Plan%20Premium%20-%20Corte%20%2B%20Bordeado%20%2B%20Desyuyado" class="plan-cta" style="display: inline-block; text-decoration: none; text-align: center;"><i class="fas fa-whatsapp"></i> Reservar Plan</a>
+                    <a href="https://wa.me/54911304893780?text=Hola%21%20Quiero%20contratar%20el%20Plan%20Premium%20-%20Corte%20%2B%20Bordeado%20%2B%20Desyuyado"
+                        class="plan-cta" style="display: inline-block; text-decoration: none; text-align: center;"><i
+                            class="fas fa-whatsapp"></i> Reservar Plan</a>
                 </div>
 
-            <div class="plan-explanation-section">
-                <h4 class="explanation-title"><i class="fas fa-star"></i> ¿Por qué elegir Plan Mensual?</h4>
-                
-                <div class="plan-cards-grid">
-                    <div class="plan-explanation-card">
-                        <div class="card-header">
-                            <h3>Plan Básico</h3>
-                            <div class="card-price">$50.000</div>
-                        </div>
-                        <p class="card-description">Ideal para espacios pequeños. 2 cortes mensuales para mantener tu jardín limpio y ordenado. Perfecto si solo necesitas lo esencial.</p>
-                        <div class="card-highlight">2 cortes/mes</div>
-                    </div>
 
-                    <div class="plan-explanation-card featured">
-                        <div class="featured-badge">⭐ Más Popular</div>
-                        <div class="card-header">
-                            <h3>Plan Full</h3>
-                            <div class="card-price">$60.000</div>
-                        </div>
-                        <p class="card-description">El más popular. Incluye 2 cortes + bordeado profesional en los contornos. Tu jardín se verá pulido y bien terminado. Recomendado para la mayoría.</p>
-                        <div class="card-highlight">2 cortes + Bordeado</div>
-                    </div>
+            </div>
 
-                    <div class="plan-explanation-card">
-                        <div class="card-header">
-                            <h3>Plan Premium</h3>
-                            <div class="card-price">$75.000</div>
-                        </div>
-                        <p class="card-description">La opción completa. Incluye 2 cortes, bordeado Y control de malezas (desyuyado). Ideal para jardines con mayor mantenimiento o si querés evitar malas hierbas.</p>
-                        <div class="card-highlight">2 cortes + Bordeado + Desyuyado</div>
-                    </div>
+            <!-- VISITAS PARTICULARES SECTION -->
+            <div class="visits-section">
+                <div class="section-title">
+                    <h2><i class="fas fa-pruning-shears"></i> Visitas Particulares</h2>
+                    <p>Sábados o Domingos - Sin necesidad de comprometerse a un plan mensual</p>
                 </div>
 
-                <div class="benefits-section">
-                    <h5 class="benefits-title">Ventajas de suscribirse a un plan</h5>
-                    <div class="benefits-grid">
-                        <div class="benefit-item">
-                            <i class="fas fa-calendar-check"></i>
-                            <h6>Garantía de lugar</h6>
-                            <p>Como solo trabajamos fines de semana, los cupos son limitados. El plan te asegura prioridad en la agenda.</p>
+                <div class="visits-grid">
+                    <!-- Corte Simple -->
+                    <div class="visit-card">
+                        <div class="visit-icon"><i class="fas fa-cut"></i></div>
+                        <h3 class="visit-title">Corte Simple</h3>
+                        <div class="visit-price">$27.500</div>
+                        <p class="visit-description">Un corte profesional de pasto con máquina de calidad.</p>
+                        <div
+                            style="margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(147, 191, 52, 0.2); font-size: 0.9rem; color: var(--text-gray);">
+                            <i class="fas fa-check" style="color: var(--light-green); margin-right: 8px;"></i>Incluye
+                            combustible y bolsas
                         </div>
-                        <div class="benefit-item">
-                            <i class="fas fa-piggy-bank"></i>
-                            <h6>Ahorro garantizado</h6>
-                            <p>Cada visita sale $2.500 a $5.000 más barata que contratarla individual.</p>
-                        </div>
-                        <div class="benefit-item">
-                            <i class="fas fa-leaf"></i>
-                            <h6>Mantenimiento perfecto</h6>
-                            <p>Al cortar regularmente, evitás el recargo por "pasto alto".</p>
+                    </div>
+
+                    <!-- Corte + Bordeado -->
+                    <div class="visit-card">
+                        <div class="visit-icon"><i class="fas fa-broom"></i></div>
+                        <h3 class="visit-title">Corte + Bordeado</h3>
+                        <div class="visit-price">$34.000</div>
+                        <p class="visit-description">Corte completo con terminaciones profesionales en todo el
+                            perímetro.</p>
+                        <div
+                            style="margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(147, 191, 52, 0.2); font-size: 0.9rem; color: var(--text-gray);">
+                            <i class="fas fa-check" style="color: var(--light-green); margin-right: 8px;"></i>Incluye
+                            combustible, tanza y bolsas
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- VISITAS PARTICULARES SECTION -->
-        <div class="visits-section">
-            <div class="section-title">
-                <h2><i class="fas fa-pruning-shears"></i> Visitas Particulares</h2>
-                <p>Sábados o Domingos - Sin necesidad de comprometerse a un plan mensual</p>
-            </div>
+            <!-- RECARGOS Y CONDICIONES SECTION -->
+            <div class="surcharges-section">
+                <h3 class="surcharges-title"><i class="fas fa-exclamation-triangle"></i> Recargos y Condiciones
+                    Importantes</h3>
 
-            <div class="visits-grid">
-                <!-- Corte Simple -->
-                <div class="visit-card">
-                    <div class="visit-icon"><i class="fas fa-cut"></i></div>
-                    <h3 class="visit-title">Corte Simple</h3>
-                    <div class="visit-price">$27.500</div>
-                    <p class="visit-description">Un corte profesional de pasto con máquina de calidad.</p>
-                    <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(147, 191, 52, 0.2); font-size: 0.9rem; color: var(--text-gray);">
-                        <i class="fas fa-check" style="color: var(--light-green); margin-right: 8px;"></i>Incluye combustible y bolsas
+                <div class="surcharges-grid">
+                    <!-- Recargo Pasto Alto -->
+                    <div class="surcharge-item">
+                        <h4><i class="fas fa-arrow-up"></i> Pasto Excedido (Altura)</h4>
+                        <p>Si al momento de la visita el césped supera los <span class="surcharge-highlight">20
+                                cm</span> de alto (equivalente a la altura de una botella de agua chica), se aplicará un
+                            <span class="surcharge-highlight">recargo del 30%</span> sobre el valor del servicio.
+                        </p>
+                        <p style="margin-top: 10px; font-size: 0.9rem;">Razón: Mayor desgaste de máquinas y tiempo de
+                            trabajo.</p>
                     </div>
-                </div>
 
-                <!-- Corte + Bordeado -->
-                <div class="visit-card">
-                    <div class="visit-icon"><i class="fas fa-broom"></i></div>
-                    <h3 class="visit-title">Corte + Bordeado</h3>
-                    <div class="visit-price">$34.000</div>
-                    <p class="visit-description">Corte completo con terminaciones profesionales en todo el perímetro.</p>
-                    <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(147, 191, 52, 0.2); font-size: 0.9rem; color: var(--text-gray);">
-                        <i class="fas fa-check" style="color: var(--light-green); margin-right: 8px;"></i>Incluye combustible, tanza y bolsas
+                    <!-- Días de Lluvia -->
+                    <div class="surcharge-item">
+                        <h4><i class="fas fa-cloud-rain"></i> Días de Lluvia</h4>
+                        <p>Al trabajar únicamente fines de semana, si llueve el sábado o domingo, <span
+                                class="surcharge-highlight">la visita se reprograma</span> para el siguiente fin de
+                            semana disponible.</p>
+                        <p style="margin-top: 10px; font-size: 0.9rem;">Esto asegura un resultado de calidad.</p>
                     </div>
-                </div>
-            </div>
-        </div>
 
-        <!-- RECARGOS Y CONDICIONES SECTION -->
-        <div class="surcharges-section">
-            <h3 class="surcharges-title"><i class="fas fa-exclamation-triangle"></i> Recargos y Condiciones Importantes</h3>
-
-            <div class="surcharges-grid">
-                <!-- Recargo Pasto Alto -->
-                <div class="surcharge-item">
-                    <h4><i class="fas fa-arrow-up"></i> Pasto Excedido (Altura)</h4>
-                    <p>Si al momento de la visita el césped supera los <span class="surcharge-highlight">20 cm</span> de alto (equivalente a la altura de una botella de agua chica), se aplicará un <span class="surcharge-highlight">recargo del 30%</span> sobre el valor del servicio.</p>
-                    <p style="margin-top: 10px; font-size: 0.9rem;">Razón: Mayor desgaste de máquinas y tiempo de trabajo.</p>
-                </div>
-
-                <!-- Días de Lluvia -->
-                <div class="surcharge-item">
-                    <h4><i class="fas fa-cloud-rain"></i> Días de Lluvia</h4>
-                    <p>Al trabajar únicamente fines de semana, si llueve el sábado o domingo, <span class="surcharge-highlight">la visita se reprograma</span> para el siguiente fin de semana disponible.</p>
-                    <p style="margin-top: 10px; font-size: 0.9rem;">Esto asegura un resultado de calidad.</p>
-                </div>
-
-                <!-- Insumos Incluidos -->
-                <div class="surcharge-item">
-                    <h4><i class="fas fa-check-double"></i> Insumos Incluidos</h4>
-                    <p>Todos los precios incluyen:</p>
-                    <ul style="margin-top: 10px; margin-left: 20px; color: var(--text-gray);">
-                        <li>✓ Nafta/Combustible</li>
-                        <li>✓ Tanza (para bordeadora)</li>
-                        <li>✓ Bolsas de consorcio</li>
-                        <li>✓ Limpieza del área</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- BENEFICIOS SECTION -->
-        <div class="benefits-section">
-            <h3 class="benefits-title"><i class="fas fa-heart"></i> ¿Por qué elegirnos?</h3>
-
-            <div class="benefits-list">
-                <div class="benefit-item">
-                    <div class="benefit-icon"><i class="fas fa-check"></i></div>
-                    <div class="benefit-content">
-                        <h3>Cupos Limitados</h3>
-                        <p>Trabajamos solo fines de semana, lo que significa atención personalizada y cupos garantizados con planes mensuales.</p>
-                    </div>
-                </div>
-
-                <div class="benefit-item">
-                    <div class="benefit-icon"><i class="fas fa-star"></i></div>
-                    <div class="benefit-content">
-                        <h3>Precios Transparentes</h3>
-                        <p>Sin sorpresas. Sabés exactamente qué pagás antes de contratar. Todos los insumos incluidos.</p>
-                    </div>
-                </div>
-
-                <div class="benefit-item">
-                    <div class="benefit-icon"><i class="fas fa-tools"></i></div>
-                    <div class="benefit-content">
-                        <h3>Equipos Profesionales</h3>
-                        <p>Máquinas de corte de calidad y herramientas profesionales para garantizar el mejor resultado.</p>
-                    </div>
-                </div>
-
-                <div class="benefit-item">
-                    <div class="benefit-icon"><i class="fas fa-hand-holding-heart"></i></div>
-                    <div class="benefit-content">
-                        <h3>Atención al Detalle</h3>
-                        <p>Cuidamos cada aspecto de tu jardín. Desde el corte hasta la limpieza final.</p>
-                    </div>
-                </div>
-
-                <div class="benefit-item">
-                    <div class="benefit-icon"><i class="fas fa-leaf"></i></div>
-                    <div class="benefit-content">
-                        <h3>Mantenimiento Continuo</h3>
-                        <p>Con planes mensuales, tu jardín siempre estará en perfectas condiciones. Evitás pastar alto.</p>
-                    </div>
-                </div>
-
-                <div class="benefit-item">
-                    <div class="benefit-icon"><i class="fas fa-phone"></i></div>
-                    <div class="benefit-content">
-                        <h3>Comunicación Directa</h3>
-                        <p>Contacto directo por WhatsApp. Consultas, reprogramaciones y presupuestos al instante.</p>
+                    <!-- Insumos Incluidos -->
+                    <div class="surcharge-item">
+                        <h4><i class="fas fa-check-double"></i> Insumos Incluidos</h4>
+                        <p>Todos los precios incluyen:</p>
+                        <ul style="margin-top: 10px; margin-left: 20px; color: var(--text-gray);">
+                            <li>✓ Nafta/Combustible</li>
+                            <li>✓ Tanza (para bordeadora)</li>
+                            <li>✓ Bolsas de consorcio</li>
+                            <li>✓ Limpieza del área</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- CALCULADORA INTERACTIVA REDISEÑADA -->
-        <div class="calculator-section">
-            <h3 class="calculator-title">
-                <i class="fas fa-calculator"></i> Calculadora de Presupuesto
-            </h3>
-            <p class="calculator-subtitle">Armá tu presupuesto personalizado en segundos</p>
+            <!-- BENEFICIOS SECTION -->
+            <div class="benefits-section">
+                <h3 class="benefits-title"><i class="fas fa-heart"></i> ¿Por qué elegirnos?</h3>
 
-            <!-- PASO 1: TIPO DE SERVICIO -->
-            <div class="calc-step">
-                <div class="calc-step-header">
-                    <div class="calc-step-number">1</div>
-                    <div class="calc-step-title">¿Qué tipo de servicio queres?</div>
-                </div>
-                <div class="calc-options">
-                    <label class="option-button selected">
-                        <input type="radio" name="serviceType" value="plan" data-name="Plan Mensual" checked>
-                        <div class="option-label">Plan Mensual</div>
-                        <div class="option-desc">2 visitas por mes</div>
-                        <div class="option-price">Recurrente</div>
-                    </label>
-                    <label class="option-button">
-                        <input type="radio" name="serviceType" value="visit" data-name="Visita Particular">
-                        <div class="option-label">Visita Particular</div>
-                        <div class="option-desc">Una sola visita</div>
-                        <div class="option-price">Única</div>
-                    </label>
+                <div class="benefits-list">
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-check"></i></div>
+                        <div class="benefit-content">
+                            <h3>Cupos Limitados</h3>
+                            <p>Trabajamos solo fines de semana, lo que significa atención personalizada y cupos
+                                garantizados con planes mensuales.</p>
+                        </div>
+                    </div>
+
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-star"></i></div>
+                        <div class="benefit-content">
+                            <h3>Precios Transparentes</h3>
+                            <p>Sin sorpresas. Sabés exactamente qué pagás antes de contratar. Todos los insumos
+                                incluidos.</p>
+                        </div>
+                    </div>
+
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-tools"></i></div>
+                        <div class="benefit-content">
+                            <h3>Equipos Profesionales</h3>
+                            <p>Máquinas de corte de calidad y herramientas profesionales para garantizar el mejor
+                                resultado.</p>
+                        </div>
+                    </div>
+
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                        <div class="benefit-content">
+                            <h3>Atención al Detalle</h3>
+                            <p>Cuidamos cada aspecto de tu jardín. Desde el corte hasta la limpieza final.</p>
+                        </div>
+                    </div>
+
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-leaf"></i></div>
+                        <div class="benefit-content">
+                            <h3>Mantenimiento Continuo</h3>
+                            <p>Con planes mensuales, tu jardín siempre estará en perfectas condiciones. Evitás pastar
+                                alto.</p>
+                        </div>
+                    </div>
+
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-phone"></i></div>
+                        <div class="benefit-content">
+                            <h3>Comunicación Directa</h3>
+                            <p>Contacto directo por WhatsApp. Consultas, reprogramaciones y presupuestos al instante.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- PASO 2: PLAN MENSUAL (mostrado por defecto) -->
-            <div class="calc-step" id="planStep">
-                <div class="calc-step-header">
-                    <div class="calc-step-number">2</div>
-                    <div class="calc-step-title">Elige tu Plan Mensual</div>
-                </div>
-                <div class="calc-options plans-grid">
-                    <label class="option-button plan-option">
-                        <input type="radio" name="plan" value="50000" data-name="Plan Básico">
-                        <div class="option-label">Plan Básico</div>
-                        <div class="option-desc">2 cortes/mes</div>
-                        <div class="option-price">$50.000</div>
-                    </label>
-                    <label class="option-button selected plan-option">
-                        <input type="radio" name="plan" value="60000" data-name="Plan Full" checked>
-                        <div class="option-label">⭐ Plan Full</div>
-                        <div class="option-desc">Corte + Bordeado</div>
-                        <div class="option-price">$60.000</div>
-                    </label>
-                    <label class="option-button plan-option">
-                        <input type="radio" name="plan" value="75000" data-name="Plan Premium">
-                        <div class="option-label">Plan Premium</div>
-                        <div class="option-desc">Corte + Bordeado + Desyuyado</div>
-                        <div class="option-price">$75.000</div>
-                    </label>
-                </div>
-            </div>
+            <!-- CALCULADORA INTERACTIVA REDISEÑADA -->
+            <div class="calculator-section">
+                <h3 class="calculator-title">
+                    <i class="fas fa-calculator"></i> Calculadora de Presupuesto
+                </h3>
+                <p class="calculator-subtitle">Armá tu presupuesto personalizado en segundos</p>
 
-            <!-- PASO 2B: VISITA PARTICULAR (oculto por defecto) -->
-            <div class="calc-step" id="visitStep" style="display: none;">
-                <div class="calc-step-header">
-                    <div class="calc-step-number">2</div>
-                    <div class="calc-step-title">¿Qué servicios necesitás?</div>
-                </div>
-                <div class="calc-options">
-                    <label class="option-button">
-                        <input type="checkbox" name="visitService" value="27500" data-name="Corte del Césped">
-                        <div class="option-label">Corte del Césped</div>
-                        <div class="option-desc">Máquina de corte</div>
-                        <div class="option-price">$27.500</div>
-                    </label>
-                    <label class="option-button">
-                        <input type="checkbox" name="visitService" value="12000" data-name="Fumigación de Exteriores">
-                        <div class="option-label">Fumigación de Exteriores</div>
-                        <div class="option-desc">Bajas cantidades</div>
-                        <div class="option-price">$12.000</div>
-                    </label>
-                    <label class="option-button">
-                        <input type="checkbox" name="visitService" value="9000" data-name="Bordeado">
-                        <div class="option-label">Bordeado</div>
-                        <div class="option-desc">Terminaciones</div>
-                        <div class="option-price">$9.000</div>
-                    </label>
-                    <label class="option-button">
-                        <input type="checkbox" name="visitService" value="0" data-name="Desyuyado (custom)">
-                        <div class="option-label">Desyuyado Manual</div>
-                        <div class="option-desc">Control de malezas</div>
-                        <div class="option-price">Ver abajo</div>
-                    </label>
-                </div>
-            </div>
-
-            <!-- PASO 3: CONTROL DE MALEZAS (si aplica) -->
-            <div class="calc-step" id="malezasStep">
-                <div class="calc-step-header">
-                    <div class="calc-step-number">3</div>
-                    <div class="calc-step-title">Control de Malezas</div>
-                </div>
-                
-                <p style="color: var(--text-gray); margin-bottom: 20px; font-size: 0.95rem;">Selecciona los metros cuadrados y el método:</p>
-                <table class="price-table">
-                    <thead>
-                        <tr>
-                            <th>Superficie</th>
-                            <th>Manual</th>
-                            <th>Químico</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Hasta 10 m²</td>
-                            <td>$10.000</td>
-                            <td>$20.000</td>
-                        </tr>
-                        <tr>
-                            <td>10 a 25 m²</td>
-                            <td>$15.000</td>
-                            <td>$20.000</td>
-                        </tr>
-                        <tr>
-                            <td>25 a 50 m²</td>
-                            <td>$20.000</td>
-                            <td>$30.000</td>
-                        </tr>
-                        <tr>
-                            <td>50 a 100 m²</td>
-                            <td>Consultar</td>
-                            <td>$40.000</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <div class="malezas-grid" style="margin-top: 25px;">
-                    <div class="malezas-column">
-                        <div class="malezas-method-header">Desyuyado Manual</div>
-                        <label class="option-button malezas-option">
-                            <input type="checkbox" name="malezas" value="10000" data-name="Desyuyado Manual (Hasta 10m²)">
-                            <div class="option-label">Hasta 10 m²</div>
-                            <div class="option-price">$10.000</div>
+                <!-- PASO 1: TIPO DE SERVICIO -->
+                <div class="calc-step">
+                    <div class="calc-step-header">
+                        <div class="calc-step-number">1</div>
+                        <div class="calc-step-title">¿Qué tipo de servicio queres?</div>
+                    </div>
+                    <div class="calc-options">
+                        <label class="option-button selected">
+                            <input type="radio" name="serviceType" value="plan" data-name="Plan Mensual" checked>
+                            <div class="option-label">Plan Mensual</div>
+                            <div class="option-desc">2 visitas por mes</div>
+                            <div class="option-price">Recurrente</div>
                         </label>
-                        <label class="option-button malezas-option">
-                            <input type="checkbox" name="malezas" value="15000" data-name="Desyuyado Manual (10-25 m²)">
-                            <div class="option-label">10 a 25 m²</div>
-                            <div class="option-price">$15.000</div>
-                        </label>
-                        <label class="option-button malezas-option">
-                            <input type="checkbox" name="malezas" value="20000" data-name="Desyuyado Manual (25-50 m²)">
-                            <div class="option-label">25 a 50 m²</div>
-                            <div class="option-price">$20.000</div>
-                        </label>
-                    </div>
-                    <div class="malezas-column">
-                        <div class="malezas-method-header">Herbicida Químico</div>
-                        <label class="option-button malezas-option">
-                            <input type="checkbox" name="malezas" value="20000" data-name="Herbicida (Hasta 10m²)">
-                            <div class="option-label">Hasta 10 m²</div>
-                            <div class="option-price">$20.000</div>
-                        </label>
-                        <label class="option-button malezas-option">
-                            <input type="checkbox" name="malezas" value="30000" data-name="Herbicida (25-50 m²)">
-                            <div class="option-label">25 a 50 m²</div>
-                            <div class="option-price">$30.000</div>
-                        </label>
-                        <label class="option-button malezas-option">
-                            <input type="checkbox" name="malezas" value="40000" data-name="Herbicida (50-100 m²)">
-                            <div class="option-label">50 a 100 m²</div>
-                            <div class="option-price">$40.000</div>
+                        <label class="option-button">
+                            <input type="radio" name="serviceType" value="visit" data-name="Visita Particular">
+                            <div class="option-label">Visita Particular</div>
+                            <div class="option-desc">Una sola visita</div>
+                            <div class="option-price">Única</div>
                         </label>
                     </div>
                 </div>
+
+                <!-- PASO 2: PLAN MENSUAL (mostrado por defecto) -->
+                <div class="calc-step" id="planStep">
+                    <div class="calc-step-header">
+                        <div class="calc-step-number">2</div>
+                        <div class="calc-step-title">Elige tu Plan Mensual</div>
+                    </div>
+                    <div class="calc-options plans-grid">
+                        <label class="option-button plan-option">
+                            <input type="radio" name="plan" value="50000" data-name="Plan Básico">
+                            <div class="option-label">Plan Básico</div>
+                            <div class="option-desc">2 cortes/mes</div>
+                            <div class="option-price">$50.000</div>
+                        </label>
+                        <label class="option-button selected plan-option">
+                            <input type="radio" name="plan" value="60000" data-name="Plan Full" checked>
+                            <div class="option-label">⭐ Plan Full</div>
+                            <div class="option-desc">Corte + Bordeado</div>
+                            <div class="option-price">$60.000</div>
+                        </label>
+                        <label class="option-button plan-option">
+                            <input type="radio" name="plan" value="75000" data-name="Plan Premium">
+                            <div class="option-label">Plan Premium</div>
+                            <div class="option-desc">Corte + Bordeado + Desyuyado</div>
+                            <div class="option-price">$75.000</div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- PASO 2B: VISITA PARTICULAR (oculto por defecto) -->
+                <div class="calc-step" id="visitStep" style="display: none;">
+                    <div class="calc-step-header">
+                        <div class="calc-step-number">2</div>
+                        <div class="calc-step-title">¿Qué servicios necesitás?</div>
+                    </div>
+                    <div class="calc-options">
+                        <label class="option-button">
+                            <input type="checkbox" name="visitService" value="27500" data-name="Corte del Césped">
+                            <div class="option-label">Corte del Césped</div>
+                            <div class="option-desc">Máquina de corte</div>
+                            <div class="option-price">$27.500</div>
+                        </label>
+                        <label class="option-button">
+                            <input type="checkbox" name="visitService" value="12000"
+                                data-name="Fumigación de Exteriores">
+                            <div class="option-label">Fumigación de Exteriores</div>
+                            <div class="option-desc">Bajas cantidades</div>
+                            <div class="option-price">$12.000</div>
+                        </label>
+                        <label class="option-button">
+                            <input type="checkbox" name="visitService" value="9000" data-name="Bordeado">
+                            <div class="option-label">Bordeado</div>
+                            <div class="option-desc">Terminaciones</div>
+                            <div class="option-price">$9.000</div>
+                        </label>
+                        <label class="option-button">
+                            <input type="checkbox" name="visitService" value="0" data-name="Desyuyado (custom)">
+                            <div class="option-label">Desyuyado Manual</div>
+                            <div class="option-desc">Control de malezas</div>
+                            <div class="option-price">Ver abajo</div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- PASO 3: CONTROL DE MALEZAS (si aplica) -->
+                <div class="calc-step" id="malezasStep">
+                    <div class="calc-step-header">
+                        <div class="calc-step-number">3</div>
+                        <div class="calc-step-title">Control de Malezas</div>
+                    </div>
+
+                    <p style="color: var(--text-gray); margin-bottom: 20px; font-size: 0.95rem;">Selecciona los metros
+                        cuadrados y el método:</p>
+                    <table class="price-table">
+                        <thead>
+                            <tr>
+                                <th>Superficie</th>
+                                <th>Manual</th>
+                                <th>Químico</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Hasta 10 m²</td>
+                                <td>$10.000</td>
+                                <td>$20.000</td>
+                            </tr>
+                            <tr>
+                                <td>10 a 25 m²</td>
+                                <td>$15.000</td>
+                                <td>$20.000</td>
+                            </tr>
+                            <tr>
+                                <td>25 a 50 m²</td>
+                                <td>$20.000</td>
+                                <td>$30.000</td>
+                            </tr>
+                            <tr>
+                                <td>50 a 100 m²</td>
+                                <td>Consultar</td>
+                                <td>$40.000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="malezas-grid" style="margin-top: 25px;">
+                        <div class="malezas-column">
+                            <div class="malezas-method-header">Desyuyado Manual</div>
+                            <label class="option-button malezas-option">
+                                <input type="checkbox" name="malezas" value="10000"
+                                    data-name="Desyuyado Manual (Hasta 10m²)">
+                                <div class="option-label">Hasta 10 m²</div>
+                                <div class="option-price">$10.000</div>
+                            </label>
+                            <label class="option-button malezas-option">
+                                <input type="checkbox" name="malezas" value="15000"
+                                    data-name="Desyuyado Manual (10-25 m²)">
+                                <div class="option-label">10 a 25 m²</div>
+                                <div class="option-price">$15.000</div>
+                            </label>
+                            <label class="option-button malezas-option">
+                                <input type="checkbox" name="malezas" value="20000"
+                                    data-name="Desyuyado Manual (25-50 m²)">
+                                <div class="option-label">25 a 50 m²</div>
+                                <div class="option-price">$20.000</div>
+                            </label>
+                        </div>
+                        <div class="malezas-column">
+                            <div class="malezas-method-header">Herbicida Químico</div>
+                            <label class="option-button malezas-option">
+                                <input type="checkbox" name="malezas" value="20000" data-name="Herbicida (Hasta 10m²)">
+                                <div class="option-label">Hasta 10 m²</div>
+                                <div class="option-price">$20.000</div>
+                            </label>
+                            <label class="option-button malezas-option">
+                                <input type="checkbox" name="malezas" value="30000" data-name="Herbicida (25-50 m²)">
+                                <div class="option-label">25 a 50 m²</div>
+                                <div class="option-price">$30.000</div>
+                            </label>
+                            <label class="option-button malezas-option">
+                                <input type="checkbox" name="malezas" value="40000" data-name="Herbicida (50-100 m²)">
+                                <div class="option-label">50 a 100 m²</div>
+                                <div class="option-price">$40.000</div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PASO 4: ALTURA DEL PASTO -->
+                <div class="calc-step">
+                    <div class="calc-step-header">
+                        <div class="calc-step-number">4</div>
+                        <div class="calc-step-title">¿Cuál es la altura de tu pasto?</div>
+                    </div>
+                    <div class="slider-group">
+                        <div class="slider-display">
+                            <input type="range" min="5" max="30" value="15" class="slider" id="grassSlider">
+                            <div class="slider-value"><span id="grassHeight">15</span> cm</div>
+                        </div>
+                        <div class="slider-labels">
+                            <span>Bajo (5 cm)</span>
+                            <span>Normal</span>
+                            <span>Alto (30 cm)</span>
+                        </div>
+                        <div class="surcharge-alert" id="surchargeAlert">
+                            <i class="fas fa-exclamation-triangle"></i> <strong>⚠️ Pasto Alto:</strong> Se aplicará un
+                            <strong>recargo del 30%</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RESULTADO FINAL -->
+                <div class="calc-result">
+                    <div class="result-label">Tu presupuesto:</div>
+                    <div class="result-price" id="finalPrice">$60.000</div>
+                    <div class="result-description">Presupuesto aproximado | Válido por 7 días</div>
+                    <div class="calc-buttons">
+                        <a id="whatsappLink"
+                            href="https://wa.me/54911304893780?text=Hola%21%20Tengo%20este%20presupuesto%3A%20ARS%20%2460.000"
+                            class="btn-whatsapp" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-whatsapp"></i> Enviar por WhatsApp
+                        </a>
+                        <button class="btn-reset" id="resetCalc">
+                            <i class="fas fa-redo"></i> Reiniciar
+                        </button>
+                    </div>
+                </div>
+
             </div>
 
-            <!-- PASO 4: ALTURA DEL PASTO -->
-            <div class="calc-step">
-                <div class="calc-step-header">
-                    <div class="calc-step-number">4</div>
-                    <div class="calc-step-title">¿Cuál es la altura de tu pasto?</div>
-                </div>
-                <div class="slider-group">
-                    <div class="slider-display">
-                        <input type="range" min="5" max="30" value="15" class="slider" id="grassSlider">
-                        <div class="slider-value"><span id="grassHeight">15</span> cm</div>
-                    </div>
-                    <div class="slider-labels">
-                        <span>Bajo (5 cm)</span>
-                        <span>Normal</span>
-                        <span>Alto (30 cm)</span>
-                    </div>
-                    <div class="surcharge-alert" id="surchargeAlert">
-                        <i class="fas fa-exclamation-triangle"></i> <strong>⚠️ Pasto Alto:</strong> Se aplicará un <strong>recargo del 30%</strong>
-                    </div>
-                </div>
+            <!-- CTA Final -->
+            <div class="important-note" style="text-align: center; padding: 40px; margin-top: 60px;">
+                <h4 style="font-size: 1.3rem;"><i class="fas fa-whatsapp"></i> ¿Listo para contratar?</h4>
+                <p style="margin: 15px 0 20px 0;">Escribinos por WhatsApp para reservar tu lugar o solicitar más
+                    información.</p>
+                <a href="https://wa.me/54911304893780?text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20los%20servicios%20de%20MF%20SOLUCIONES"
+                    class="plan-cta"
+                    style="margin: 0 auto; width: auto; padding: 15px 40px; font-size: 1.1rem; display: inline-block; text-decoration: none; text-align: center;">
+                    <i class="fas fa-whatsapp"></i> Contactar por WhatsApp
+                </a>
             </div>
-
-            <!-- RESULTADO FINAL -->
-            <div class="calc-result">
-                <div class="result-label">Tu presupuesto:</div>
-                <div class="result-price" id="finalPrice">$60.000</div>
-                <div class="result-description">Presupuesto aproximado | Válido por 7 días</div>
-                <div class="calc-buttons">
-                    <a id="whatsappLink" href="https://wa.me/54911304893780?text=Hola%21%20Tengo%20este%20presupuesto%3A%20ARS%20%2460.000" class="btn-whatsapp" target="_blank" rel="noopener noreferrer">
-                        <i class="fas fa-whatsapp"></i> Enviar por WhatsApp
-                    </a>
-                    <button class="btn-reset" id="resetCalc">
-                        <i class="fas fa-redo"></i> Reiniciar
-                    </button>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- CTA Final -->
-        <div class="important-note" style="text-align: center; padding: 40px; margin-top: 60px;">
-            <h4 style="font-size: 1.3rem;"><i class="fas fa-whatsapp"></i> ¿Listo para contratar?</h4>
-            <p style="margin: 15px 0 20px 0;">Escribinos por WhatsApp para reservar tu lugar o solicitar más información.</p>
-            <a href="https://wa.me/54911304893780?text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20los%20servicios%20de%20MF%20SOLUCIONES" class="plan-cta" style="margin: 0 auto; width: auto; padding: 15px 40px; font-size: 1.1rem; display: inline-block; text-decoration: none; text-align: center;">
-                <i class="fas fa-whatsapp"></i> Contactar por WhatsApp
-            </a>
-        </div>
 
     </section>
 
@@ -2169,7 +2191,7 @@
                     calcState.serviceType = input.value;
                     const planStep = document.getElementById('planStep');
                     const visitStep = document.getElementById('visitStep');
-                    
+
                     if (input.value === 'plan') {
                         if (planStep) planStep.style.display = 'block';
                         if (visitStep) visitStep.style.display = 'none';
@@ -2195,7 +2217,7 @@
             document.querySelectorAll('input[name="plan"]').forEach(input => {
                 input.addEventListener('change', () => {
                     const planValue = input.value;
-                    
+
                     if (selectedPlan === planValue) {
                         input.checked = false;
                         selectedPlan = null;
@@ -2369,4 +2391,5 @@
         setupCalculator();
     </script>
 </body>
+
 </html>
